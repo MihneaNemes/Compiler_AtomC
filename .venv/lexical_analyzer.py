@@ -64,7 +64,7 @@ def t_CT_STRING(t):
 
 # FSM Lexer for integers, real numbers, and comments
 def t_CT_INT_or_REAL_or_COMMENT(t):
-    r'\d+(\.\d+)?(e[+-]?\d+)?|\{.*?\}'
+    r'\d+(\.[A-Za-z0-9]*)?(e[+-]?\d+)?|\{.*?\}'
     input_string = t.value
     pCrtCh = 0
     state = 0

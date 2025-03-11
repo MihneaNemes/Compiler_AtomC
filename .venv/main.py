@@ -1,4 +1,3 @@
-# main.py
 from lexical_analyzer import lexer
 
 # Test data
