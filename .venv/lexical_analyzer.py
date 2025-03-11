@@ -1,3 +1,4 @@
+# lexer.py
 import ply.lex as lex
 
 # List of token names
@@ -118,6 +119,9 @@ def t_CT_INT_or_REAL_or_COMMENT(t):
                 fp /= 10
                 r += int(ch) * fp
                 pCrtCh += 1
+            elif ch == 'e' or ch == 'E':  # Handle scientific notation
+                pCrtCh += 1
+                state = 7
             else:
                 state = 4
 
@@ -141,6 +145,23 @@ def t_CT_INT_or_REAL_or_COMMENT(t):
             else:
                 pCrtCh += 1
 
+        elif state == 7:  # Handling scientific notation
+            if ch == '+' or ch == '-':
+                pCrtCh += 1
+                state = 8
+            elif ch.isdigit():
+                pCrtCh += 1
+                state = 8
+            else:
+                t.type = 'INVALID'
+                return t
+
+        elif state == 8:  # Reading exponent part
+            if ch.isdigit():
+                pCrtCh += 1
+            else:
+                state = 4
+
 # Ignored characters (spaces, tabs, newlines)
 t_ignore = ' \t\n\r'
 
@@ -151,29 +172,3 @@ def t_error(t):
 
 # Build the lexer
 lexer = lex.lex()
-
-# Test the lexer
-data = """
-int main() {
-    int a = 10;
-    double b = 3.14;
-    double c = 3.m14;  // Invalid number
-    char d = 'x';
-    char *str = "Hello, World!";
-    if (a < b) {
-        return 0;
-    }
-}
-"""
-
-lexer.input(data)
-
-# Tokenize
-while True:
-    tok = lexer.token()
-    if not tok:
-        break  # No more input
-    if tok.type == 'INVALID':
-        print(f"Invalid token: {tok.value}")
-    else:
-        print(tok)
