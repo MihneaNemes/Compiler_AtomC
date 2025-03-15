@@ -1,5 +1,7 @@
-# lexer.py
 import ply.lex as lex
+
+# Import the Token class from the syntax_analyzer
+from syntax_analyzer import Token
 
 # List of token names
 tokens = [
@@ -52,18 +54,17 @@ def t_ID(t):
         'while': 'WHILE'
     }
     t.type = keywords.get(t.value, 'ID')  # Assign the token type
-    return t
+    return Token(code=t.type, value=t.value)
 
 def t_CT_CHAR(t):
     r"'([^'\\]|\\.)'"
-    return t
+    return Token(code='CT_CHAR', value=t.value)
 
 def t_CT_STRING(t):
     r'"([^"\\]|\\.)*"'
-    return t
+    return Token(code='CT_STRING', value=t.value)
 
-# FSM Lexer for integers, real numbers, and comments
-def t_CT_INT_or_REAL_or_COMMENT(t):
+def t_CT_INT_or_REAL_or_ACC(t):
     r'\d+(\.[A-Za-z0-9]*)?(e[+-]?\d+)?|\{.*?\}'
     input_string = t.value
     pCrtCh = 0
@@ -87,11 +88,9 @@ def t_CT_INT_or_REAL_or_COMMENT(t):
                 pCrtCh += 1
                 state = 6
             elif ch == '\0':
-                t.type = 'END'
-                return t
+                return Token(code='END', value=None)
             else:
-                t.type = 'INVALID'
-                return t
+                return Token(code='INVALID', value=t.value)
 
         elif state == 1:  # Reading integer part
             if ch.isdigit():
@@ -111,8 +110,7 @@ def t_CT_INT_or_REAL_or_COMMENT(t):
                 state = 3
             else:
                 # Invalid number (e.g., "3.m14")
-                t.type = 'INVALID'
-                return t
+                return Token(code='INVALID', value=t.value)
 
         elif state == 3:  # Reading fractional part
             if ch.isdigit():
@@ -126,22 +124,17 @@ def t_CT_INT_or_REAL_or_COMMENT(t):
                 state = 4
 
         elif state == 4:  # End of real number
-            t.type = 'CT_REAL'
-            t.value = r
-            return t
+            return Token(code='CT_REAL', value=r)
 
         elif state == 5:  # End of integer
-            t.type = 'CT_INT'
-            t.value = i
-            return t
+            return Token(code='CT_INT', value=i)
 
-        elif state == 6:  # Inside a comment block
+        elif state == 6:  # Inside a ACC block
             if ch == '}':
                 pCrtCh += 1
                 state = 0
             elif ch == '\0':
-                t.type = 'INVALID'
-                return t
+                return Token(code='INVALID', value=t.value)
             else:
                 pCrtCh += 1
 
@@ -153,8 +146,7 @@ def t_CT_INT_or_REAL_or_COMMENT(t):
                 pCrtCh += 1
                 state = 8
             else:
-                t.type = 'INVALID'
-                return t
+                return Token(code='INVALID', value=t.value)
 
         elif state == 8:  # Reading exponent part
             if ch.isdigit():
