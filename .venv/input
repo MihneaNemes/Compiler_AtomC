@@ -4,6 +4,7 @@ int main() {
     int b;
     b = 20;
     if (a < b) {
-        return 0;
+        a = b;
     }
+    return 0;
 }

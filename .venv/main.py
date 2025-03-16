@@ -24,6 +24,7 @@ while True:
     # Convert LexToken to Token
     token = Token(code=tok.type, value=tok.value)
     tokens.append(token)
+    print(f"Token: {tok.type}, Value: {tok.value}")  # Debug print
 
 # Convert list to linked list
 for i in range(len(tokens) - 1):

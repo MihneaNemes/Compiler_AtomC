@@ -17,9 +17,18 @@ class Parser:
         return False
 
     def unit(self):
+        # Parse declarations (struct, function, variable)
         while self.declStruct() or self.declFunc() or self.declVar():
             pass
-        return self.consume("END")
+
+        # Parse statements
+        while self.stm():
+            pass
+
+        # Consume the END token
+        if not self.consume("END"):
+            raise SyntaxError("Expected END token at the end of input")
+        return True
 
     def declStruct(self):
         if not self.consume("STRUCT"):
@@ -51,7 +60,21 @@ class Parser:
         return True
 
     def typeBase(self):
-        return self.consume("INT") or self.consume("DOUBLE") or self.consume("CHAR") or (self.consume("STRUCT") and self.consume("ID"))
+        print("Checking typeBase")
+        if self.consume("INT"):
+            print("Found INT")
+            return True
+        if self.consume("DOUBLE"):
+            print("Found DOUBLE")
+            return True
+        if self.consume("CHAR"):
+            print("Found CHAR")
+            return True
+        if self.consume("STRUCT") and self.consume("ID"):
+            print("Found STRUCT ID")
+            return True
+        print("typeBase failed")
+        return False
 
     def arrayDecl(self):
         if not self.consume("LBRACKET"):
@@ -181,4 +204,69 @@ class Parser:
                     raise SyntaxError("Expected ) in function call")
             return True
         return self.consume("CT_INT") or self.consume("CT_REAL") or self.consume("CT_CHAR") or self.consume("CT_STRING") or (self.consume("LPAR") and self.expr() and self.consume("RPAR"))
-#
+
+    def stmIf(self):
+        if not self.consume("IF"):
+            return False
+        if not self.consume("LPAR"):
+            raise SyntaxError("Expected ( after if")
+        if not self.expr():
+            raise SyntaxError("Expected condition in if statement")
+        if not self.consume("RPAR"):
+            raise SyntaxError("Expected ) after if condition")
+        if not self.stm():
+            raise SyntaxError("Expected statement for if block")
+        if self.consume("ELSE"):
+            if not self.stm():
+                raise SyntaxError("Expected statement for else block")
+        return True
+
+    def stmWhile(self):
+        if not self.consume("WHILE"):
+            return False
+        if not self.consume("LPAR"):
+            raise SyntaxError("Expected ( after while")
+        if not self.expr():
+            raise SyntaxError("Expected condition in while statement")
+        if not self.consume("RPAR"):
+            raise SyntaxError("Expected ) after while condition")
+        if not self.stm():
+            raise SyntaxError("Expected statement for while block")
+        return True
+
+    def stmFor(self):
+        if not self.consume("FOR"):
+            return False
+        if not self.consume("LPAR"):
+            raise SyntaxError("Expected ( after for")
+        if not self.expr():
+            raise SyntaxError("Expected initialization in for loop")
+        if not self.consume("SEMICOLON"):
+            raise SyntaxError("Expected ; after for initialization")
+        if not self.expr():
+            raise SyntaxError("Expected condition in for loop")
+        if not self.consume("SEMICOLON"):
+            raise SyntaxError("Expected ; after for condition")
+        if not self.expr():
+            raise SyntaxError("Expected increment in for loop")
+        if not self.consume("RPAR"):
+            raise SyntaxError("Expected ) after for loop")
+        if not self.stm():
+            raise SyntaxError("Expected statement for for block")
+        return True
+
+    def stmBreak(self):
+        if not self.consume("BREAK"):
+            return False
+        if not self.consume("SEMICOLON"):
+            raise SyntaxError("Expected ; after break")
+        return True
+
+    def stmReturn(self):
+        if not self.consume("RETURN"):
+            return False
+        if self.expr():  # Optional return value
+            pass
+        if not self.consume("SEMICOLON"):
+            raise SyntaxError("Expected ; after return")
+        return True

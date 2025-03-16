@@ -8,7 +8,7 @@ tokens = [
     'ID', 'CT_INT', 'CT_REAL', 'CT_CHAR', 'CT_STRING',
     'COMMA', 'SEMICOLON', 'LPAR', 'RPAR', 'LBRACKET', 'RBRACKET', 'LACC', 'RACC',
     'ADD', 'SUB', 'MUL', 'DIV', 'DOT', 'AND', 'OR', 'NOT', 'ASSIGN', 'EQUAL', 'NOTEQ', 'LESS', 'LESSEQ', 'GREATER', 'GREATEREQ',
-    'BREAK', 'CHAR', 'DOUBLE', 'ELSE', 'FOR', 'IF', 'INT', 'RETURN', 'STRUCT', 'VOID', 'WHILE', 'INVALID'
+    'BREAK', 'CHAR', 'DOUBLE', 'ELSE', 'FOR', 'IF', 'INT', 'RETURN', 'STRUCT', 'VOID', 'WHILE', 'INVALID', 'END'
 ]
 
 # Regular expression rules for simple tokens
@@ -156,6 +156,10 @@ def t_CT_INT_or_REAL_or_ACC(t):
 
 # Ignored characters (spaces, tabs, newlines)
 t_ignore = ' \t\n\r'
+
+def t_END(t):
+    r'\0'
+    return Token(code='END', value=None)
 
 # Error handling rule
 def t_error(t):
