@@ -10,6 +10,7 @@ class Parser:
         self.crtTk = tokens  # Current token
 
     def consume(self, code):
+        print(f"Trying to consume: {code}, Current token: {self.crtTk.code if self.crtTk else 'None'}")
         if self.crtTk and self.crtTk.code == code:
             last_consumed = self.crtTk
             self.crtTk = self.crtTk.next
@@ -18,11 +19,7 @@ class Parser:
 
     def unit(self):
         # Parse declarations (struct, function, variable)
-        while self.declStruct() or self.declFunc() or self.declVar():
-            pass
-
-        # Parse statements
-        while self.stm():
+        while self.declStruct() or self.declFunc() or self.declVar() or self.stm():
             pass
 
         # Consume the END token
@@ -85,7 +82,7 @@ class Parser:
         return True
 
     def declFunc(self):
-        if not (self.typeBase() and self.consume("MUL")) and not self.consume("VOID"):
+        if not (self.typeBase() and not self.consume("VOID")):
             return False
         if not self.consume("ID"):
             raise SyntaxError("Expected function name")

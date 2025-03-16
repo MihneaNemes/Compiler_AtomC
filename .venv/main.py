@@ -20,11 +20,12 @@ tokens = []
 while True:
     tok = lexer.token()
     if not tok:
+        token = Token(code='END', value='None')
+        tokens.append(token)
         break
     # Convert LexToken to Token
     token = Token(code=tok.type, value=tok.value)
     tokens.append(token)
-    print(f"Token: {tok.type}, Value: {tok.value}")  # Debug print
 
 # Convert list to linked list
 for i in range(len(tokens) - 1):

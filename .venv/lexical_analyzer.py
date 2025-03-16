@@ -87,8 +87,6 @@ def t_CT_INT_or_REAL_or_ACC(t):
             elif ch == '{':
                 pCrtCh += 1
                 state = 6
-            elif ch == '\0':
-                return Token(code='END', value=None)
             else:
                 return Token(code='INVALID', value=t.value)
 
@@ -154,12 +152,12 @@ def t_CT_INT_or_REAL_or_ACC(t):
             else:
                 state = 4
 
-# Ignored characters (spaces, tabs, newlines)
-t_ignore = ' \t\n\r'
-
 def t_END(t):
     r'\0'
     return Token(code='END', value=None)
+
+# Ignored characters (spaces, tabs, newlines)
+t_ignore = ' \t\n\r'
 
 # Error handling rule
 def t_error(t):
