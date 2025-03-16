@@ -1,19 +1,16 @@
 from lexical_analyzer import lexer
 from syntax_analyzer import Parser, Token
 
-# Test data
-data = """
-int main() {
-    int a = 10;
-    double b = 3.14;
-    double c = 3.m14;  // Invalid number
-    char d = 'x';
-    char *str = "Hello, World!";
-    if (a < b) {
-        return 0;
-    }
-}
-"""
+# Function to read input from a file
+def read_input_from_file(file_path):
+    with open(file_path, 'r') as file:
+        return file.read()
+
+# File path to the input file
+input_file_path = r'C:\Users\mihne\OneDrive\Desktop\sarpili\Compiler_AtomC\.venv\input'
+
+# Read input from the file
+data = read_input_from_file(input_file_path)
 
 # Tokenize input
 lexer.input(data)
@@ -34,7 +31,7 @@ for i in range(len(tokens) - 1):
 
 # Create parser and parse the token stream
 parser = Parser(tokens[0])
-if parser.unit():  # Call the `unit` method instead of `parse`
+if parser.unit():
     print("Parsing successful!")
 else:
     print("Parsing failed!")

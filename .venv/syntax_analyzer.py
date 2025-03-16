@@ -11,6 +11,7 @@ class Parser:
 
     def consume(self, code):
         if self.crtTk and self.crtTk.code == code:
+            last_consumed = self.crtTk
             self.crtTk = self.crtTk.next
             return True
         return False
