@@ -48,10 +48,6 @@ class Parser:
         if not self.consume("ID"):
             raise SyntaxError("Expected variable name")
         self.arrayDecl()
-        while self.consume("COMMA"):
-            if not self.consume("ID"):
-                raise SyntaxError("Expected variable name after comma")
-            self.arrayDecl()
         if not self.consume("SEMICOLON"):
             raise SyntaxError("Expected ; after variable declaration")
         return True
@@ -107,7 +103,7 @@ class Parser:
         return True
 
     def stm(self):
-        return self.stmCompound() or self.stmIf() or self.stmWhile() or self.stmFor() or self.stmBreak() or self.stmReturn() or self.expr()
+        return self.stmAssign() or self.stmCompound() or self.stmIf() or self.stmWhile() or self.stmFor() or self.stmBreak() or self.stmReturn() or self.expr()
 
     def stmCompound(self):
         if not self.consume("LACC"):
@@ -122,11 +118,13 @@ class Parser:
         return self.exprAssign()
 
     def exprAssign(self):
-        if self.exprUnary() and self.consume("ASSIGN"):
-            if not self.exprAssign():
+        expr = self.exprUnary()  # Start with a basic expression
+        if self.consume("ASSIGN"):
+            right_expr = self.exprAssign()  # Expect an expression after =
+            if right_expr is None:
                 raise SyntaxError("Expected expression after =")
-            return True
-        return self.exprOr()
+            return right_expr  # Return the full assignment expression
+        return expr
 
     def exprOr(self):
         if not self.exprAnd():
@@ -172,18 +170,9 @@ class Parser:
         if not self.exprCast():
             return False
         while self.consume("MUL") or self.consume("DIV"):
-            if not self.exprCast():
+            if not self.exprUnary():
                 raise SyntaxError("Expected expression after multiplicative operator")
         return True
-
-    def exprCast(self):
-        if self.consume("LPAR"):
-            if not self.typeName():
-                raise SyntaxError("Expected type in cast expression")
-            if not self.consume("RPAR"):
-                raise SyntaxError("Expected ) after cast")
-            return self.exprCast()
-        return self.exprUnary()
 
     def exprUnary(self):
         if self.consume("SUB") or self.consume("NOT"):
@@ -201,6 +190,17 @@ class Parser:
                     raise SyntaxError("Expected ) in function call")
             return True
         return self.consume("CT_INT") or self.consume("CT_REAL") or self.consume("CT_CHAR") or self.consume("CT_STRING") or (self.consume("LPAR") and self.expr() and self.consume("RPAR"))
+
+    def stmAssign(self):
+        if not self.consume("ID"):  # Expect an identifier
+            return False
+        if not self.consume("ASSIGN"):  # Expect an '=' symbol
+            return False
+        if not self.expr():  # Expect an expression after '='
+            raise SyntaxError("Expected expression after =")
+        if not self.consume("SEMICOLON"):  # Expect ';' at the end
+            raise SyntaxError("Expected ; after assignment statement")
+        return True
 
     def stmIf(self):
         if not self.consume("IF"):
