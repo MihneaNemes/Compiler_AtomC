@@ -118,13 +118,12 @@ class Parser:
         return self.exprAssign()
 
     def exprAssign(self):
-        expr = self.exprUnary()  # Start with a basic expression
-        if self.consume("ASSIGN"):
-            right_expr = self.exprAssign()  # Expect an expression after =
-            if right_expr is None:
-                raise SyntaxError("Expected expression after =")
-            return right_expr  # Return the full assignment expression
-        return expr
+        # Handle assignment expressions (lowest precedence)
+        if self.exprOr():
+            if self.consume("ASSIGN"):
+                return self.exprAssign()
+            return True
+        return False
 
     def exprOr(self):
         if not self.exprAnd():
@@ -147,13 +146,14 @@ class Parser:
             return False
         while self.consume("EQUAL") or self.consume("NOTEQ"):
             if not self.exprRel():
-                raise SyntaxError("Expected expression after comparison operator")
+                raise SyntaxError("Expected expression after equality operator")
         return True
 
     def exprRel(self):
         if not self.exprAdd():
             return False
-        while self.consume("LESS") or self.consume("LESSEQ") or self.consume("GREATER") or self.consume("GREATEREQ"):
+        while self.consume("LESS") or self.consume("LESSEQ") or \
+                self.consume("GREATER") or self.consume("GREATEREQ"):
             if not self.exprAdd():
                 raise SyntaxError("Expected expression after relational operator")
         return True
@@ -170,26 +170,39 @@ class Parser:
         if not self.exprCast():
             return False
         while self.consume("MUL") or self.consume("DIV"):
-            if not self.exprUnary():
+            if not self.exprCast():
                 raise SyntaxError("Expected expression after multiplicative operator")
         return True
 
+    def exprCast(self):
+        # Handle type casts if needed (e.g., (int)x)
+        return self.exprUnary()
+
     def exprUnary(self):
+        # Handle unary operators (-, !)
         if self.consume("SUB") or self.consume("NOT"):
             return self.exprUnary()
         return self.exprPrimary()
 
     def exprPrimary(self):
+        # Handle identifiers, constants, and parentheses
         if self.consume("ID"):
+            # Check for function calls (e.g., foo(...))
             if self.consume("LPAR"):
                 if self.expr():
                     while self.consume("COMMA"):
                         if not self.expr():
-                            raise SyntaxError("Expected expression after comma in function call")
+                            raise SyntaxError("Expected expression after comma")
                 if not self.consume("RPAR"):
                     raise SyntaxError("Expected ) in function call")
             return True
-        return self.consume("CT_INT") or self.consume("CT_REAL") or self.consume("CT_CHAR") or self.consume("CT_STRING") or (self.consume("LPAR") and self.expr() and self.consume("RPAR"))
+        return (
+                self.consume("CT_INT") or
+                self.consume("CT_REAL") or
+                self.consume("CT_CHAR") or
+                self.consume("CT_STRING") or
+                (self.consume("LPAR") and self.expr() and self.consume("RPAR"))
+        )
 
     def stmAssign(self):
         if not self.consume("ID"):  # Expect an identifier
