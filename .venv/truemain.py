@@ -48,10 +48,10 @@ with open(output_file_path, 'w') as output_file:
                 parser = Parser(tokens[0])
                 result = parser.unit()
 
-                print(f"Result for {filename}: {'SUCCESS ✅' if result else 'FAILURE ❌'}")
+                print(f"Result for {filename}: {'SUCCESS' if result else 'FAILURE'}")
 
             except Exception as e:
-                print(f"\n⚠️ Error processing {filename}:")
+                print(f"\n Error processing {filename}:")
                 traceback.print_exc()
                 print("=" * 50)
 

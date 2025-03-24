@@ -125,7 +125,7 @@ class Parser:
         return True
 
     def expr(self):
-        return self.exprAssign()
+        return self.exprAssign() or self.arrayDecl()
 
     def exprAssign(self):
         # Handle assignment expressions (lowest precedence)
