@@ -1,4 +1,6 @@
 import os
+import traceback
+from contextlib import redirect_stdout
 from lexical_analyzer import lexer
 from syntax_analyzer import Parser, Token
 
@@ -8,41 +10,49 @@ def read_input_from_file(file_path):
         return file.read()
 
 
-# Folder path containing your test files
-folder_path = r'C:\Users\mihne\OneDrive\Desktop\sarpili\Compiler_AtomC\.venv\tests'  # Update this path
+# Configuration paths
+folder_path = r'C:\Users\mihne\OneDrive\Desktop\sarpili\Compiler_AtomC\.venv\tests'
+output_file_path = r'C:\Users\mihne\OneDrive\Desktop\sarpili\Compiler_AtomC\.venv\output.txt'
 
-# Iterate over each file in the folder
-for filename in os.listdir(folder_path):
-    file_path = os.path.join(folder_path, filename)
+with open(output_file_path, 'w') as output_file:
+    with redirect_stdout(output_file):
+        print("===== Compiler Analysis Results =====")
 
-    # Skip directories, process only files
-    if os.path.isfile(file_path):
-        print(f"\nProcessing file: {filename}")
+        for filename in os.listdir(folder_path):
+            file_path = os.path.join(folder_path, filename)
 
-        # Read input from the current file
-        data = read_input_from_file(file_path)
+            if not os.path.isfile(file_path):
+                continue
 
-        # Tokenize input
-        lexer.input(data)
-        tokens = []
-        while True:
-            tok = lexer.token()
-            if not tok:
-                # Add END token
-                token = Token(code='END', value='None')
-                tokens.append(token)
-                break
-            # Convert LexToken to your custom Token
-            token = Token(code=tok.type, value=tok.value)
-            tokens.append(token)
+            try:
+                print(f"\nProcessing file: {filename}")
 
-        # Link tokens into a linked list
-        for i in range(len(tokens) - 1):
-            tokens[i].next = tokens[i + 1]
+                # Read and tokenize input
+                data = read_input_from_file(file_path)
+                lexer.input(data)
 
-        # Create parser and parse
-        parser = Parser(tokens[0])
-        if parser.unit():
-            print(f"✅ {filename}: Parsing successful!")
-        else:
-            print(f"❌ {filename}: Parsing failed!")
+                # Convert to custom Token objects
+                tokens = []
+                while True:
+                    tok = lexer.token()
+                    if not tok:
+                        tokens.append(Token(code='END', value='None'))
+                        break
+                    tokens.append(Token(code=tok.type, value=tok.value))
+
+                # Link tokens as a linked list
+                for i in range(len(tokens) - 1):
+                    tokens[i].next = tokens[i + 1]
+
+                # Parse tokens
+                parser = Parser(tokens[0])
+                result = parser.unit()
+
+                print(f"Result for {filename}: {'SUCCESS ✅' if result else 'FAILURE ❌'}")
+
+            except Exception as e:
+                print(f"\n⚠️ Error processing {filename}:")
+                traceback.print_exc()
+                print("=" * 50)
+
+        print("\n===== Analysis Complete =====")

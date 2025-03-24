@@ -45,11 +45,21 @@ class Parser:
     def declVar(self):
         if not self.typeBase():
             return False
+
+        # Process first variable
         if not self.consume("ID"):
             raise SyntaxError("Expected variable name")
         self.arrayDecl()
+
+        # Process additional variables separated by commas
+        while self.consume("COMMA"):
+            if not self.consume("ID"):
+                raise SyntaxError("Expected variable name after comma")
+            self.arrayDecl()
+
+        # Require semicolon at end
         if not self.consume("SEMICOLON"):
-            raise SyntaxError("Expected ; after variable declaration")
+            raise SyntaxError(f"Expected ; after variable declaration, got {self.current_token.code}")
         return True
 
     def typeBase(self):
