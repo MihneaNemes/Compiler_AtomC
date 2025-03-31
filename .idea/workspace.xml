@@ -95,7 +95,7 @@
       <workItem from="1742819187845" duration="5030000" />
       <workItem from="1743067665561" duration="49000" />
       <workItem from="1743348874307" duration="28000" />
-      <workItem from="1743430533085" duration="3064000" />
+      <workItem from="1743430533085" duration="3376000" />
     </task>
     <task id="LOCAL-00001" summary="comm 1">
       <option name="closed" value="true" />
@@ -249,7 +249,15 @@
       <option name="project" value="LOCAL" />
       <updated>1743433736591</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="comm 1">
+      <option name="closed" value="true" />
+      <created>1743433875748</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1743433875748</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -263,9 +271,9 @@
     <SUITE FILE_PATH="coverage/Compiler_AtomC$activate_this.coverage" NAME="activate_this Coverage Results" MODIFIED="1740843965157" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/.venv/Scripts" />
     <SUITE FILE_PATH="coverage/Compiler_AtomC$main.coverage" NAME="main Coverage Results" MODIFIED="1742832097130" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/.venv" />
     <SUITE FILE_PATH="coverage/Compiler_AtomC$altu.coverage" NAME="altu Coverage Results" MODIFIED="1741709645113" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/.venv" />
-    <SUITE FILE_PATH="coverage/Compiler_AtomC$lexrtest.coverage" NAME="lexrtest Coverage Results" MODIFIED="1742821785113" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/.venv" />
+    <SUITE FILE_PATH="coverage/Compiler_AtomC$lexrtest.coverage" NAME="lexrtest Coverage Results" MODIFIED="1743433844727" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/.venv" />
     <SUITE FILE_PATH="coverage/Compiler_AtomC$lexical_analyzer.coverage" NAME="lexical_analyzer Coverage Results" MODIFIED="1742141637009" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/.venv" />
     <SUITE FILE_PATH="coverage/Compiler_AtomC$syntax_analyzer.coverage" NAME="syntax_analyzer Coverage Results" MODIFIED="1743433494919" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/.venv" />
-    <SUITE FILE_PATH="coverage/Compiler_AtomC$truemain.coverage" NAME="truemain Coverage Results" MODIFIED="1743433548976" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/.venv" />
+    <SUITE FILE_PATH="coverage/Compiler_AtomC$truemain.coverage" NAME="truemain Coverage Results" MODIFIED="1743433855179" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/.venv" />
   </component>
 </project>

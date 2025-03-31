@@ -1,9 +1,7 @@
 import ply.lex as lex
 
-# Import the Token class from the syntax_analyzer
 from syntax_analyzer import Token
 
-# List of token names
 tokens = [
     'ID', 'CT_INT', 'CT_REAL', 'CT_CHAR', 'CT_STRING',
     'COMMA', 'SEMICOLON', 'LPAR', 'RPAR', 'LBRACKET', 'RBRACKET', 'LACC', 'RACC',
@@ -11,7 +9,6 @@ tokens = [
     'BREAK', 'CHAR', 'DOUBLE', 'ELSE', 'FOR', 'IF', 'INT', 'RETURN', 'STRUCT', 'VOID', 'WHILE', 'INVALID', 'END'
 ]
 
-# Regular expression rules for simple tokens
 t_COMMA = r','
 t_SEMICOLON = r';'
 t_LPAR = r'\('
@@ -36,25 +33,48 @@ t_LESSEQ = r'<='
 t_GREATER = r'>'
 t_GREATEREQ = r'>='
 
-# Regular expression rules with actions
+keywords = {
+    'break': 'BREAK',
+    'char': 'CHAR',
+    'double': 'DOUBLE',
+    'else': 'ELSE',
+    'for': 'FOR',
+    'if': 'IF',
+    'int': 'INT',
+    'return': 'RETURN',
+    'struct': 'STRUCT',
+    'void': 'VOID',
+    'while': 'WHILE'
+}
+
 def t_ID(t):
     r'[a-zA-Z_][a-zA-Z0-9_]*'
-    # Check if the identifier is a keyword
-    keywords = {
-        'break': 'BREAK',
-        'char': 'CHAR',
-        'double': 'DOUBLE',
-        'else': 'ELSE',
-        'for': 'FOR',
-        'if': 'IF',
-        'int': 'INT',
-        'return': 'RETURN',
-        'struct': 'STRUCT',
-        'void': 'VOID',
-        'while': 'WHILE'
-    }
-    t.type = keywords.get(t.value, 'ID')  # Assign the token type
+    t.type = keywords.get(t.value, 'ID')
     return Token(code=t.type, value=t.value)
+
+def t_CT_HEX(t):
+    r'0[xX][0-9a-fA-F]+'
+    t.value = int(t.value, 16)
+    return Token(code='CT_INT', value=t.value)
+
+def t_CT_OCTAL(t):
+    r'0[0-7]+'
+    t.value = int(t.value, 8)
+    return Token(code='CT_INT', value=t.value)
+
+def t_CT_REAL(t):
+    r'((\d+\.\d*([eE][+-]?\d+)?)|(\.\d+([eE][+-]?\d+)?)|(\d+[eE][+-]?\d+))'
+    try:
+        t.value = float(t.value)
+    except ValueError:
+        print(f"Invalid real number: {t.value}")
+        return Token(code='INVALID', value=t.value)
+    return Token(code='CT_REAL', value=t.value)
+
+def t_CT_INT_DECIMAL(t):
+    r'[1-9]\d*|0'
+    t.value = int(t.value)
+    return Token(code='CT_INT', value=t.value)
 
 def t_CT_CHAR(t):
     r"'([^'\\]|\\.)'"
@@ -64,111 +84,23 @@ def t_CT_STRING(t):
     r'"([^"\\]|\\.)*"'
     return Token(code='CT_STRING', value=t.value)
 
-# Example for a lexer (using PLY)
 def t_COMMENT(t):
     r'//.*|\/\*(.|\n)*?\*\/'
-    t.lexer.lineno += t.value.count('\n')  # Track line numbers for multi-line comments
-    return None  # Discard the token
-
-def t_CT_INT_or_REAL_or_ACC(t):
-    r'\d+(\.[A-Za-z0-9]*)?(e[+-]?\d+)?|\{.*?\}'
-    input_string = t.value
-    pCrtCh = 0
-    state = 0
-    i = 0
-    r = 0.0
-    fp = 0.0
-
-    while True:
-        if pCrtCh >= len(input_string):
-            ch = '\0'  # End of input
-        else:
-            ch = input_string[pCrtCh]
-
-        if state == 0:  # Initial state
-            if ch.isdigit():
-                i = int(ch)
-                pCrtCh += 1
-                state = 1
-            elif ch == '{':
-                pCrtCh += 1
-                state = 6
-            else:
-                return Token(code='INVALID', value=t.value)
-
-        elif state == 1:  # Reading integer part
-            if ch.isdigit():
-                i = i * 10 + int(ch)
-                pCrtCh += 1
-            elif ch == '.':
-                pCrtCh += 1
-                state = 2
-            else:
-                state = 5
-
-        elif state == 2:  # After decimal point, expecting a digit
-            if ch.isdigit():
-                fp = 0.1
-                r = i + int(ch) * fp
-                pCrtCh += 1
-                state = 3
-            else:
-                # Invalid number (e.g., "3.m14")
-                return Token(code='INVALID', value=t.value)
-
-        elif state == 3:  # Reading fractional part
-            if ch.isdigit():
-                fp /= 10
-                r += int(ch) * fp
-                pCrtCh += 1
-            elif ch == 'e' or ch == 'E':  # Handle scientific notation
-                pCrtCh += 1
-                state = 7
-            else:
-                state = 4
-
-        elif state == 4:  # End of real number
-            return Token(code='CT_REAL', value=r)
-
-        elif state == 5:  # End of integer
-            return Token(code='CT_INT', value=i)
-
-        elif state == 6:  # Inside a ACC block
-            if ch == '}':
-                pCrtCh += 1
-                state = 0
-            elif ch == '\0':
-                return Token(code='INVALID', value=t.value)
-            else:
-                pCrtCh += 1
-
-        elif state == 7:  # Handling scientific notation
-            if ch == '+' or ch == '-':
-                pCrtCh += 1
-                state = 8
-            elif ch.isdigit():
-                pCrtCh += 1
-                state = 8
-            else:
-                return Token(code='INVALID', value=t.value)
-
-        elif state == 8:  # Reading exponent part
-            if ch.isdigit():
-                pCrtCh += 1
-            else:
-                state = 4
+    t.lexer.lineno += t.value.count('\n')
+    pass
 
 def t_END(t):
     r'\0'
     return Token(code='END', value=None)
 
-# Ignored characters (spaces, tabs, newlines)
-t_ignore = ' \t\n\r'
+t_ignore = ' \t\r'
 
-# Error handling rule
+def t_newline(t):
+    r'\n+'
+    t.lexer.lineno += len(t.value)
+
 def t_error(t):
     print(f"Illegal character '{t.value[0]}'")
     t.lexer.skip(1)
 
-# Build the lexer
 lexer = lex.lex()
