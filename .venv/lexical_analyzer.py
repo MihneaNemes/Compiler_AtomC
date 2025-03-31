@@ -64,6 +64,12 @@ def t_CT_STRING(t):
     r'"([^"\\]|\\.)*"'
     return Token(code='CT_STRING', value=t.value)
 
+# Example for a lexer (using PLY)
+def t_COMMENT(t):
+    r'//.*|\/\*(.|\n)*?\*\/'
+    t.lexer.lineno += t.value.count('\n')  # Track line numbers for multi-line comments
+    return None  # Discard the token
+
 def t_CT_INT_or_REAL_or_ACC(t):
     r'\d+(\.[A-Za-z0-9]*)?(e[+-]?\d+)?|\{.*?\}'
     input_string = t.value
