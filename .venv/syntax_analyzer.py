@@ -88,7 +88,7 @@ class Parser:
         return True
 
     def declFunc(self):
-        if not (self.typeBase() and not self.consume("VOID")):
+        if not (self.typeBase() or self.consume("VOID")):
             return False
         if not self.consume("ID"):
             raise SyntaxError("Expected function name")
@@ -113,7 +113,7 @@ class Parser:
         return True
 
     def stm(self):
-        return self.stmAssign() or self.stmCompound() or self.stmIf() or self.stmWhile() or self.stmFor() or self.stmBreak() or self.stmReturn() or self.expr()
+        return self.stmAssign() or self.stmCompound() or self.stmIf() or self.stmWhile() or self.stmFor() or self.stmBreak() or self.stmReturn() or self.stmExpr()
 
     def stmCompound(self):
         if not self.consume("LACC"):
@@ -125,7 +125,14 @@ class Parser:
         return True
 
     def expr(self):
-        return self.exprAssign() or self.arrayDecl()
+        return self.exprAssign()
+
+    def stmExpr(self):
+        if not self.expr():
+            return False
+        if not self.consume("SEMICOLON"):
+            raise SyntaxError("Expected ; after expression statement")
+        return True
 
     def exprAssign(self):
         # Handle assignment expressions (lowest precedence)
@@ -197,6 +204,11 @@ class Parser:
     def exprPrimary(self):
         # Handle identifiers, constants, and parentheses
         if self.consume("ID"):
+            while self.consume("LBRACKET"):
+                if not self.expr():
+                    raise SyntaxError("Expected expression inside [ ]")
+                if not self.consume("RBRACKET"):  # Ensure closing ]
+                    raise SyntaxError("Expected ] after array index")
             # Check for function calls (e.g., foo(...))
             if self.consume("LPAR"):
                 if self.expr():
@@ -215,14 +227,24 @@ class Parser:
         )
 
     def stmAssign(self):
-        if not self.consume("ID"):  # Expect an identifier
+        if not self.consume("ID"):
             return False
-        if not self.consume("ASSIGN"):  # Expect an '=' symbol
+
+        while self.consume("LBRACKET"):
+            if not self.expr():
+                raise SyntaxError("Expected expression inside [ ]")
+            if not self.consume("RBRACKET"):  # Ensure closing ]
+                raise SyntaxError("Expected ] after array index")
+
+        if not self.consume("ASSIGN"):
             return False
-        if not self.expr():  # Expect an expression after '='
+
+        if not self.expr():
             raise SyntaxError("Expected expression after =")
-        if not self.consume("SEMICOLON"):  # Expect ';' at the end
+
+        if not self.consume("SEMICOLON"):
             raise SyntaxError("Expected ; after assignment statement")
+
         return True
 
     def stmIf(self):
