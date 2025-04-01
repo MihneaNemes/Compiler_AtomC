@@ -632,35 +632,6 @@ Trying to consume: CT_CHAR, Current token: RACC
 Trying to consume: CT_STRING, Current token: RACC
 Trying to consume: LPAR, Current token: RACC
 Trying to consume: RACC, Current token: RACC
-Trying to consume: STRUCT, Current token: END
-Checking typeBase
-Trying to consume: INT, Current token: END
-Trying to consume: DOUBLE, Current token: END
-Trying to consume: CHAR, Current token: END
-Trying to consume: STRUCT, Current token: END
-typeBase failed
-Trying to consume: VOID, Current token: END
-Checking typeBase
-Trying to consume: INT, Current token: END
-Trying to consume: DOUBLE, Current token: END
-Trying to consume: CHAR, Current token: END
-Trying to consume: STRUCT, Current token: END
-typeBase failed
-Trying to consume: ID, Current token: END
-Trying to consume: LACC, Current token: END
-Trying to consume: IF, Current token: END
-Trying to consume: WHILE, Current token: END
-Trying to consume: FOR, Current token: END
-Trying to consume: BREAK, Current token: END
-Trying to consume: RETURN, Current token: END
-Trying to consume: SUB, Current token: END
-Trying to consume: NOT, Current token: END
-Trying to consume: ID, Current token: END
-Trying to consume: CT_INT, Current token: END
-Trying to consume: CT_REAL, Current token: END
-Trying to consume: CT_CHAR, Current token: END
-Trying to consume: CT_STRING, Current token: END
-Trying to consume: LPAR, Current token: END
 Trying to consume: END, Current token: END
 Result for 0.c: SUCCESS
 
@@ -763,35 +734,6 @@ Trying to consume: CT_CHAR, Current token: RACC
 Trying to consume: CT_STRING, Current token: RACC
 Trying to consume: LPAR, Current token: RACC
 Trying to consume: RACC, Current token: RACC
-Trying to consume: STRUCT, Current token: END
-Checking typeBase
-Trying to consume: INT, Current token: END
-Trying to consume: DOUBLE, Current token: END
-Trying to consume: CHAR, Current token: END
-Trying to consume: STRUCT, Current token: END
-typeBase failed
-Trying to consume: VOID, Current token: END
-Checking typeBase
-Trying to consume: INT, Current token: END
-Trying to consume: DOUBLE, Current token: END
-Trying to consume: CHAR, Current token: END
-Trying to consume: STRUCT, Current token: END
-typeBase failed
-Trying to consume: ID, Current token: END
-Trying to consume: LACC, Current token: END
-Trying to consume: IF, Current token: END
-Trying to consume: WHILE, Current token: END
-Trying to consume: FOR, Current token: END
-Trying to consume: BREAK, Current token: END
-Trying to consume: RETURN, Current token: END
-Trying to consume: SUB, Current token: END
-Trying to consume: NOT, Current token: END
-Trying to consume: ID, Current token: END
-Trying to consume: CT_INT, Current token: END
-Trying to consume: CT_REAL, Current token: END
-Trying to consume: CT_CHAR, Current token: END
-Trying to consume: CT_STRING, Current token: END
-Trying to consume: LPAR, Current token: END
 Trying to consume: END, Current token: END
 Result for 1.c: SUCCESS
 
@@ -994,35 +936,6 @@ Trying to consume: CT_CHAR, Current token: RACC
 Trying to consume: CT_STRING, Current token: RACC
 Trying to consume: LPAR, Current token: RACC
 Trying to consume: RACC, Current token: RACC
-Trying to consume: STRUCT, Current token: END
-Checking typeBase
-Trying to consume: INT, Current token: END
-Trying to consume: DOUBLE, Current token: END
-Trying to consume: CHAR, Current token: END
-Trying to consume: STRUCT, Current token: END
-typeBase failed
-Trying to consume: VOID, Current token: END
-Checking typeBase
-Trying to consume: INT, Current token: END
-Trying to consume: DOUBLE, Current token: END
-Trying to consume: CHAR, Current token: END
-Trying to consume: STRUCT, Current token: END
-typeBase failed
-Trying to consume: ID, Current token: END
-Trying to consume: LACC, Current token: END
-Trying to consume: IF, Current token: END
-Trying to consume: WHILE, Current token: END
-Trying to consume: FOR, Current token: END
-Trying to consume: BREAK, Current token: END
-Trying to consume: RETURN, Current token: END
-Trying to consume: SUB, Current token: END
-Trying to consume: NOT, Current token: END
-Trying to consume: ID, Current token: END
-Trying to consume: CT_INT, Current token: END
-Trying to consume: CT_REAL, Current token: END
-Trying to consume: CT_CHAR, Current token: END
-Trying to consume: CT_STRING, Current token: END
-Trying to consume: LPAR, Current token: END
 Trying to consume: END, Current token: END
 Result for 2.c: SUCCESS
 
@@ -1312,35 +1225,6 @@ Trying to consume: CT_CHAR, Current token: RACC
 Trying to consume: CT_STRING, Current token: RACC
 Trying to consume: LPAR, Current token: RACC
 Trying to consume: RACC, Current token: RACC
-Trying to consume: STRUCT, Current token: END
-Checking typeBase
-Trying to consume: INT, Current token: END
-Trying to consume: DOUBLE, Current token: END
-Trying to consume: CHAR, Current token: END
-Trying to consume: STRUCT, Current token: END
-typeBase failed
-Trying to consume: VOID, Current token: END
-Checking typeBase
-Trying to consume: INT, Current token: END
-Trying to consume: DOUBLE, Current token: END
-Trying to consume: CHAR, Current token: END
-Trying to consume: STRUCT, Current token: END
-typeBase failed
-Trying to consume: ID, Current token: END
-Trying to consume: LACC, Current token: END
-Trying to consume: IF, Current token: END
-Trying to consume: WHILE, Current token: END
-Trying to consume: FOR, Current token: END
-Trying to consume: BREAK, Current token: END
-Trying to consume: RETURN, Current token: END
-Trying to consume: SUB, Current token: END
-Trying to consume: NOT, Current token: END
-Trying to consume: ID, Current token: END
-Trying to consume: CT_INT, Current token: END
-Trying to consume: CT_REAL, Current token: END
-Trying to consume: CT_CHAR, Current token: END
-Trying to consume: CT_STRING, Current token: END
-Trying to consume: LPAR, Current token: END
 Trying to consume: END, Current token: END
 Result for 3.c: SUCCESS
 
@@ -1677,35 +1561,6 @@ Trying to consume: CT_CHAR, Current token: RACC
 Trying to consume: CT_STRING, Current token: RACC
 Trying to consume: LPAR, Current token: RACC
 Trying to consume: RACC, Current token: RACC
-Trying to consume: STRUCT, Current token: END
-Checking typeBase
-Trying to consume: INT, Current token: END
-Trying to consume: DOUBLE, Current token: END
-Trying to consume: CHAR, Current token: END
-Trying to consume: STRUCT, Current token: END
-typeBase failed
-Trying to consume: VOID, Current token: END
-Checking typeBase
-Trying to consume: INT, Current token: END
-Trying to consume: DOUBLE, Current token: END
-Trying to consume: CHAR, Current token: END
-Trying to consume: STRUCT, Current token: END
-typeBase failed
-Trying to consume: ID, Current token: END
-Trying to consume: LACC, Current token: END
-Trying to consume: IF, Current token: END
-Trying to consume: WHILE, Current token: END
-Trying to consume: FOR, Current token: END
-Trying to consume: BREAK, Current token: END
-Trying to consume: RETURN, Current token: END
-Trying to consume: SUB, Current token: END
-Trying to consume: NOT, Current token: END
-Trying to consume: ID, Current token: END
-Trying to consume: CT_INT, Current token: END
-Trying to consume: CT_REAL, Current token: END
-Trying to consume: CT_CHAR, Current token: END
-Trying to consume: CT_STRING, Current token: END
-Trying to consume: LPAR, Current token: END
 Trying to consume: END, Current token: END
 Result for 4.c: SUCCESS
 
@@ -2202,35 +2057,6 @@ Trying to consume: CT_CHAR, Current token: RACC
 Trying to consume: CT_STRING, Current token: RACC
 Trying to consume: LPAR, Current token: RACC
 Trying to consume: RACC, Current token: RACC
-Trying to consume: STRUCT, Current token: END
-Checking typeBase
-Trying to consume: INT, Current token: END
-Trying to consume: DOUBLE, Current token: END
-Trying to consume: CHAR, Current token: END
-Trying to consume: STRUCT, Current token: END
-typeBase failed
-Trying to consume: VOID, Current token: END
-Checking typeBase
-Trying to consume: INT, Current token: END
-Trying to consume: DOUBLE, Current token: END
-Trying to consume: CHAR, Current token: END
-Trying to consume: STRUCT, Current token: END
-typeBase failed
-Trying to consume: ID, Current token: END
-Trying to consume: LACC, Current token: END
-Trying to consume: IF, Current token: END
-Trying to consume: WHILE, Current token: END
-Trying to consume: FOR, Current token: END
-Trying to consume: BREAK, Current token: END
-Trying to consume: RETURN, Current token: END
-Trying to consume: SUB, Current token: END
-Trying to consume: NOT, Current token: END
-Trying to consume: ID, Current token: END
-Trying to consume: CT_INT, Current token: END
-Trying to consume: CT_REAL, Current token: END
-Trying to consume: CT_CHAR, Current token: END
-Trying to consume: CT_STRING, Current token: END
-Trying to consume: LPAR, Current token: END
 Trying to consume: END, Current token: END
 Result for 5.c: SUCCESS
 
@@ -3237,35 +3063,6 @@ Trying to consume: CT_CHAR, Current token: RACC
 Trying to consume: CT_STRING, Current token: RACC
 Trying to consume: LPAR, Current token: RACC
 Trying to consume: RACC, Current token: RACC
-Trying to consume: STRUCT, Current token: END
-Checking typeBase
-Trying to consume: INT, Current token: END
-Trying to consume: DOUBLE, Current token: END
-Trying to consume: CHAR, Current token: END
-Trying to consume: STRUCT, Current token: END
-typeBase failed
-Trying to consume: VOID, Current token: END
-Checking typeBase
-Trying to consume: INT, Current token: END
-Trying to consume: DOUBLE, Current token: END
-Trying to consume: CHAR, Current token: END
-Trying to consume: STRUCT, Current token: END
-typeBase failed
-Trying to consume: ID, Current token: END
-Trying to consume: LACC, Current token: END
-Trying to consume: IF, Current token: END
-Trying to consume: WHILE, Current token: END
-Trying to consume: FOR, Current token: END
-Trying to consume: BREAK, Current token: END
-Trying to consume: RETURN, Current token: END
-Trying to consume: SUB, Current token: END
-Trying to consume: NOT, Current token: END
-Trying to consume: ID, Current token: END
-Trying to consume: CT_INT, Current token: END
-Trying to consume: CT_REAL, Current token: END
-Trying to consume: CT_CHAR, Current token: END
-Trying to consume: CT_STRING, Current token: END
-Trying to consume: LPAR, Current token: END
 Trying to consume: END, Current token: END
 Result for 6.c: SUCCESS
 
@@ -3696,35 +3493,6 @@ Trying to consume: CT_CHAR, Current token: RACC
 Trying to consume: CT_STRING, Current token: RACC
 Trying to consume: LPAR, Current token: RACC
 Trying to consume: RACC, Current token: RACC
-Trying to consume: STRUCT, Current token: END
-Checking typeBase
-Trying to consume: INT, Current token: END
-Trying to consume: DOUBLE, Current token: END
-Trying to consume: CHAR, Current token: END
-Trying to consume: STRUCT, Current token: END
-typeBase failed
-Trying to consume: VOID, Current token: END
-Checking typeBase
-Trying to consume: INT, Current token: END
-Trying to consume: DOUBLE, Current token: END
-Trying to consume: CHAR, Current token: END
-Trying to consume: STRUCT, Current token: END
-typeBase failed
-Trying to consume: ID, Current token: END
-Trying to consume: LACC, Current token: END
-Trying to consume: IF, Current token: END
-Trying to consume: WHILE, Current token: END
-Trying to consume: FOR, Current token: END
-Trying to consume: BREAK, Current token: END
-Trying to consume: RETURN, Current token: END
-Trying to consume: SUB, Current token: END
-Trying to consume: NOT, Current token: END
-Trying to consume: ID, Current token: END
-Trying to consume: CT_INT, Current token: END
-Trying to consume: CT_REAL, Current token: END
-Trying to consume: CT_CHAR, Current token: END
-Trying to consume: CT_STRING, Current token: END
-Trying to consume: LPAR, Current token: END
 Trying to consume: END, Current token: END
 Result for 7.c: SUCCESS
 
@@ -4090,35 +3858,6 @@ Trying to consume: CT_CHAR, Current token: RACC
 Trying to consume: CT_STRING, Current token: RACC
 Trying to consume: LPAR, Current token: RACC
 Trying to consume: RACC, Current token: RACC
-Trying to consume: STRUCT, Current token: END
-Checking typeBase
-Trying to consume: INT, Current token: END
-Trying to consume: DOUBLE, Current token: END
-Trying to consume: CHAR, Current token: END
-Trying to consume: STRUCT, Current token: END
-typeBase failed
-Trying to consume: VOID, Current token: END
-Checking typeBase
-Trying to consume: INT, Current token: END
-Trying to consume: DOUBLE, Current token: END
-Trying to consume: CHAR, Current token: END
-Trying to consume: STRUCT, Current token: END
-typeBase failed
-Trying to consume: ID, Current token: END
-Trying to consume: LACC, Current token: END
-Trying to consume: IF, Current token: END
-Trying to consume: WHILE, Current token: END
-Trying to consume: FOR, Current token: END
-Trying to consume: BREAK, Current token: END
-Trying to consume: RETURN, Current token: END
-Trying to consume: SUB, Current token: END
-Trying to consume: NOT, Current token: END
-Trying to consume: ID, Current token: END
-Trying to consume: CT_INT, Current token: END
-Trying to consume: CT_REAL, Current token: END
-Trying to consume: CT_CHAR, Current token: END
-Trying to consume: CT_STRING, Current token: END
-Trying to consume: LPAR, Current token: END
 Trying to consume: END, Current token: END
 Result for 8.c: SUCCESS
 

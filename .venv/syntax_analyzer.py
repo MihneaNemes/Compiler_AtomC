@@ -18,13 +18,24 @@ class Parser:
         return False
 
     def unit(self):
-        # Parse declarations (struct, function, variable)
-        while self.declStruct() or self.declFunc() or self.declVar() or self.stm():
-            pass
+        # Iterate through tokens and process declarations/statements
+        while self.crtTk and self.crtTk.code != "END":
+            if self.declStruct():
+                continue
+            if self.declFunc():
+                continue
+            if self.declVar():
+                continue
+            if self.stm():
+                continue
+
+            # If no valid parsing function succeeded, raise an error
+            raise SyntaxError(f"Unexpected token: {self.crtTk.code}")
 
         # Consume the END token
         if not self.consume("END"):
             raise SyntaxError("Expected END token at the end of input")
+
         return True
 
     def declStruct(self):
