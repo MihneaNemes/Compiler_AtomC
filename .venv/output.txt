@@ -1,7 +1,9 @@
 ===== Compiler Analysis Results =====
 
 Processing file: 0.c
+Checking declStruct
 Trying to consume: STRUCT, Current token: INT
+Checking declFunc
 Checking typeBase
 Trying to consume: INT, Current token: INT
 Found INT
@@ -11,10 +13,12 @@ Checking typeBase
 Trying to consume: INT, Current token: RPAR
 Trying to consume: DOUBLE, Current token: RPAR
 Trying to consume: CHAR, Current token: RPAR
+Trying to consume: VOID, Current token: RPAR
 Trying to consume: STRUCT, Current token: RPAR
 typeBase failed
 Trying to consume: RPAR, Current token: RPAR
 Trying to consume: LACC, Current token: LACC
+Checking declVar
 Checking typeBase
 Trying to consume: INT, Current token: INT
 Found INT
@@ -46,14 +50,23 @@ Trying to consume: ID, Current token: ID
 Trying to consume: LBRACKET, Current token: SEMICOLON
 Trying to consume: COMMA, Current token: SEMICOLON
 Trying to consume: SEMICOLON, Current token: SEMICOLON
+Checking declVar
 Checking typeBase
 Trying to consume: INT, Current token: ID
 Trying to consume: DOUBLE, Current token: ID
 Trying to consume: CHAR, Current token: ID
+Trying to consume: VOID, Current token: ID
 Trying to consume: STRUCT, Current token: ID
 typeBase failed
+Trying to consume: LACC, Current token: ID
+Trying to consume: IF, Current token: ID
+Trying to consume: WHILE, Current token: ID
+Trying to consume: FOR, Current token: ID
+Trying to consume: BREAK, Current token: ID
+Trying to consume: RETURN, Current token: ID
 Trying to consume: ID, Current token: ID
 Trying to consume: LBRACKET, Current token: ASSIGN
+Trying to consume: DOT, Current token: ASSIGN
 Trying to consume: ASSIGN, Current token: ASSIGN
 Trying to consume: SUB, Current token: CT_INT
 Trying to consume: NOT, Current token: CT_INT
@@ -73,13 +86,14 @@ Trying to consume: AND, Current token: SEMICOLON
 Trying to consume: OR, Current token: SEMICOLON
 Trying to consume: ASSIGN, Current token: SEMICOLON
 Trying to consume: SEMICOLON, Current token: SEMICOLON
+Checking declVar
 Checking typeBase
 Trying to consume: INT, Current token: FOR
 Trying to consume: DOUBLE, Current token: FOR
 Trying to consume: CHAR, Current token: FOR
+Trying to consume: VOID, Current token: FOR
 Trying to consume: STRUCT, Current token: FOR
 typeBase failed
-Trying to consume: ID, Current token: FOR
 Trying to consume: LACC, Current token: FOR
 Trying to consume: IF, Current token: FOR
 Trying to consume: WHILE, Current token: FOR
@@ -89,6 +103,7 @@ Trying to consume: SUB, Current token: ID
 Trying to consume: NOT, Current token: ID
 Trying to consume: ID, Current token: ID
 Trying to consume: LBRACKET, Current token: ASSIGN
+Trying to consume: DOT, Current token: ASSIGN
 Trying to consume: LPAR, Current token: ASSIGN
 Trying to consume: MUL, Current token: ASSIGN
 Trying to consume: DIV, Current token: ASSIGN
@@ -125,6 +140,7 @@ Trying to consume: SUB, Current token: ID
 Trying to consume: NOT, Current token: ID
 Trying to consume: ID, Current token: ID
 Trying to consume: LBRACKET, Current token: LESS
+Trying to consume: DOT, Current token: LESS
 Trying to consume: LPAR, Current token: LESS
 Trying to consume: MUL, Current token: LESS
 Trying to consume: DIV, Current token: LESS
@@ -153,6 +169,7 @@ Trying to consume: SUB, Current token: ID
 Trying to consume: NOT, Current token: ID
 Trying to consume: ID, Current token: ID
 Trying to consume: LBRACKET, Current token: ASSIGN
+Trying to consume: DOT, Current token: ASSIGN
 Trying to consume: LPAR, Current token: ASSIGN
 Trying to consume: MUL, Current token: ASSIGN
 Trying to consume: DIV, Current token: ASSIGN
@@ -171,6 +188,7 @@ Trying to consume: SUB, Current token: ID
 Trying to consume: NOT, Current token: ID
 Trying to consume: ID, Current token: ID
 Trying to consume: LBRACKET, Current token: ADD
+Trying to consume: DOT, Current token: ADD
 Trying to consume: LPAR, Current token: ADD
 Trying to consume: MUL, Current token: ADD
 Trying to consume: DIV, Current token: ADD
@@ -193,20 +211,28 @@ Trying to consume: AND, Current token: RPAR
 Trying to consume: OR, Current token: RPAR
 Trying to consume: ASSIGN, Current token: RPAR
 Trying to consume: RPAR, Current token: RPAR
-Trying to consume: ID, Current token: LACC
 Trying to consume: LACC, Current token: LACC
+Checking declVar
 Checking typeBase
 Trying to consume: INT, Current token: ID
 Trying to consume: DOUBLE, Current token: ID
 Trying to consume: CHAR, Current token: ID
+Trying to consume: VOID, Current token: ID
 Trying to consume: STRUCT, Current token: ID
 typeBase failed
+Trying to consume: LACC, Current token: ID
+Trying to consume: IF, Current token: ID
+Trying to consume: WHILE, Current token: ID
+Trying to consume: FOR, Current token: ID
+Trying to consume: BREAK, Current token: ID
+Trying to consume: RETURN, Current token: ID
 Trying to consume: ID, Current token: ID
 Trying to consume: LBRACKET, Current token: LBRACKET
 Trying to consume: SUB, Current token: ID
 Trying to consume: NOT, Current token: ID
 Trying to consume: ID, Current token: ID
 Trying to consume: LBRACKET, Current token: RBRACKET
+Trying to consume: DOT, Current token: RBRACKET
 Trying to consume: LPAR, Current token: RBRACKET
 Trying to consume: MUL, Current token: RBRACKET
 Trying to consume: DIV, Current token: RBRACKET
@@ -223,11 +249,13 @@ Trying to consume: OR, Current token: RBRACKET
 Trying to consume: ASSIGN, Current token: RBRACKET
 Trying to consume: RBRACKET, Current token: RBRACKET
 Trying to consume: LBRACKET, Current token: ASSIGN
+Trying to consume: DOT, Current token: ASSIGN
 Trying to consume: ASSIGN, Current token: ASSIGN
 Trying to consume: SUB, Current token: ID
 Trying to consume: NOT, Current token: ID
 Trying to consume: ID, Current token: ID
 Trying to consume: LBRACKET, Current token: SEMICOLON
+Trying to consume: DOT, Current token: SEMICOLON
 Trying to consume: LPAR, Current token: SEMICOLON
 Trying to consume: MUL, Current token: SEMICOLON
 Trying to consume: DIV, Current token: SEMICOLON
@@ -243,19 +271,29 @@ Trying to consume: AND, Current token: SEMICOLON
 Trying to consume: OR, Current token: SEMICOLON
 Trying to consume: ASSIGN, Current token: SEMICOLON
 Trying to consume: SEMICOLON, Current token: SEMICOLON
+Checking declVar
 Checking typeBase
 Trying to consume: INT, Current token: ID
 Trying to consume: DOUBLE, Current token: ID
 Trying to consume: CHAR, Current token: ID
+Trying to consume: VOID, Current token: ID
 Trying to consume: STRUCT, Current token: ID
 typeBase failed
+Trying to consume: LACC, Current token: ID
+Trying to consume: IF, Current token: ID
+Trying to consume: WHILE, Current token: ID
+Trying to consume: FOR, Current token: ID
+Trying to consume: BREAK, Current token: ID
+Trying to consume: RETURN, Current token: ID
 Trying to consume: ID, Current token: ID
 Trying to consume: LBRACKET, Current token: ASSIGN
+Trying to consume: DOT, Current token: ASSIGN
 Trying to consume: ASSIGN, Current token: ASSIGN
 Trying to consume: SUB, Current token: ID
 Trying to consume: NOT, Current token: ID
 Trying to consume: ID, Current token: ID
 Trying to consume: LBRACKET, Current token: ADD
+Trying to consume: DOT, Current token: ADD
 Trying to consume: LPAR, Current token: ADD
 Trying to consume: MUL, Current token: ADD
 Trying to consume: DIV, Current token: ADD
@@ -268,6 +306,7 @@ Trying to consume: SUB, Current token: ID
 Trying to consume: NOT, Current token: ID
 Trying to consume: ID, Current token: ID
 Trying to consume: LBRACKET, Current token: RBRACKET
+Trying to consume: DOT, Current token: RBRACKET
 Trying to consume: LPAR, Current token: RBRACKET
 Trying to consume: MUL, Current token: RBRACKET
 Trying to consume: DIV, Current token: RBRACKET
@@ -284,6 +323,7 @@ Trying to consume: OR, Current token: RBRACKET
 Trying to consume: ASSIGN, Current token: RBRACKET
 Trying to consume: RBRACKET, Current token: RBRACKET
 Trying to consume: LBRACKET, Current token: SEMICOLON
+Trying to consume: DOT, Current token: SEMICOLON
 Trying to consume: LPAR, Current token: SEMICOLON
 Trying to consume: MUL, Current token: SEMICOLON
 Trying to consume: DIV, Current token: SEMICOLON
@@ -299,19 +339,21 @@ Trying to consume: AND, Current token: SEMICOLON
 Trying to consume: OR, Current token: SEMICOLON
 Trying to consume: ASSIGN, Current token: SEMICOLON
 Trying to consume: SEMICOLON, Current token: SEMICOLON
+Checking declVar
 Checking typeBase
 Trying to consume: INT, Current token: RACC
 Trying to consume: DOUBLE, Current token: RACC
 Trying to consume: CHAR, Current token: RACC
+Trying to consume: VOID, Current token: RACC
 Trying to consume: STRUCT, Current token: RACC
 typeBase failed
-Trying to consume: ID, Current token: RACC
 Trying to consume: LACC, Current token: RACC
 Trying to consume: IF, Current token: RACC
 Trying to consume: WHILE, Current token: RACC
 Trying to consume: FOR, Current token: RACC
 Trying to consume: BREAK, Current token: RACC
 Trying to consume: RETURN, Current token: RACC
+Trying to consume: ID, Current token: RACC
 Trying to consume: SUB, Current token: RACC
 Trying to consume: NOT, Current token: RACC
 Trying to consume: ID, Current token: RACC
@@ -321,13 +363,14 @@ Trying to consume: CT_CHAR, Current token: RACC
 Trying to consume: CT_STRING, Current token: RACC
 Trying to consume: LPAR, Current token: RACC
 Trying to consume: RACC, Current token: RACC
+Checking declVar
 Checking typeBase
 Trying to consume: INT, Current token: RETURN
 Trying to consume: DOUBLE, Current token: RETURN
 Trying to consume: CHAR, Current token: RETURN
+Trying to consume: VOID, Current token: RETURN
 Trying to consume: STRUCT, Current token: RETURN
 typeBase failed
-Trying to consume: ID, Current token: RETURN
 Trying to consume: LACC, Current token: RETURN
 Trying to consume: IF, Current token: RETURN
 Trying to consume: WHILE, Current token: RETURN
@@ -338,6 +381,7 @@ Trying to consume: SUB, Current token: ID
 Trying to consume: NOT, Current token: ID
 Trying to consume: ID, Current token: ID
 Trying to consume: LBRACKET, Current token: SEMICOLON
+Trying to consume: DOT, Current token: SEMICOLON
 Trying to consume: LPAR, Current token: SEMICOLON
 Trying to consume: MUL, Current token: SEMICOLON
 Trying to consume: DIV, Current token: SEMICOLON
@@ -353,19 +397,21 @@ Trying to consume: AND, Current token: SEMICOLON
 Trying to consume: OR, Current token: SEMICOLON
 Trying to consume: ASSIGN, Current token: SEMICOLON
 Trying to consume: SEMICOLON, Current token: SEMICOLON
+Checking declVar
 Checking typeBase
 Trying to consume: INT, Current token: RACC
 Trying to consume: DOUBLE, Current token: RACC
 Trying to consume: CHAR, Current token: RACC
+Trying to consume: VOID, Current token: RACC
 Trying to consume: STRUCT, Current token: RACC
 typeBase failed
-Trying to consume: ID, Current token: RACC
 Trying to consume: LACC, Current token: RACC
 Trying to consume: IF, Current token: RACC
 Trying to consume: WHILE, Current token: RACC
 Trying to consume: FOR, Current token: RACC
 Trying to consume: BREAK, Current token: RACC
 Trying to consume: RETURN, Current token: RACC
+Trying to consume: ID, Current token: RACC
 Trying to consume: SUB, Current token: RACC
 Trying to consume: NOT, Current token: RACC
 Trying to consume: ID, Current token: RACC
@@ -375,24 +421,27 @@ Trying to consume: CT_CHAR, Current token: RACC
 Trying to consume: CT_STRING, Current token: RACC
 Trying to consume: LPAR, Current token: RACC
 Trying to consume: RACC, Current token: RACC
+Checking declStruct
 Trying to consume: STRUCT, Current token: VOID
+Checking declFunc
 Checking typeBase
 Trying to consume: INT, Current token: VOID
 Trying to consume: DOUBLE, Current token: VOID
 Trying to consume: CHAR, Current token: VOID
-Trying to consume: STRUCT, Current token: VOID
-typeBase failed
 Trying to consume: VOID, Current token: VOID
+Found VOID
 Trying to consume: ID, Current token: ID
 Trying to consume: LPAR, Current token: LPAR
 Checking typeBase
 Trying to consume: INT, Current token: RPAR
 Trying to consume: DOUBLE, Current token: RPAR
 Trying to consume: CHAR, Current token: RPAR
+Trying to consume: VOID, Current token: RPAR
 Trying to consume: STRUCT, Current token: RPAR
 typeBase failed
 Trying to consume: RPAR, Current token: RPAR
 Trying to consume: LACC, Current token: LACC
+Checking declVar
 Checking typeBase
 Trying to consume: INT, Current token: INT
 Found INT
@@ -403,13 +452,14 @@ Trying to consume: ID, Current token: ID
 Trying to consume: LBRACKET, Current token: SEMICOLON
 Trying to consume: COMMA, Current token: SEMICOLON
 Trying to consume: SEMICOLON, Current token: SEMICOLON
+Checking declVar
 Checking typeBase
 Trying to consume: INT, Current token: FOR
 Trying to consume: DOUBLE, Current token: FOR
 Trying to consume: CHAR, Current token: FOR
+Trying to consume: VOID, Current token: FOR
 Trying to consume: STRUCT, Current token: FOR
 typeBase failed
-Trying to consume: ID, Current token: FOR
 Trying to consume: LACC, Current token: FOR
 Trying to consume: IF, Current token: FOR
 Trying to consume: WHILE, Current token: FOR
@@ -419,6 +469,7 @@ Trying to consume: SUB, Current token: ID
 Trying to consume: NOT, Current token: ID
 Trying to consume: ID, Current token: ID
 Trying to consume: LBRACKET, Current token: ASSIGN
+Trying to consume: DOT, Current token: ASSIGN
 Trying to consume: LPAR, Current token: ASSIGN
 Trying to consume: MUL, Current token: ASSIGN
 Trying to consume: DIV, Current token: ASSIGN
@@ -455,6 +506,7 @@ Trying to consume: SUB, Current token: ID
 Trying to consume: NOT, Current token: ID
 Trying to consume: ID, Current token: ID
 Trying to consume: LBRACKET, Current token: LESS
+Trying to consume: DOT, Current token: LESS
 Trying to consume: LPAR, Current token: LESS
 Trying to consume: MUL, Current token: LESS
 Trying to consume: DIV, Current token: LESS
@@ -483,6 +535,7 @@ Trying to consume: SUB, Current token: ID
 Trying to consume: NOT, Current token: ID
 Trying to consume: ID, Current token: ID
 Trying to consume: LBRACKET, Current token: ASSIGN
+Trying to consume: DOT, Current token: ASSIGN
 Trying to consume: LPAR, Current token: ASSIGN
 Trying to consume: MUL, Current token: ASSIGN
 Trying to consume: DIV, Current token: ASSIGN
@@ -501,6 +554,7 @@ Trying to consume: SUB, Current token: ID
 Trying to consume: NOT, Current token: ID
 Trying to consume: ID, Current token: ID
 Trying to consume: LBRACKET, Current token: ADD
+Trying to consume: DOT, Current token: ADD
 Trying to consume: LPAR, Current token: ADD
 Trying to consume: MUL, Current token: ADD
 Trying to consume: DIV, Current token: ADD
@@ -523,13 +577,21 @@ Trying to consume: AND, Current token: RPAR
 Trying to consume: OR, Current token: RPAR
 Trying to consume: ASSIGN, Current token: RPAR
 Trying to consume: RPAR, Current token: RPAR
+Trying to consume: LACC, Current token: ID
+Trying to consume: IF, Current token: ID
+Trying to consume: WHILE, Current token: ID
+Trying to consume: FOR, Current token: ID
+Trying to consume: BREAK, Current token: ID
+Trying to consume: RETURN, Current token: ID
 Trying to consume: ID, Current token: ID
 Trying to consume: LBRACKET, Current token: ASSIGN
+Trying to consume: DOT, Current token: ASSIGN
 Trying to consume: ASSIGN, Current token: ASSIGN
 Trying to consume: SUB, Current token: ID
 Trying to consume: NOT, Current token: ID
 Trying to consume: ID, Current token: ID
 Trying to consume: LBRACKET, Current token: LPAR
+Trying to consume: DOT, Current token: LPAR
 Trying to consume: LPAR, Current token: LPAR
 Trying to consume: SUB, Current token: RPAR
 Trying to consume: NOT, Current token: RPAR
@@ -554,33 +616,35 @@ Trying to consume: AND, Current token: SEMICOLON
 Trying to consume: OR, Current token: SEMICOLON
 Trying to consume: ASSIGN, Current token: SEMICOLON
 Trying to consume: SEMICOLON, Current token: SEMICOLON
+Checking declVar
 Checking typeBase
 Trying to consume: INT, Current token: ID
 Trying to consume: DOUBLE, Current token: ID
 Trying to consume: CHAR, Current token: ID
+Trying to consume: VOID, Current token: ID
 Trying to consume: STRUCT, Current token: ID
 typeBase failed
+Trying to consume: LACC, Current token: ID
+Trying to consume: IF, Current token: ID
+Trying to consume: WHILE, Current token: ID
+Trying to consume: FOR, Current token: ID
+Trying to consume: BREAK, Current token: ID
+Trying to consume: RETURN, Current token: ID
 Trying to consume: ID, Current token: ID
 Trying to consume: LBRACKET, Current token: LPAR
+Trying to consume: DOT, Current token: LPAR
 Trying to consume: ASSIGN, Current token: LPAR
-Trying to consume: LACC, Current token: LPAR
-Trying to consume: IF, Current token: LPAR
-Trying to consume: WHILE, Current token: LPAR
-Trying to consume: FOR, Current token: LPAR
-Trying to consume: BREAK, Current token: LPAR
-Trying to consume: RETURN, Current token: LPAR
-Trying to consume: SUB, Current token: LPAR
-Trying to consume: NOT, Current token: LPAR
-Trying to consume: ID, Current token: LPAR
-Trying to consume: CT_INT, Current token: LPAR
-Trying to consume: CT_REAL, Current token: LPAR
-Trying to consume: CT_CHAR, Current token: LPAR
-Trying to consume: CT_STRING, Current token: LPAR
+Trying to consume: SUB, Current token: ID
+Trying to consume: NOT, Current token: ID
+Trying to consume: ID, Current token: ID
+Trying to consume: LBRACKET, Current token: LPAR
+Trying to consume: DOT, Current token: LPAR
 Trying to consume: LPAR, Current token: LPAR
 Trying to consume: SUB, Current token: ID
 Trying to consume: NOT, Current token: ID
 Trying to consume: ID, Current token: ID
 Trying to consume: LBRACKET, Current token: RPAR
+Trying to consume: DOT, Current token: RPAR
 Trying to consume: LPAR, Current token: RPAR
 Trying to consume: MUL, Current token: RPAR
 Trying to consume: DIV, Current token: RPAR
@@ -595,6 +659,7 @@ Trying to consume: NOTEQ, Current token: RPAR
 Trying to consume: AND, Current token: RPAR
 Trying to consume: OR, Current token: RPAR
 Trying to consume: ASSIGN, Current token: RPAR
+Trying to consume: COMMA, Current token: RPAR
 Trying to consume: RPAR, Current token: RPAR
 Trying to consume: MUL, Current token: SEMICOLON
 Trying to consume: DIV, Current token: SEMICOLON
@@ -610,19 +675,21 @@ Trying to consume: AND, Current token: SEMICOLON
 Trying to consume: OR, Current token: SEMICOLON
 Trying to consume: ASSIGN, Current token: SEMICOLON
 Trying to consume: SEMICOLON, Current token: SEMICOLON
+Checking declVar
 Checking typeBase
 Trying to consume: INT, Current token: RACC
 Trying to consume: DOUBLE, Current token: RACC
 Trying to consume: CHAR, Current token: RACC
+Trying to consume: VOID, Current token: RACC
 Trying to consume: STRUCT, Current token: RACC
 typeBase failed
-Trying to consume: ID, Current token: RACC
 Trying to consume: LACC, Current token: RACC
 Trying to consume: IF, Current token: RACC
 Trying to consume: WHILE, Current token: RACC
 Trying to consume: FOR, Current token: RACC
 Trying to consume: BREAK, Current token: RACC
 Trying to consume: RETURN, Current token: RACC
+Trying to consume: ID, Current token: RACC
 Trying to consume: SUB, Current token: RACC
 Trying to consume: NOT, Current token: RACC
 Trying to consume: ID, Current token: RACC
@@ -636,46 +703,49 @@ Trying to consume: END, Current token: END
 Result for 0.c: SUCCESS
 
 Processing file: 1.c
+Checking declStruct
 Trying to consume: STRUCT, Current token: VOID
+Checking declFunc
 Checking typeBase
 Trying to consume: INT, Current token: VOID
 Trying to consume: DOUBLE, Current token: VOID
 Trying to consume: CHAR, Current token: VOID
-Trying to consume: STRUCT, Current token: VOID
-typeBase failed
 Trying to consume: VOID, Current token: VOID
+Found VOID
 Trying to consume: ID, Current token: ID
 Trying to consume: LPAR, Current token: LPAR
 Checking typeBase
 Trying to consume: INT, Current token: RPAR
 Trying to consume: DOUBLE, Current token: RPAR
 Trying to consume: CHAR, Current token: RPAR
+Trying to consume: VOID, Current token: RPAR
 Trying to consume: STRUCT, Current token: RPAR
 typeBase failed
 Trying to consume: RPAR, Current token: RPAR
 Trying to consume: LACC, Current token: LACC
+Checking declVar
 Checking typeBase
 Trying to consume: INT, Current token: ID
 Trying to consume: DOUBLE, Current token: ID
 Trying to consume: CHAR, Current token: ID
+Trying to consume: VOID, Current token: ID
 Trying to consume: STRUCT, Current token: ID
 typeBase failed
+Trying to consume: LACC, Current token: ID
+Trying to consume: IF, Current token: ID
+Trying to consume: WHILE, Current token: ID
+Trying to consume: FOR, Current token: ID
+Trying to consume: BREAK, Current token: ID
+Trying to consume: RETURN, Current token: ID
 Trying to consume: ID, Current token: ID
 Trying to consume: LBRACKET, Current token: LPAR
+Trying to consume: DOT, Current token: LPAR
 Trying to consume: ASSIGN, Current token: LPAR
-Trying to consume: LACC, Current token: LPAR
-Trying to consume: IF, Current token: LPAR
-Trying to consume: WHILE, Current token: LPAR
-Trying to consume: FOR, Current token: LPAR
-Trying to consume: BREAK, Current token: LPAR
-Trying to consume: RETURN, Current token: LPAR
-Trying to consume: SUB, Current token: LPAR
-Trying to consume: NOT, Current token: LPAR
-Trying to consume: ID, Current token: LPAR
-Trying to consume: CT_INT, Current token: LPAR
-Trying to consume: CT_REAL, Current token: LPAR
-Trying to consume: CT_CHAR, Current token: LPAR
-Trying to consume: CT_STRING, Current token: LPAR
+Trying to consume: SUB, Current token: ID
+Trying to consume: NOT, Current token: ID
+Trying to consume: ID, Current token: ID
+Trying to consume: LBRACKET, Current token: LPAR
+Trying to consume: DOT, Current token: LPAR
 Trying to consume: LPAR, Current token: LPAR
 Trying to consume: SUB, Current token: CT_STRING
 Trying to consume: NOT, Current token: CT_STRING
@@ -697,6 +767,7 @@ Trying to consume: NOTEQ, Current token: RPAR
 Trying to consume: AND, Current token: RPAR
 Trying to consume: OR, Current token: RPAR
 Trying to consume: ASSIGN, Current token: RPAR
+Trying to consume: COMMA, Current token: RPAR
 Trying to consume: RPAR, Current token: RPAR
 Trying to consume: MUL, Current token: SEMICOLON
 Trying to consume: DIV, Current token: SEMICOLON
@@ -712,19 +783,21 @@ Trying to consume: AND, Current token: SEMICOLON
 Trying to consume: OR, Current token: SEMICOLON
 Trying to consume: ASSIGN, Current token: SEMICOLON
 Trying to consume: SEMICOLON, Current token: SEMICOLON
+Checking declVar
 Checking typeBase
 Trying to consume: INT, Current token: RACC
 Trying to consume: DOUBLE, Current token: RACC
 Trying to consume: CHAR, Current token: RACC
+Trying to consume: VOID, Current token: RACC
 Trying to consume: STRUCT, Current token: RACC
 typeBase failed
-Trying to consume: ID, Current token: RACC
 Trying to consume: LACC, Current token: RACC
 Trying to consume: IF, Current token: RACC
 Trying to consume: WHILE, Current token: RACC
 Trying to consume: FOR, Current token: RACC
 Trying to consume: BREAK, Current token: RACC
 Trying to consume: RETURN, Current token: RACC
+Trying to consume: ID, Current token: RACC
 Trying to consume: SUB, Current token: RACC
 Trying to consume: NOT, Current token: RACC
 Trying to consume: ID, Current token: RACC
@@ -738,24 +811,27 @@ Trying to consume: END, Current token: END
 Result for 1.c: SUCCESS
 
 Processing file: 2.c
+Checking declStruct
 Trying to consume: STRUCT, Current token: VOID
+Checking declFunc
 Checking typeBase
 Trying to consume: INT, Current token: VOID
 Trying to consume: DOUBLE, Current token: VOID
 Trying to consume: CHAR, Current token: VOID
-Trying to consume: STRUCT, Current token: VOID
-typeBase failed
 Trying to consume: VOID, Current token: VOID
+Found VOID
 Trying to consume: ID, Current token: ID
 Trying to consume: LPAR, Current token: LPAR
 Checking typeBase
 Trying to consume: INT, Current token: RPAR
 Trying to consume: DOUBLE, Current token: RPAR
 Trying to consume: CHAR, Current token: RPAR
+Trying to consume: VOID, Current token: RPAR
 Trying to consume: STRUCT, Current token: RPAR
 typeBase failed
 Trying to consume: RPAR, Current token: RPAR
 Trying to consume: LACC, Current token: LACC
+Checking declVar
 Checking typeBase
 Trying to consume: INT, Current token: INT
 Found INT
@@ -763,28 +839,29 @@ Trying to consume: ID, Current token: ID
 Trying to consume: LBRACKET, Current token: SEMICOLON
 Trying to consume: COMMA, Current token: SEMICOLON
 Trying to consume: SEMICOLON, Current token: SEMICOLON
+Checking declVar
 Checking typeBase
 Trying to consume: INT, Current token: ID
 Trying to consume: DOUBLE, Current token: ID
 Trying to consume: CHAR, Current token: ID
+Trying to consume: VOID, Current token: ID
 Trying to consume: STRUCT, Current token: ID
 typeBase failed
+Trying to consume: LACC, Current token: ID
+Trying to consume: IF, Current token: ID
+Trying to consume: WHILE, Current token: ID
+Trying to consume: FOR, Current token: ID
+Trying to consume: BREAK, Current token: ID
+Trying to consume: RETURN, Current token: ID
 Trying to consume: ID, Current token: ID
 Trying to consume: LBRACKET, Current token: LPAR
+Trying to consume: DOT, Current token: LPAR
 Trying to consume: ASSIGN, Current token: LPAR
-Trying to consume: LACC, Current token: LPAR
-Trying to consume: IF, Current token: LPAR
-Trying to consume: WHILE, Current token: LPAR
-Trying to consume: FOR, Current token: LPAR
-Trying to consume: BREAK, Current token: LPAR
-Trying to consume: RETURN, Current token: LPAR
-Trying to consume: SUB, Current token: LPAR
-Trying to consume: NOT, Current token: LPAR
-Trying to consume: ID, Current token: LPAR
-Trying to consume: CT_INT, Current token: LPAR
-Trying to consume: CT_REAL, Current token: LPAR
-Trying to consume: CT_CHAR, Current token: LPAR
-Trying to consume: CT_STRING, Current token: LPAR
+Trying to consume: SUB, Current token: ID
+Trying to consume: NOT, Current token: ID
+Trying to consume: ID, Current token: ID
+Trying to consume: LBRACKET, Current token: LPAR
+Trying to consume: DOT, Current token: LPAR
 Trying to consume: LPAR, Current token: LPAR
 Trying to consume: SUB, Current token: CT_STRING
 Trying to consume: NOT, Current token: CT_STRING
@@ -806,6 +883,7 @@ Trying to consume: NOTEQ, Current token: RPAR
 Trying to consume: AND, Current token: RPAR
 Trying to consume: OR, Current token: RPAR
 Trying to consume: ASSIGN, Current token: RPAR
+Trying to consume: COMMA, Current token: RPAR
 Trying to consume: RPAR, Current token: RPAR
 Trying to consume: MUL, Current token: SEMICOLON
 Trying to consume: DIV, Current token: SEMICOLON
@@ -821,19 +899,29 @@ Trying to consume: AND, Current token: SEMICOLON
 Trying to consume: OR, Current token: SEMICOLON
 Trying to consume: ASSIGN, Current token: SEMICOLON
 Trying to consume: SEMICOLON, Current token: SEMICOLON
+Checking declVar
 Checking typeBase
 Trying to consume: INT, Current token: ID
 Trying to consume: DOUBLE, Current token: ID
 Trying to consume: CHAR, Current token: ID
+Trying to consume: VOID, Current token: ID
 Trying to consume: STRUCT, Current token: ID
 typeBase failed
+Trying to consume: LACC, Current token: ID
+Trying to consume: IF, Current token: ID
+Trying to consume: WHILE, Current token: ID
+Trying to consume: FOR, Current token: ID
+Trying to consume: BREAK, Current token: ID
+Trying to consume: RETURN, Current token: ID
 Trying to consume: ID, Current token: ID
 Trying to consume: LBRACKET, Current token: ASSIGN
+Trying to consume: DOT, Current token: ASSIGN
 Trying to consume: ASSIGN, Current token: ASSIGN
 Trying to consume: SUB, Current token: ID
 Trying to consume: NOT, Current token: ID
 Trying to consume: ID, Current token: ID
 Trying to consume: LBRACKET, Current token: LPAR
+Trying to consume: DOT, Current token: LPAR
 Trying to consume: LPAR, Current token: LPAR
 Trying to consume: SUB, Current token: RPAR
 Trying to consume: NOT, Current token: RPAR
@@ -858,33 +946,35 @@ Trying to consume: AND, Current token: SEMICOLON
 Trying to consume: OR, Current token: SEMICOLON
 Trying to consume: ASSIGN, Current token: SEMICOLON
 Trying to consume: SEMICOLON, Current token: SEMICOLON
+Checking declVar
 Checking typeBase
 Trying to consume: INT, Current token: ID
 Trying to consume: DOUBLE, Current token: ID
 Trying to consume: CHAR, Current token: ID
+Trying to consume: VOID, Current token: ID
 Trying to consume: STRUCT, Current token: ID
 typeBase failed
+Trying to consume: LACC, Current token: ID
+Trying to consume: IF, Current token: ID
+Trying to consume: WHILE, Current token: ID
+Trying to consume: FOR, Current token: ID
+Trying to consume: BREAK, Current token: ID
+Trying to consume: RETURN, Current token: ID
 Trying to consume: ID, Current token: ID
 Trying to consume: LBRACKET, Current token: LPAR
+Trying to consume: DOT, Current token: LPAR
 Trying to consume: ASSIGN, Current token: LPAR
-Trying to consume: LACC, Current token: LPAR
-Trying to consume: IF, Current token: LPAR
-Trying to consume: WHILE, Current token: LPAR
-Trying to consume: FOR, Current token: LPAR
-Trying to consume: BREAK, Current token: LPAR
-Trying to consume: RETURN, Current token: LPAR
-Trying to consume: SUB, Current token: LPAR
-Trying to consume: NOT, Current token: LPAR
-Trying to consume: ID, Current token: LPAR
-Trying to consume: CT_INT, Current token: LPAR
-Trying to consume: CT_REAL, Current token: LPAR
-Trying to consume: CT_CHAR, Current token: LPAR
-Trying to consume: CT_STRING, Current token: LPAR
+Trying to consume: SUB, Current token: ID
+Trying to consume: NOT, Current token: ID
+Trying to consume: ID, Current token: ID
+Trying to consume: LBRACKET, Current token: LPAR
+Trying to consume: DOT, Current token: LPAR
 Trying to consume: LPAR, Current token: LPAR
 Trying to consume: SUB, Current token: ID
 Trying to consume: NOT, Current token: ID
 Trying to consume: ID, Current token: ID
 Trying to consume: LBRACKET, Current token: RPAR
+Trying to consume: DOT, Current token: RPAR
 Trying to consume: LPAR, Current token: RPAR
 Trying to consume: MUL, Current token: RPAR
 Trying to consume: DIV, Current token: RPAR
@@ -899,6 +989,7 @@ Trying to consume: NOTEQ, Current token: RPAR
 Trying to consume: AND, Current token: RPAR
 Trying to consume: OR, Current token: RPAR
 Trying to consume: ASSIGN, Current token: RPAR
+Trying to consume: COMMA, Current token: RPAR
 Trying to consume: RPAR, Current token: RPAR
 Trying to consume: MUL, Current token: SEMICOLON
 Trying to consume: DIV, Current token: SEMICOLON
@@ -914,19 +1005,21 @@ Trying to consume: AND, Current token: SEMICOLON
 Trying to consume: OR, Current token: SEMICOLON
 Trying to consume: ASSIGN, Current token: SEMICOLON
 Trying to consume: SEMICOLON, Current token: SEMICOLON
+Checking declVar
 Checking typeBase
 Trying to consume: INT, Current token: RACC
 Trying to consume: DOUBLE, Current token: RACC
 Trying to consume: CHAR, Current token: RACC
+Trying to consume: VOID, Current token: RACC
 Trying to consume: STRUCT, Current token: RACC
 typeBase failed
-Trying to consume: ID, Current token: RACC
 Trying to consume: LACC, Current token: RACC
 Trying to consume: IF, Current token: RACC
 Trying to consume: WHILE, Current token: RACC
 Trying to consume: FOR, Current token: RACC
 Trying to consume: BREAK, Current token: RACC
 Trying to consume: RETURN, Current token: RACC
+Trying to consume: ID, Current token: RACC
 Trying to consume: SUB, Current token: RACC
 Trying to consume: NOT, Current token: RACC
 Trying to consume: ID, Current token: RACC
@@ -940,24 +1033,27 @@ Trying to consume: END, Current token: END
 Result for 2.c: SUCCESS
 
 Processing file: 3.c
+Checking declStruct
 Trying to consume: STRUCT, Current token: VOID
+Checking declFunc
 Checking typeBase
 Trying to consume: INT, Current token: VOID
 Trying to consume: DOUBLE, Current token: VOID
 Trying to consume: CHAR, Current token: VOID
-Trying to consume: STRUCT, Current token: VOID
-typeBase failed
 Trying to consume: VOID, Current token: VOID
+Found VOID
 Trying to consume: ID, Current token: ID
 Trying to consume: LPAR, Current token: LPAR
 Checking typeBase
 Trying to consume: INT, Current token: RPAR
 Trying to consume: DOUBLE, Current token: RPAR
 Trying to consume: CHAR, Current token: RPAR
+Trying to consume: VOID, Current token: RPAR
 Trying to consume: STRUCT, Current token: RPAR
 typeBase failed
 Trying to consume: RPAR, Current token: RPAR
 Trying to consume: LACC, Current token: LACC
+Checking declVar
 Checking typeBase
 Trying to consume: INT, Current token: INT
 Found INT
@@ -965,28 +1061,29 @@ Trying to consume: ID, Current token: ID
 Trying to consume: LBRACKET, Current token: SEMICOLON
 Trying to consume: COMMA, Current token: SEMICOLON
 Trying to consume: SEMICOLON, Current token: SEMICOLON
+Checking declVar
 Checking typeBase
 Trying to consume: INT, Current token: ID
 Trying to consume: DOUBLE, Current token: ID
 Trying to consume: CHAR, Current token: ID
+Trying to consume: VOID, Current token: ID
 Trying to consume: STRUCT, Current token: ID
 typeBase failed
+Trying to consume: LACC, Current token: ID
+Trying to consume: IF, Current token: ID
+Trying to consume: WHILE, Current token: ID
+Trying to consume: FOR, Current token: ID
+Trying to consume: BREAK, Current token: ID
+Trying to consume: RETURN, Current token: ID
 Trying to consume: ID, Current token: ID
 Trying to consume: LBRACKET, Current token: LPAR
+Trying to consume: DOT, Current token: LPAR
 Trying to consume: ASSIGN, Current token: LPAR
-Trying to consume: LACC, Current token: LPAR
-Trying to consume: IF, Current token: LPAR
-Trying to consume: WHILE, Current token: LPAR
-Trying to consume: FOR, Current token: LPAR
-Trying to consume: BREAK, Current token: LPAR
-Trying to consume: RETURN, Current token: LPAR
-Trying to consume: SUB, Current token: LPAR
-Trying to consume: NOT, Current token: LPAR
-Trying to consume: ID, Current token: LPAR
-Trying to consume: CT_INT, Current token: LPAR
-Trying to consume: CT_REAL, Current token: LPAR
-Trying to consume: CT_CHAR, Current token: LPAR
-Trying to consume: CT_STRING, Current token: LPAR
+Trying to consume: SUB, Current token: ID
+Trying to consume: NOT, Current token: ID
+Trying to consume: ID, Current token: ID
+Trying to consume: LBRACKET, Current token: LPAR
+Trying to consume: DOT, Current token: LPAR
 Trying to consume: LPAR, Current token: LPAR
 Trying to consume: SUB, Current token: CT_STRING
 Trying to consume: NOT, Current token: CT_STRING
@@ -1008,6 +1105,7 @@ Trying to consume: NOTEQ, Current token: RPAR
 Trying to consume: AND, Current token: RPAR
 Trying to consume: OR, Current token: RPAR
 Trying to consume: ASSIGN, Current token: RPAR
+Trying to consume: COMMA, Current token: RPAR
 Trying to consume: RPAR, Current token: RPAR
 Trying to consume: MUL, Current token: SEMICOLON
 Trying to consume: DIV, Current token: SEMICOLON
@@ -1023,19 +1121,29 @@ Trying to consume: AND, Current token: SEMICOLON
 Trying to consume: OR, Current token: SEMICOLON
 Trying to consume: ASSIGN, Current token: SEMICOLON
 Trying to consume: SEMICOLON, Current token: SEMICOLON
+Checking declVar
 Checking typeBase
 Trying to consume: INT, Current token: ID
 Trying to consume: DOUBLE, Current token: ID
 Trying to consume: CHAR, Current token: ID
+Trying to consume: VOID, Current token: ID
 Trying to consume: STRUCT, Current token: ID
 typeBase failed
+Trying to consume: LACC, Current token: ID
+Trying to consume: IF, Current token: ID
+Trying to consume: WHILE, Current token: ID
+Trying to consume: FOR, Current token: ID
+Trying to consume: BREAK, Current token: ID
+Trying to consume: RETURN, Current token: ID
 Trying to consume: ID, Current token: ID
 Trying to consume: LBRACKET, Current token: ASSIGN
+Trying to consume: DOT, Current token: ASSIGN
 Trying to consume: ASSIGN, Current token: ASSIGN
 Trying to consume: SUB, Current token: ID
 Trying to consume: NOT, Current token: ID
 Trying to consume: ID, Current token: ID
 Trying to consume: LBRACKET, Current token: LPAR
+Trying to consume: DOT, Current token: LPAR
 Trying to consume: LPAR, Current token: LPAR
 Trying to consume: SUB, Current token: RPAR
 Trying to consume: NOT, Current token: RPAR
@@ -1060,13 +1168,14 @@ Trying to consume: AND, Current token: SEMICOLON
 Trying to consume: OR, Current token: SEMICOLON
 Trying to consume: ASSIGN, Current token: SEMICOLON
 Trying to consume: SEMICOLON, Current token: SEMICOLON
+Checking declVar
 Checking typeBase
 Trying to consume: INT, Current token: IF
 Trying to consume: DOUBLE, Current token: IF
 Trying to consume: CHAR, Current token: IF
+Trying to consume: VOID, Current token: IF
 Trying to consume: STRUCT, Current token: IF
 typeBase failed
-Trying to consume: ID, Current token: IF
 Trying to consume: LACC, Current token: IF
 Trying to consume: IF, Current token: IF
 Trying to consume: LPAR, Current token: LPAR
@@ -1074,6 +1183,7 @@ Trying to consume: SUB, Current token: ID
 Trying to consume: NOT, Current token: ID
 Trying to consume: ID, Current token: ID
 Trying to consume: LBRACKET, Current token: LESS
+Trying to consume: DOT, Current token: LESS
 Trying to consume: LPAR, Current token: LESS
 Trying to consume: MUL, Current token: LESS
 Trying to consume: DIV, Current token: LESS
@@ -1098,22 +1208,21 @@ Trying to consume: AND, Current token: RPAR
 Trying to consume: OR, Current token: RPAR
 Trying to consume: ASSIGN, Current token: RPAR
 Trying to consume: RPAR, Current token: RPAR
+Trying to consume: LACC, Current token: ID
+Trying to consume: IF, Current token: ID
+Trying to consume: WHILE, Current token: ID
+Trying to consume: FOR, Current token: ID
+Trying to consume: BREAK, Current token: ID
+Trying to consume: RETURN, Current token: ID
 Trying to consume: ID, Current token: ID
 Trying to consume: LBRACKET, Current token: LPAR
+Trying to consume: DOT, Current token: LPAR
 Trying to consume: ASSIGN, Current token: LPAR
-Trying to consume: LACC, Current token: LPAR
-Trying to consume: IF, Current token: LPAR
-Trying to consume: WHILE, Current token: LPAR
-Trying to consume: FOR, Current token: LPAR
-Trying to consume: BREAK, Current token: LPAR
-Trying to consume: RETURN, Current token: LPAR
-Trying to consume: SUB, Current token: LPAR
-Trying to consume: NOT, Current token: LPAR
-Trying to consume: ID, Current token: LPAR
-Trying to consume: CT_INT, Current token: LPAR
-Trying to consume: CT_REAL, Current token: LPAR
-Trying to consume: CT_CHAR, Current token: LPAR
-Trying to consume: CT_STRING, Current token: LPAR
+Trying to consume: SUB, Current token: ID
+Trying to consume: NOT, Current token: ID
+Trying to consume: ID, Current token: ID
+Trying to consume: LBRACKET, Current token: LPAR
+Trying to consume: DOT, Current token: LPAR
 Trying to consume: LPAR, Current token: LPAR
 Trying to consume: SUB, Current token: CT_STRING
 Trying to consume: NOT, Current token: CT_STRING
@@ -1135,6 +1244,7 @@ Trying to consume: NOTEQ, Current token: RPAR
 Trying to consume: AND, Current token: RPAR
 Trying to consume: OR, Current token: RPAR
 Trying to consume: ASSIGN, Current token: RPAR
+Trying to consume: COMMA, Current token: RPAR
 Trying to consume: RPAR, Current token: RPAR
 Trying to consume: MUL, Current token: SEMICOLON
 Trying to consume: DIV, Current token: SEMICOLON
@@ -1151,22 +1261,21 @@ Trying to consume: OR, Current token: SEMICOLON
 Trying to consume: ASSIGN, Current token: SEMICOLON
 Trying to consume: SEMICOLON, Current token: SEMICOLON
 Trying to consume: ELSE, Current token: ELSE
+Trying to consume: LACC, Current token: ID
+Trying to consume: IF, Current token: ID
+Trying to consume: WHILE, Current token: ID
+Trying to consume: FOR, Current token: ID
+Trying to consume: BREAK, Current token: ID
+Trying to consume: RETURN, Current token: ID
 Trying to consume: ID, Current token: ID
 Trying to consume: LBRACKET, Current token: LPAR
+Trying to consume: DOT, Current token: LPAR
 Trying to consume: ASSIGN, Current token: LPAR
-Trying to consume: LACC, Current token: LPAR
-Trying to consume: IF, Current token: LPAR
-Trying to consume: WHILE, Current token: LPAR
-Trying to consume: FOR, Current token: LPAR
-Trying to consume: BREAK, Current token: LPAR
-Trying to consume: RETURN, Current token: LPAR
-Trying to consume: SUB, Current token: LPAR
-Trying to consume: NOT, Current token: LPAR
-Trying to consume: ID, Current token: LPAR
-Trying to consume: CT_INT, Current token: LPAR
-Trying to consume: CT_REAL, Current token: LPAR
-Trying to consume: CT_CHAR, Current token: LPAR
-Trying to consume: CT_STRING, Current token: LPAR
+Trying to consume: SUB, Current token: ID
+Trying to consume: NOT, Current token: ID
+Trying to consume: ID, Current token: ID
+Trying to consume: LBRACKET, Current token: LPAR
+Trying to consume: DOT, Current token: LPAR
 Trying to consume: LPAR, Current token: LPAR
 Trying to consume: SUB, Current token: CT_STRING
 Trying to consume: NOT, Current token: CT_STRING
@@ -1188,6 +1297,7 @@ Trying to consume: NOTEQ, Current token: RPAR
 Trying to consume: AND, Current token: RPAR
 Trying to consume: OR, Current token: RPAR
 Trying to consume: ASSIGN, Current token: RPAR
+Trying to consume: COMMA, Current token: RPAR
 Trying to consume: RPAR, Current token: RPAR
 Trying to consume: MUL, Current token: SEMICOLON
 Trying to consume: DIV, Current token: SEMICOLON
@@ -1203,19 +1313,21 @@ Trying to consume: AND, Current token: SEMICOLON
 Trying to consume: OR, Current token: SEMICOLON
 Trying to consume: ASSIGN, Current token: SEMICOLON
 Trying to consume: SEMICOLON, Current token: SEMICOLON
+Checking declVar
 Checking typeBase
 Trying to consume: INT, Current token: RACC
 Trying to consume: DOUBLE, Current token: RACC
 Trying to consume: CHAR, Current token: RACC
+Trying to consume: VOID, Current token: RACC
 Trying to consume: STRUCT, Current token: RACC
 typeBase failed
-Trying to consume: ID, Current token: RACC
 Trying to consume: LACC, Current token: RACC
 Trying to consume: IF, Current token: RACC
 Trying to consume: WHILE, Current token: RACC
 Trying to consume: FOR, Current token: RACC
 Trying to consume: BREAK, Current token: RACC
 Trying to consume: RETURN, Current token: RACC
+Trying to consume: ID, Current token: RACC
 Trying to consume: SUB, Current token: RACC
 Trying to consume: NOT, Current token: RACC
 Trying to consume: ID, Current token: RACC
@@ -1229,7 +1341,9 @@ Trying to consume: END, Current token: END
 Result for 3.c: SUCCESS
 
 Processing file: 4.c
+Checking declStruct
 Trying to consume: STRUCT, Current token: INT
+Checking declFunc
 Checking typeBase
 Trying to consume: INT, Current token: INT
 Found INT
@@ -1245,13 +1359,14 @@ Trying to consume: LBRACKET, Current token: RPAR
 Trying to consume: COMMA, Current token: RPAR
 Trying to consume: RPAR, Current token: RPAR
 Trying to consume: LACC, Current token: LACC
+Checking declVar
 Checking typeBase
 Trying to consume: INT, Current token: RETURN
 Trying to consume: DOUBLE, Current token: RETURN
 Trying to consume: CHAR, Current token: RETURN
+Trying to consume: VOID, Current token: RETURN
 Trying to consume: STRUCT, Current token: RETURN
 typeBase failed
-Trying to consume: ID, Current token: RETURN
 Trying to consume: LACC, Current token: RETURN
 Trying to consume: IF, Current token: RETURN
 Trying to consume: WHILE, Current token: RETURN
@@ -1262,6 +1377,7 @@ Trying to consume: SUB, Current token: ID
 Trying to consume: NOT, Current token: ID
 Trying to consume: ID, Current token: ID
 Trying to consume: LBRACKET, Current token: GREATEREQ
+Trying to consume: DOT, Current token: GREATEREQ
 Trying to consume: LPAR, Current token: GREATEREQ
 Trying to consume: MUL, Current token: GREATEREQ
 Trying to consume: DIV, Current token: GREATEREQ
@@ -1292,6 +1408,7 @@ Trying to consume: SUB, Current token: ID
 Trying to consume: NOT, Current token: ID
 Trying to consume: ID, Current token: ID
 Trying to consume: LBRACKET, Current token: LESSEQ
+Trying to consume: DOT, Current token: LESSEQ
 Trying to consume: LPAR, Current token: LESSEQ
 Trying to consume: MUL, Current token: LESSEQ
 Trying to consume: DIV, Current token: LESSEQ
@@ -1319,19 +1436,21 @@ Trying to consume: AND, Current token: SEMICOLON
 Trying to consume: OR, Current token: SEMICOLON
 Trying to consume: ASSIGN, Current token: SEMICOLON
 Trying to consume: SEMICOLON, Current token: SEMICOLON
+Checking declVar
 Checking typeBase
 Trying to consume: INT, Current token: RACC
 Trying to consume: DOUBLE, Current token: RACC
 Trying to consume: CHAR, Current token: RACC
+Trying to consume: VOID, Current token: RACC
 Trying to consume: STRUCT, Current token: RACC
 typeBase failed
-Trying to consume: ID, Current token: RACC
 Trying to consume: LACC, Current token: RACC
 Trying to consume: IF, Current token: RACC
 Trying to consume: WHILE, Current token: RACC
 Trying to consume: FOR, Current token: RACC
 Trying to consume: BREAK, Current token: RACC
 Trying to consume: RETURN, Current token: RACC
+Trying to consume: ID, Current token: RACC
 Trying to consume: SUB, Current token: RACC
 Trying to consume: NOT, Current token: RACC
 Trying to consume: ID, Current token: RACC
@@ -1341,24 +1460,27 @@ Trying to consume: CT_CHAR, Current token: RACC
 Trying to consume: CT_STRING, Current token: RACC
 Trying to consume: LPAR, Current token: RACC
 Trying to consume: RACC, Current token: RACC
+Checking declStruct
 Trying to consume: STRUCT, Current token: VOID
+Checking declFunc
 Checking typeBase
 Trying to consume: INT, Current token: VOID
 Trying to consume: DOUBLE, Current token: VOID
 Trying to consume: CHAR, Current token: VOID
-Trying to consume: STRUCT, Current token: VOID
-typeBase failed
 Trying to consume: VOID, Current token: VOID
+Found VOID
 Trying to consume: ID, Current token: ID
 Trying to consume: LPAR, Current token: LPAR
 Checking typeBase
 Trying to consume: INT, Current token: RPAR
 Trying to consume: DOUBLE, Current token: RPAR
 Trying to consume: CHAR, Current token: RPAR
+Trying to consume: VOID, Current token: RPAR
 Trying to consume: STRUCT, Current token: RPAR
 typeBase failed
 Trying to consume: RPAR, Current token: RPAR
 Trying to consume: LACC, Current token: LACC
+Checking declVar
 Checking typeBase
 Trying to consume: INT, Current token: CHAR
 Trying to consume: DOUBLE, Current token: CHAR
@@ -1368,28 +1490,29 @@ Trying to consume: ID, Current token: ID
 Trying to consume: LBRACKET, Current token: SEMICOLON
 Trying to consume: COMMA, Current token: SEMICOLON
 Trying to consume: SEMICOLON, Current token: SEMICOLON
+Checking declVar
 Checking typeBase
 Trying to consume: INT, Current token: ID
 Trying to consume: DOUBLE, Current token: ID
 Trying to consume: CHAR, Current token: ID
+Trying to consume: VOID, Current token: ID
 Trying to consume: STRUCT, Current token: ID
 typeBase failed
+Trying to consume: LACC, Current token: ID
+Trying to consume: IF, Current token: ID
+Trying to consume: WHILE, Current token: ID
+Trying to consume: FOR, Current token: ID
+Trying to consume: BREAK, Current token: ID
+Trying to consume: RETURN, Current token: ID
 Trying to consume: ID, Current token: ID
 Trying to consume: LBRACKET, Current token: LPAR
+Trying to consume: DOT, Current token: LPAR
 Trying to consume: ASSIGN, Current token: LPAR
-Trying to consume: LACC, Current token: LPAR
-Trying to consume: IF, Current token: LPAR
-Trying to consume: WHILE, Current token: LPAR
-Trying to consume: FOR, Current token: LPAR
-Trying to consume: BREAK, Current token: LPAR
-Trying to consume: RETURN, Current token: LPAR
-Trying to consume: SUB, Current token: LPAR
-Trying to consume: NOT, Current token: LPAR
-Trying to consume: ID, Current token: LPAR
-Trying to consume: CT_INT, Current token: LPAR
-Trying to consume: CT_REAL, Current token: LPAR
-Trying to consume: CT_CHAR, Current token: LPAR
-Trying to consume: CT_STRING, Current token: LPAR
+Trying to consume: SUB, Current token: ID
+Trying to consume: NOT, Current token: ID
+Trying to consume: ID, Current token: ID
+Trying to consume: LBRACKET, Current token: LPAR
+Trying to consume: DOT, Current token: LPAR
 Trying to consume: LPAR, Current token: LPAR
 Trying to consume: SUB, Current token: CT_STRING
 Trying to consume: NOT, Current token: CT_STRING
@@ -1411,6 +1534,7 @@ Trying to consume: NOTEQ, Current token: RPAR
 Trying to consume: AND, Current token: RPAR
 Trying to consume: OR, Current token: RPAR
 Trying to consume: ASSIGN, Current token: RPAR
+Trying to consume: COMMA, Current token: RPAR
 Trying to consume: RPAR, Current token: RPAR
 Trying to consume: MUL, Current token: SEMICOLON
 Trying to consume: DIV, Current token: SEMICOLON
@@ -1426,19 +1550,29 @@ Trying to consume: AND, Current token: SEMICOLON
 Trying to consume: OR, Current token: SEMICOLON
 Trying to consume: ASSIGN, Current token: SEMICOLON
 Trying to consume: SEMICOLON, Current token: SEMICOLON
+Checking declVar
 Checking typeBase
 Trying to consume: INT, Current token: ID
 Trying to consume: DOUBLE, Current token: ID
 Trying to consume: CHAR, Current token: ID
+Trying to consume: VOID, Current token: ID
 Trying to consume: STRUCT, Current token: ID
 typeBase failed
+Trying to consume: LACC, Current token: ID
+Trying to consume: IF, Current token: ID
+Trying to consume: WHILE, Current token: ID
+Trying to consume: FOR, Current token: ID
+Trying to consume: BREAK, Current token: ID
+Trying to consume: RETURN, Current token: ID
 Trying to consume: ID, Current token: ID
 Trying to consume: LBRACKET, Current token: ASSIGN
+Trying to consume: DOT, Current token: ASSIGN
 Trying to consume: ASSIGN, Current token: ASSIGN
 Trying to consume: SUB, Current token: ID
 Trying to consume: NOT, Current token: ID
 Trying to consume: ID, Current token: ID
 Trying to consume: LBRACKET, Current token: LPAR
+Trying to consume: DOT, Current token: LPAR
 Trying to consume: LPAR, Current token: LPAR
 Trying to consume: SUB, Current token: RPAR
 Trying to consume: NOT, Current token: RPAR
@@ -1463,38 +1597,41 @@ Trying to consume: AND, Current token: SEMICOLON
 Trying to consume: OR, Current token: SEMICOLON
 Trying to consume: ASSIGN, Current token: SEMICOLON
 Trying to consume: SEMICOLON, Current token: SEMICOLON
+Checking declVar
 Checking typeBase
 Trying to consume: INT, Current token: ID
 Trying to consume: DOUBLE, Current token: ID
 Trying to consume: CHAR, Current token: ID
+Trying to consume: VOID, Current token: ID
 Trying to consume: STRUCT, Current token: ID
 typeBase failed
+Trying to consume: LACC, Current token: ID
+Trying to consume: IF, Current token: ID
+Trying to consume: WHILE, Current token: ID
+Trying to consume: FOR, Current token: ID
+Trying to consume: BREAK, Current token: ID
+Trying to consume: RETURN, Current token: ID
 Trying to consume: ID, Current token: ID
 Trying to consume: LBRACKET, Current token: LPAR
+Trying to consume: DOT, Current token: LPAR
 Trying to consume: ASSIGN, Current token: LPAR
-Trying to consume: LACC, Current token: LPAR
-Trying to consume: IF, Current token: LPAR
-Trying to consume: WHILE, Current token: LPAR
-Trying to consume: FOR, Current token: LPAR
-Trying to consume: BREAK, Current token: LPAR
-Trying to consume: RETURN, Current token: LPAR
-Trying to consume: SUB, Current token: LPAR
-Trying to consume: NOT, Current token: LPAR
-Trying to consume: ID, Current token: LPAR
-Trying to consume: CT_INT, Current token: LPAR
-Trying to consume: CT_REAL, Current token: LPAR
-Trying to consume: CT_CHAR, Current token: LPAR
-Trying to consume: CT_STRING, Current token: LPAR
+Trying to consume: SUB, Current token: ID
+Trying to consume: NOT, Current token: ID
+Trying to consume: ID, Current token: ID
+Trying to consume: LBRACKET, Current token: LPAR
+Trying to consume: DOT, Current token: LPAR
 Trying to consume: LPAR, Current token: LPAR
 Trying to consume: SUB, Current token: ID
 Trying to consume: NOT, Current token: ID
 Trying to consume: ID, Current token: ID
 Trying to consume: LBRACKET, Current token: LPAR
+Trying to consume: DOT, Current token: LPAR
 Trying to consume: LPAR, Current token: LPAR
 Trying to consume: SUB, Current token: ID
 Trying to consume: NOT, Current token: ID
 Trying to consume: ID, Current token: ID
 Trying to consume: LBRACKET, Current token: RPAR
+Trying to consume: DOT, Current token: RPAR
 Trying to consume: LPAR, Current token: RPAR
 Trying to consume: MUL, Current token: RPAR
 Trying to consume: DIV, Current token: RPAR
@@ -1524,6 +1661,7 @@ Trying to consume: NOTEQ, Current token: RPAR
 Trying to consume: AND, Current token: RPAR
 Trying to consume: OR, Current token: RPAR
 Trying to consume: ASSIGN, Current token: RPAR
+Trying to consume: COMMA, Current token: RPAR
 Trying to consume: RPAR, Current token: RPAR
 Trying to consume: MUL, Current token: SEMICOLON
 Trying to consume: DIV, Current token: SEMICOLON
@@ -1539,19 +1677,21 @@ Trying to consume: AND, Current token: SEMICOLON
 Trying to consume: OR, Current token: SEMICOLON
 Trying to consume: ASSIGN, Current token: SEMICOLON
 Trying to consume: SEMICOLON, Current token: SEMICOLON
+Checking declVar
 Checking typeBase
 Trying to consume: INT, Current token: RACC
 Trying to consume: DOUBLE, Current token: RACC
 Trying to consume: CHAR, Current token: RACC
+Trying to consume: VOID, Current token: RACC
 Trying to consume: STRUCT, Current token: RACC
 typeBase failed
-Trying to consume: ID, Current token: RACC
 Trying to consume: LACC, Current token: RACC
 Trying to consume: IF, Current token: RACC
 Trying to consume: WHILE, Current token: RACC
 Trying to consume: FOR, Current token: RACC
 Trying to consume: BREAK, Current token: RACC
 Trying to consume: RETURN, Current token: RACC
+Trying to consume: ID, Current token: RACC
 Trying to consume: SUB, Current token: RACC
 Trying to consume: NOT, Current token: RACC
 Trying to consume: ID, Current token: RACC
@@ -1565,24 +1705,27 @@ Trying to consume: END, Current token: END
 Result for 4.c: SUCCESS
 
 Processing file: 5.c
+Checking declStruct
 Trying to consume: STRUCT, Current token: VOID
+Checking declFunc
 Checking typeBase
 Trying to consume: INT, Current token: VOID
 Trying to consume: DOUBLE, Current token: VOID
 Trying to consume: CHAR, Current token: VOID
-Trying to consume: STRUCT, Current token: VOID
-typeBase failed
 Trying to consume: VOID, Current token: VOID
+Found VOID
 Trying to consume: ID, Current token: ID
 Trying to consume: LPAR, Current token: LPAR
 Checking typeBase
 Trying to consume: INT, Current token: RPAR
 Trying to consume: DOUBLE, Current token: RPAR
 Trying to consume: CHAR, Current token: RPAR
+Trying to consume: VOID, Current token: RPAR
 Trying to consume: STRUCT, Current token: RPAR
 typeBase failed
 Trying to consume: RPAR, Current token: RPAR
 Trying to consume: LACC, Current token: LACC
+Checking declVar
 Checking typeBase
 Trying to consume: INT, Current token: INT
 Found INT
@@ -1593,6 +1736,7 @@ Trying to consume: ID, Current token: ID
 Trying to consume: LBRACKET, Current token: SEMICOLON
 Trying to consume: COMMA, Current token: SEMICOLON
 Trying to consume: SEMICOLON, Current token: SEMICOLON
+Checking declVar
 Checking typeBase
 Trying to consume: INT, Current token: DOUBLE
 Trying to consume: DOUBLE, Current token: DOUBLE
@@ -1601,14 +1745,23 @@ Trying to consume: ID, Current token: ID
 Trying to consume: LBRACKET, Current token: SEMICOLON
 Trying to consume: COMMA, Current token: SEMICOLON
 Trying to consume: SEMICOLON, Current token: SEMICOLON
+Checking declVar
 Checking typeBase
 Trying to consume: INT, Current token: ID
 Trying to consume: DOUBLE, Current token: ID
 Trying to consume: CHAR, Current token: ID
+Trying to consume: VOID, Current token: ID
 Trying to consume: STRUCT, Current token: ID
 typeBase failed
+Trying to consume: LACC, Current token: ID
+Trying to consume: IF, Current token: ID
+Trying to consume: WHILE, Current token: ID
+Trying to consume: FOR, Current token: ID
+Trying to consume: BREAK, Current token: ID
+Trying to consume: RETURN, Current token: ID
 Trying to consume: ID, Current token: ID
 Trying to consume: LBRACKET, Current token: ASSIGN
+Trying to consume: DOT, Current token: ASSIGN
 Trying to consume: ASSIGN, Current token: ASSIGN
 Trying to consume: SUB, Current token: CT_REAL
 Trying to consume: NOT, Current token: CT_REAL
@@ -1629,28 +1782,29 @@ Trying to consume: AND, Current token: SEMICOLON
 Trying to consume: OR, Current token: SEMICOLON
 Trying to consume: ASSIGN, Current token: SEMICOLON
 Trying to consume: SEMICOLON, Current token: SEMICOLON
+Checking declVar
 Checking typeBase
 Trying to consume: INT, Current token: ID
 Trying to consume: DOUBLE, Current token: ID
 Trying to consume: CHAR, Current token: ID
+Trying to consume: VOID, Current token: ID
 Trying to consume: STRUCT, Current token: ID
 typeBase failed
+Trying to consume: LACC, Current token: ID
+Trying to consume: IF, Current token: ID
+Trying to consume: WHILE, Current token: ID
+Trying to consume: FOR, Current token: ID
+Trying to consume: BREAK, Current token: ID
+Trying to consume: RETURN, Current token: ID
 Trying to consume: ID, Current token: ID
 Trying to consume: LBRACKET, Current token: LPAR
+Trying to consume: DOT, Current token: LPAR
 Trying to consume: ASSIGN, Current token: LPAR
-Trying to consume: LACC, Current token: LPAR
-Trying to consume: IF, Current token: LPAR
-Trying to consume: WHILE, Current token: LPAR
-Trying to consume: FOR, Current token: LPAR
-Trying to consume: BREAK, Current token: LPAR
-Trying to consume: RETURN, Current token: LPAR
-Trying to consume: SUB, Current token: LPAR
-Trying to consume: NOT, Current token: LPAR
-Trying to consume: ID, Current token: LPAR
-Trying to consume: CT_INT, Current token: LPAR
-Trying to consume: CT_REAL, Current token: LPAR
-Trying to consume: CT_CHAR, Current token: LPAR
-Trying to consume: CT_STRING, Current token: LPAR
+Trying to consume: SUB, Current token: ID
+Trying to consume: NOT, Current token: ID
+Trying to consume: ID, Current token: ID
+Trying to consume: LBRACKET, Current token: LPAR
+Trying to consume: DOT, Current token: LPAR
 Trying to consume: LPAR, Current token: LPAR
 Trying to consume: SUB, Current token: CT_STRING
 Trying to consume: NOT, Current token: CT_STRING
@@ -1672,6 +1826,7 @@ Trying to consume: NOTEQ, Current token: RPAR
 Trying to consume: AND, Current token: RPAR
 Trying to consume: OR, Current token: RPAR
 Trying to consume: ASSIGN, Current token: RPAR
+Trying to consume: COMMA, Current token: RPAR
 Trying to consume: RPAR, Current token: RPAR
 Trying to consume: MUL, Current token: SEMICOLON
 Trying to consume: DIV, Current token: SEMICOLON
@@ -1687,19 +1842,29 @@ Trying to consume: AND, Current token: SEMICOLON
 Trying to consume: OR, Current token: SEMICOLON
 Trying to consume: ASSIGN, Current token: SEMICOLON
 Trying to consume: SEMICOLON, Current token: SEMICOLON
+Checking declVar
 Checking typeBase
 Trying to consume: INT, Current token: ID
 Trying to consume: DOUBLE, Current token: ID
 Trying to consume: CHAR, Current token: ID
+Trying to consume: VOID, Current token: ID
 Trying to consume: STRUCT, Current token: ID
 typeBase failed
+Trying to consume: LACC, Current token: ID
+Trying to consume: IF, Current token: ID
+Trying to consume: WHILE, Current token: ID
+Trying to consume: FOR, Current token: ID
+Trying to consume: BREAK, Current token: ID
+Trying to consume: RETURN, Current token: ID
 Trying to consume: ID, Current token: ID
 Trying to consume: LBRACKET, Current token: ASSIGN
+Trying to consume: DOT, Current token: ASSIGN
 Trying to consume: ASSIGN, Current token: ASSIGN
 Trying to consume: SUB, Current token: ID
 Trying to consume: NOT, Current token: ID
 Trying to consume: ID, Current token: ID
 Trying to consume: LBRACKET, Current token: LPAR
+Trying to consume: DOT, Current token: LPAR
 Trying to consume: LPAR, Current token: LPAR
 Trying to consume: SUB, Current token: RPAR
 Trying to consume: NOT, Current token: RPAR
@@ -1724,13 +1889,14 @@ Trying to consume: AND, Current token: SEMICOLON
 Trying to consume: OR, Current token: SEMICOLON
 Trying to consume: ASSIGN, Current token: SEMICOLON
 Trying to consume: SEMICOLON, Current token: SEMICOLON
+Checking declVar
 Checking typeBase
 Trying to consume: INT, Current token: FOR
 Trying to consume: DOUBLE, Current token: FOR
 Trying to consume: CHAR, Current token: FOR
+Trying to consume: VOID, Current token: FOR
 Trying to consume: STRUCT, Current token: FOR
 typeBase failed
-Trying to consume: ID, Current token: FOR
 Trying to consume: LACC, Current token: FOR
 Trying to consume: IF, Current token: FOR
 Trying to consume: WHILE, Current token: FOR
@@ -1740,6 +1906,7 @@ Trying to consume: SUB, Current token: ID
 Trying to consume: NOT, Current token: ID
 Trying to consume: ID, Current token: ID
 Trying to consume: LBRACKET, Current token: ASSIGN
+Trying to consume: DOT, Current token: ASSIGN
 Trying to consume: LPAR, Current token: ASSIGN
 Trying to consume: MUL, Current token: ASSIGN
 Trying to consume: DIV, Current token: ASSIGN
@@ -1776,6 +1943,7 @@ Trying to consume: SUB, Current token: ID
 Trying to consume: NOT, Current token: ID
 Trying to consume: ID, Current token: ID
 Trying to consume: LBRACKET, Current token: LESS
+Trying to consume: DOT, Current token: LESS
 Trying to consume: LPAR, Current token: LESS
 Trying to consume: MUL, Current token: LESS
 Trying to consume: DIV, Current token: LESS
@@ -1786,6 +1954,7 @@ Trying to consume: SUB, Current token: ID
 Trying to consume: NOT, Current token: ID
 Trying to consume: ID, Current token: ID
 Trying to consume: LBRACKET, Current token: SEMICOLON
+Trying to consume: DOT, Current token: SEMICOLON
 Trying to consume: LPAR, Current token: SEMICOLON
 Trying to consume: MUL, Current token: SEMICOLON
 Trying to consume: DIV, Current token: SEMICOLON
@@ -1805,6 +1974,7 @@ Trying to consume: SUB, Current token: ID
 Trying to consume: NOT, Current token: ID
 Trying to consume: ID, Current token: ID
 Trying to consume: LBRACKET, Current token: ASSIGN
+Trying to consume: DOT, Current token: ASSIGN
 Trying to consume: LPAR, Current token: ASSIGN
 Trying to consume: MUL, Current token: ASSIGN
 Trying to consume: DIV, Current token: ASSIGN
@@ -1823,6 +1993,7 @@ Trying to consume: SUB, Current token: ID
 Trying to consume: NOT, Current token: ID
 Trying to consume: ID, Current token: ID
 Trying to consume: LBRACKET, Current token: ADD
+Trying to consume: DOT, Current token: ADD
 Trying to consume: LPAR, Current token: ADD
 Trying to consume: MUL, Current token: ADD
 Trying to consume: DIV, Current token: ADD
@@ -1845,21 +2016,30 @@ Trying to consume: AND, Current token: RPAR
 Trying to consume: OR, Current token: RPAR
 Trying to consume: ASSIGN, Current token: RPAR
 Trying to consume: RPAR, Current token: RPAR
-Trying to consume: ID, Current token: LACC
 Trying to consume: LACC, Current token: LACC
+Checking declVar
 Checking typeBase
 Trying to consume: INT, Current token: ID
 Trying to consume: DOUBLE, Current token: ID
 Trying to consume: CHAR, Current token: ID
+Trying to consume: VOID, Current token: ID
 Trying to consume: STRUCT, Current token: ID
 typeBase failed
+Trying to consume: LACC, Current token: ID
+Trying to consume: IF, Current token: ID
+Trying to consume: WHILE, Current token: ID
+Trying to consume: FOR, Current token: ID
+Trying to consume: BREAK, Current token: ID
+Trying to consume: RETURN, Current token: ID
 Trying to consume: ID, Current token: ID
 Trying to consume: LBRACKET, Current token: ASSIGN
+Trying to consume: DOT, Current token: ASSIGN
 Trying to consume: ASSIGN, Current token: ASSIGN
 Trying to consume: SUB, Current token: ID
 Trying to consume: NOT, Current token: ID
 Trying to consume: ID, Current token: ID
 Trying to consume: LBRACKET, Current token: ADD
+Trying to consume: DOT, Current token: ADD
 Trying to consume: LPAR, Current token: ADD
 Trying to consume: MUL, Current token: ADD
 Trying to consume: DIV, Current token: ADD
@@ -1868,6 +2048,7 @@ Trying to consume: SUB, Current token: ID
 Trying to consume: NOT, Current token: ID
 Trying to consume: ID, Current token: ID
 Trying to consume: LBRACKET, Current token: LPAR
+Trying to consume: DOT, Current token: LPAR
 Trying to consume: LPAR, Current token: LPAR
 Trying to consume: SUB, Current token: RPAR
 Trying to consume: NOT, Current token: RPAR
@@ -1892,19 +2073,21 @@ Trying to consume: AND, Current token: SEMICOLON
 Trying to consume: OR, Current token: SEMICOLON
 Trying to consume: ASSIGN, Current token: SEMICOLON
 Trying to consume: SEMICOLON, Current token: SEMICOLON
+Checking declVar
 Checking typeBase
 Trying to consume: INT, Current token: RACC
 Trying to consume: DOUBLE, Current token: RACC
 Trying to consume: CHAR, Current token: RACC
+Trying to consume: VOID, Current token: RACC
 Trying to consume: STRUCT, Current token: RACC
 typeBase failed
-Trying to consume: ID, Current token: RACC
 Trying to consume: LACC, Current token: RACC
 Trying to consume: IF, Current token: RACC
 Trying to consume: WHILE, Current token: RACC
 Trying to consume: FOR, Current token: RACC
 Trying to consume: BREAK, Current token: RACC
 Trying to consume: RETURN, Current token: RACC
+Trying to consume: ID, Current token: RACC
 Trying to consume: SUB, Current token: RACC
 Trying to consume: NOT, Current token: RACC
 Trying to consume: ID, Current token: RACC
@@ -1914,28 +2097,29 @@ Trying to consume: CT_CHAR, Current token: RACC
 Trying to consume: CT_STRING, Current token: RACC
 Trying to consume: LPAR, Current token: RACC
 Trying to consume: RACC, Current token: RACC
+Checking declVar
 Checking typeBase
 Trying to consume: INT, Current token: ID
 Trying to consume: DOUBLE, Current token: ID
 Trying to consume: CHAR, Current token: ID
+Trying to consume: VOID, Current token: ID
 Trying to consume: STRUCT, Current token: ID
 typeBase failed
+Trying to consume: LACC, Current token: ID
+Trying to consume: IF, Current token: ID
+Trying to consume: WHILE, Current token: ID
+Trying to consume: FOR, Current token: ID
+Trying to consume: BREAK, Current token: ID
+Trying to consume: RETURN, Current token: ID
 Trying to consume: ID, Current token: ID
 Trying to consume: LBRACKET, Current token: LPAR
+Trying to consume: DOT, Current token: LPAR
 Trying to consume: ASSIGN, Current token: LPAR
-Trying to consume: LACC, Current token: LPAR
-Trying to consume: IF, Current token: LPAR
-Trying to consume: WHILE, Current token: LPAR
-Trying to consume: FOR, Current token: LPAR
-Trying to consume: BREAK, Current token: LPAR
-Trying to consume: RETURN, Current token: LPAR
-Trying to consume: SUB, Current token: LPAR
-Trying to consume: NOT, Current token: LPAR
-Trying to consume: ID, Current token: LPAR
-Trying to consume: CT_INT, Current token: LPAR
-Trying to consume: CT_REAL, Current token: LPAR
-Trying to consume: CT_CHAR, Current token: LPAR
-Trying to consume: CT_STRING, Current token: LPAR
+Trying to consume: SUB, Current token: ID
+Trying to consume: NOT, Current token: ID
+Trying to consume: ID, Current token: ID
+Trying to consume: LBRACKET, Current token: LPAR
+Trying to consume: DOT, Current token: LPAR
 Trying to consume: LPAR, Current token: LPAR
 Trying to consume: SUB, Current token: CT_STRING
 Trying to consume: NOT, Current token: CT_STRING
@@ -1957,6 +2141,7 @@ Trying to consume: NOTEQ, Current token: RPAR
 Trying to consume: AND, Current token: RPAR
 Trying to consume: OR, Current token: RPAR
 Trying to consume: ASSIGN, Current token: RPAR
+Trying to consume: COMMA, Current token: RPAR
 Trying to consume: RPAR, Current token: RPAR
 Trying to consume: MUL, Current token: SEMICOLON
 Trying to consume: DIV, Current token: SEMICOLON
@@ -1972,33 +2157,35 @@ Trying to consume: AND, Current token: SEMICOLON
 Trying to consume: OR, Current token: SEMICOLON
 Trying to consume: ASSIGN, Current token: SEMICOLON
 Trying to consume: SEMICOLON, Current token: SEMICOLON
+Checking declVar
 Checking typeBase
 Trying to consume: INT, Current token: ID
 Trying to consume: DOUBLE, Current token: ID
 Trying to consume: CHAR, Current token: ID
+Trying to consume: VOID, Current token: ID
 Trying to consume: STRUCT, Current token: ID
 typeBase failed
+Trying to consume: LACC, Current token: ID
+Trying to consume: IF, Current token: ID
+Trying to consume: WHILE, Current token: ID
+Trying to consume: FOR, Current token: ID
+Trying to consume: BREAK, Current token: ID
+Trying to consume: RETURN, Current token: ID
 Trying to consume: ID, Current token: ID
 Trying to consume: LBRACKET, Current token: LPAR
+Trying to consume: DOT, Current token: LPAR
 Trying to consume: ASSIGN, Current token: LPAR
-Trying to consume: LACC, Current token: LPAR
-Trying to consume: IF, Current token: LPAR
-Trying to consume: WHILE, Current token: LPAR
-Trying to consume: FOR, Current token: LPAR
-Trying to consume: BREAK, Current token: LPAR
-Trying to consume: RETURN, Current token: LPAR
-Trying to consume: SUB, Current token: LPAR
-Trying to consume: NOT, Current token: LPAR
-Trying to consume: ID, Current token: LPAR
-Trying to consume: CT_INT, Current token: LPAR
-Trying to consume: CT_REAL, Current token: LPAR
-Trying to consume: CT_CHAR, Current token: LPAR
-Trying to consume: CT_STRING, Current token: LPAR
+Trying to consume: SUB, Current token: ID
+Trying to consume: NOT, Current token: ID
+Trying to consume: ID, Current token: ID
+Trying to consume: LBRACKET, Current token: LPAR
+Trying to consume: DOT, Current token: LPAR
 Trying to consume: LPAR, Current token: LPAR
 Trying to consume: SUB, Current token: ID
 Trying to consume: NOT, Current token: ID
 Trying to consume: ID, Current token: ID
 Trying to consume: LBRACKET, Current token: DIV
+Trying to consume: DOT, Current token: DIV
 Trying to consume: LPAR, Current token: DIV
 Trying to consume: MUL, Current token: DIV
 Trying to consume: DIV, Current token: DIV
@@ -2006,6 +2193,7 @@ Trying to consume: SUB, Current token: ID
 Trying to consume: NOT, Current token: ID
 Trying to consume: ID, Current token: ID
 Trying to consume: LBRACKET, Current token: RPAR
+Trying to consume: DOT, Current token: RPAR
 Trying to consume: LPAR, Current token: RPAR
 Trying to consume: MUL, Current token: RPAR
 Trying to consume: DIV, Current token: RPAR
@@ -2020,6 +2208,7 @@ Trying to consume: NOTEQ, Current token: RPAR
 Trying to consume: AND, Current token: RPAR
 Trying to consume: OR, Current token: RPAR
 Trying to consume: ASSIGN, Current token: RPAR
+Trying to consume: COMMA, Current token: RPAR
 Trying to consume: RPAR, Current token: RPAR
 Trying to consume: MUL, Current token: SEMICOLON
 Trying to consume: DIV, Current token: SEMICOLON
@@ -2035,19 +2224,21 @@ Trying to consume: AND, Current token: SEMICOLON
 Trying to consume: OR, Current token: SEMICOLON
 Trying to consume: ASSIGN, Current token: SEMICOLON
 Trying to consume: SEMICOLON, Current token: SEMICOLON
+Checking declVar
 Checking typeBase
 Trying to consume: INT, Current token: RACC
 Trying to consume: DOUBLE, Current token: RACC
 Trying to consume: CHAR, Current token: RACC
+Trying to consume: VOID, Current token: RACC
 Trying to consume: STRUCT, Current token: RACC
 typeBase failed
-Trying to consume: ID, Current token: RACC
 Trying to consume: LACC, Current token: RACC
 Trying to consume: IF, Current token: RACC
 Trying to consume: WHILE, Current token: RACC
 Trying to consume: FOR, Current token: RACC
 Trying to consume: BREAK, Current token: RACC
 Trying to consume: RETURN, Current token: RACC
+Trying to consume: ID, Current token: RACC
 Trying to consume: SUB, Current token: RACC
 Trying to consume: NOT, Current token: RACC
 Trying to consume: ID, Current token: RACC
@@ -2061,24 +2252,27 @@ Trying to consume: END, Current token: END
 Result for 5.c: SUCCESS
 
 Processing file: 6.c
+Checking declStruct
 Trying to consume: STRUCT, Current token: VOID
+Checking declFunc
 Checking typeBase
 Trying to consume: INT, Current token: VOID
 Trying to consume: DOUBLE, Current token: VOID
 Trying to consume: CHAR, Current token: VOID
-Trying to consume: STRUCT, Current token: VOID
-typeBase failed
 Trying to consume: VOID, Current token: VOID
+Found VOID
 Trying to consume: ID, Current token: ID
 Trying to consume: LPAR, Current token: LPAR
 Checking typeBase
 Trying to consume: INT, Current token: RPAR
 Trying to consume: DOUBLE, Current token: RPAR
 Trying to consume: CHAR, Current token: RPAR
+Trying to consume: VOID, Current token: RPAR
 Trying to consume: STRUCT, Current token: RPAR
 typeBase failed
 Trying to consume: RPAR, Current token: RPAR
 Trying to consume: LACC, Current token: LACC
+Checking declVar
 Checking typeBase
 Trying to consume: INT, Current token: INT
 Found INT
@@ -2092,6 +2286,7 @@ Trying to consume: ID, Current token: ID
 Trying to consume: LBRACKET, Current token: SEMICOLON
 Trying to consume: COMMA, Current token: SEMICOLON
 Trying to consume: SEMICOLON, Current token: SEMICOLON
+Checking declVar
 Checking typeBase
 Trying to consume: INT, Current token: INT
 Found INT
@@ -2117,28 +2312,29 @@ Trying to consume: ASSIGN, Current token: RBRACKET
 Trying to consume: RBRACKET, Current token: RBRACKET
 Trying to consume: COMMA, Current token: SEMICOLON
 Trying to consume: SEMICOLON, Current token: SEMICOLON
+Checking declVar
 Checking typeBase
 Trying to consume: INT, Current token: ID
 Trying to consume: DOUBLE, Current token: ID
 Trying to consume: CHAR, Current token: ID
+Trying to consume: VOID, Current token: ID
 Trying to consume: STRUCT, Current token: ID
 typeBase failed
+Trying to consume: LACC, Current token: ID
+Trying to consume: IF, Current token: ID
+Trying to consume: WHILE, Current token: ID
+Trying to consume: FOR, Current token: ID
+Trying to consume: BREAK, Current token: ID
+Trying to consume: RETURN, Current token: ID
 Trying to consume: ID, Current token: ID
 Trying to consume: LBRACKET, Current token: LPAR
+Trying to consume: DOT, Current token: LPAR
 Trying to consume: ASSIGN, Current token: LPAR
-Trying to consume: LACC, Current token: LPAR
-Trying to consume: IF, Current token: LPAR
-Trying to consume: WHILE, Current token: LPAR
-Trying to consume: FOR, Current token: LPAR
-Trying to consume: BREAK, Current token: LPAR
-Trying to consume: RETURN, Current token: LPAR
-Trying to consume: SUB, Current token: LPAR
-Trying to consume: NOT, Current token: LPAR
-Trying to consume: ID, Current token: LPAR
-Trying to consume: CT_INT, Current token: LPAR
-Trying to consume: CT_REAL, Current token: LPAR
-Trying to consume: CT_CHAR, Current token: LPAR
-Trying to consume: CT_STRING, Current token: LPAR
+Trying to consume: SUB, Current token: ID
+Trying to consume: NOT, Current token: ID
+Trying to consume: ID, Current token: ID
+Trying to consume: LBRACKET, Current token: LPAR
+Trying to consume: DOT, Current token: LPAR
 Trying to consume: LPAR, Current token: LPAR
 Trying to consume: SUB, Current token: CT_STRING
 Trying to consume: NOT, Current token: CT_STRING
@@ -2160,6 +2356,7 @@ Trying to consume: NOTEQ, Current token: RPAR
 Trying to consume: AND, Current token: RPAR
 Trying to consume: OR, Current token: RPAR
 Trying to consume: ASSIGN, Current token: RPAR
+Trying to consume: COMMA, Current token: RPAR
 Trying to consume: RPAR, Current token: RPAR
 Trying to consume: MUL, Current token: SEMICOLON
 Trying to consume: DIV, Current token: SEMICOLON
@@ -2175,19 +2372,29 @@ Trying to consume: AND, Current token: SEMICOLON
 Trying to consume: OR, Current token: SEMICOLON
 Trying to consume: ASSIGN, Current token: SEMICOLON
 Trying to consume: SEMICOLON, Current token: SEMICOLON
+Checking declVar
 Checking typeBase
 Trying to consume: INT, Current token: ID
 Trying to consume: DOUBLE, Current token: ID
 Trying to consume: CHAR, Current token: ID
+Trying to consume: VOID, Current token: ID
 Trying to consume: STRUCT, Current token: ID
 typeBase failed
+Trying to consume: LACC, Current token: ID
+Trying to consume: IF, Current token: ID
+Trying to consume: WHILE, Current token: ID
+Trying to consume: FOR, Current token: ID
+Trying to consume: BREAK, Current token: ID
+Trying to consume: RETURN, Current token: ID
 Trying to consume: ID, Current token: ID
 Trying to consume: LBRACKET, Current token: ASSIGN
+Trying to consume: DOT, Current token: ASSIGN
 Trying to consume: ASSIGN, Current token: ASSIGN
 Trying to consume: SUB, Current token: ID
 Trying to consume: NOT, Current token: ID
 Trying to consume: ID, Current token: ID
 Trying to consume: LBRACKET, Current token: LPAR
+Trying to consume: DOT, Current token: LPAR
 Trying to consume: LPAR, Current token: LPAR
 Trying to consume: SUB, Current token: RPAR
 Trying to consume: NOT, Current token: RPAR
@@ -2212,13 +2419,14 @@ Trying to consume: AND, Current token: SEMICOLON
 Trying to consume: OR, Current token: SEMICOLON
 Trying to consume: ASSIGN, Current token: SEMICOLON
 Trying to consume: SEMICOLON, Current token: SEMICOLON
+Checking declVar
 Checking typeBase
 Trying to consume: INT, Current token: FOR
 Trying to consume: DOUBLE, Current token: FOR
 Trying to consume: CHAR, Current token: FOR
+Trying to consume: VOID, Current token: FOR
 Trying to consume: STRUCT, Current token: FOR
 typeBase failed
-Trying to consume: ID, Current token: FOR
 Trying to consume: LACC, Current token: FOR
 Trying to consume: IF, Current token: FOR
 Trying to consume: WHILE, Current token: FOR
@@ -2228,6 +2436,7 @@ Trying to consume: SUB, Current token: ID
 Trying to consume: NOT, Current token: ID
 Trying to consume: ID, Current token: ID
 Trying to consume: LBRACKET, Current token: ASSIGN
+Trying to consume: DOT, Current token: ASSIGN
 Trying to consume: LPAR, Current token: ASSIGN
 Trying to consume: MUL, Current token: ASSIGN
 Trying to consume: DIV, Current token: ASSIGN
@@ -2264,6 +2473,7 @@ Trying to consume: SUB, Current token: ID
 Trying to consume: NOT, Current token: ID
 Trying to consume: ID, Current token: ID
 Trying to consume: LBRACKET, Current token: LESS
+Trying to consume: DOT, Current token: LESS
 Trying to consume: LPAR, Current token: LESS
 Trying to consume: MUL, Current token: LESS
 Trying to consume: DIV, Current token: LESS
@@ -2274,6 +2484,7 @@ Trying to consume: SUB, Current token: ID
 Trying to consume: NOT, Current token: ID
 Trying to consume: ID, Current token: ID
 Trying to consume: LBRACKET, Current token: SEMICOLON
+Trying to consume: DOT, Current token: SEMICOLON
 Trying to consume: LPAR, Current token: SEMICOLON
 Trying to consume: MUL, Current token: SEMICOLON
 Trying to consume: DIV, Current token: SEMICOLON
@@ -2293,6 +2504,7 @@ Trying to consume: SUB, Current token: ID
 Trying to consume: NOT, Current token: ID
 Trying to consume: ID, Current token: ID
 Trying to consume: LBRACKET, Current token: ASSIGN
+Trying to consume: DOT, Current token: ASSIGN
 Trying to consume: LPAR, Current token: ASSIGN
 Trying to consume: MUL, Current token: ASSIGN
 Trying to consume: DIV, Current token: ASSIGN
@@ -2311,6 +2523,7 @@ Trying to consume: SUB, Current token: ID
 Trying to consume: NOT, Current token: ID
 Trying to consume: ID, Current token: ID
 Trying to consume: LBRACKET, Current token: ADD
+Trying to consume: DOT, Current token: ADD
 Trying to consume: LPAR, Current token: ADD
 Trying to consume: MUL, Current token: ADD
 Trying to consume: DIV, Current token: ADD
@@ -2333,20 +2546,28 @@ Trying to consume: AND, Current token: RPAR
 Trying to consume: OR, Current token: RPAR
 Trying to consume: ASSIGN, Current token: RPAR
 Trying to consume: RPAR, Current token: RPAR
-Trying to consume: ID, Current token: LACC
 Trying to consume: LACC, Current token: LACC
+Checking declVar
 Checking typeBase
 Trying to consume: INT, Current token: ID
 Trying to consume: DOUBLE, Current token: ID
 Trying to consume: CHAR, Current token: ID
+Trying to consume: VOID, Current token: ID
 Trying to consume: STRUCT, Current token: ID
 typeBase failed
+Trying to consume: LACC, Current token: ID
+Trying to consume: IF, Current token: ID
+Trying to consume: WHILE, Current token: ID
+Trying to consume: FOR, Current token: ID
+Trying to consume: BREAK, Current token: ID
+Trying to consume: RETURN, Current token: ID
 Trying to consume: ID, Current token: ID
 Trying to consume: LBRACKET, Current token: LBRACKET
 Trying to consume: SUB, Current token: ID
 Trying to consume: NOT, Current token: ID
 Trying to consume: ID, Current token: ID
 Trying to consume: LBRACKET, Current token: RBRACKET
+Trying to consume: DOT, Current token: RBRACKET
 Trying to consume: LPAR, Current token: RBRACKET
 Trying to consume: MUL, Current token: RBRACKET
 Trying to consume: DIV, Current token: RBRACKET
@@ -2363,11 +2584,13 @@ Trying to consume: OR, Current token: RBRACKET
 Trying to consume: ASSIGN, Current token: RBRACKET
 Trying to consume: RBRACKET, Current token: RBRACKET
 Trying to consume: LBRACKET, Current token: ASSIGN
+Trying to consume: DOT, Current token: ASSIGN
 Trying to consume: ASSIGN, Current token: ASSIGN
 Trying to consume: SUB, Current token: ID
 Trying to consume: NOT, Current token: ID
 Trying to consume: ID, Current token: ID
 Trying to consume: LBRACKET, Current token: LPAR
+Trying to consume: DOT, Current token: LPAR
 Trying to consume: LPAR, Current token: LPAR
 Trying to consume: SUB, Current token: RPAR
 Trying to consume: NOT, Current token: RPAR
@@ -2392,19 +2615,21 @@ Trying to consume: AND, Current token: SEMICOLON
 Trying to consume: OR, Current token: SEMICOLON
 Trying to consume: ASSIGN, Current token: SEMICOLON
 Trying to consume: SEMICOLON, Current token: SEMICOLON
+Checking declVar
 Checking typeBase
 Trying to consume: INT, Current token: RACC
 Trying to consume: DOUBLE, Current token: RACC
 Trying to consume: CHAR, Current token: RACC
+Trying to consume: VOID, Current token: RACC
 Trying to consume: STRUCT, Current token: RACC
 typeBase failed
-Trying to consume: ID, Current token: RACC
 Trying to consume: LACC, Current token: RACC
 Trying to consume: IF, Current token: RACC
 Trying to consume: WHILE, Current token: RACC
 Trying to consume: FOR, Current token: RACC
 Trying to consume: BREAK, Current token: RACC
 Trying to consume: RETURN, Current token: RACC
+Trying to consume: ID, Current token: RACC
 Trying to consume: SUB, Current token: RACC
 Trying to consume: NOT, Current token: RACC
 Trying to consume: ID, Current token: RACC
@@ -2414,13 +2639,14 @@ Trying to consume: CT_CHAR, Current token: RACC
 Trying to consume: CT_STRING, Current token: RACC
 Trying to consume: LPAR, Current token: RACC
 Trying to consume: RACC, Current token: RACC
+Checking declVar
 Checking typeBase
 Trying to consume: INT, Current token: FOR
 Trying to consume: DOUBLE, Current token: FOR
 Trying to consume: CHAR, Current token: FOR
+Trying to consume: VOID, Current token: FOR
 Trying to consume: STRUCT, Current token: FOR
 typeBase failed
-Trying to consume: ID, Current token: FOR
 Trying to consume: LACC, Current token: FOR
 Trying to consume: IF, Current token: FOR
 Trying to consume: WHILE, Current token: FOR
@@ -2430,6 +2656,7 @@ Trying to consume: SUB, Current token: ID
 Trying to consume: NOT, Current token: ID
 Trying to consume: ID, Current token: ID
 Trying to consume: LBRACKET, Current token: ASSIGN
+Trying to consume: DOT, Current token: ASSIGN
 Trying to consume: LPAR, Current token: ASSIGN
 Trying to consume: MUL, Current token: ASSIGN
 Trying to consume: DIV, Current token: ASSIGN
@@ -2466,6 +2693,7 @@ Trying to consume: SUB, Current token: ID
 Trying to consume: NOT, Current token: ID
 Trying to consume: ID, Current token: ID
 Trying to consume: LBRACKET, Current token: LESS
+Trying to consume: DOT, Current token: LESS
 Trying to consume: LPAR, Current token: LESS
 Trying to consume: MUL, Current token: LESS
 Trying to consume: DIV, Current token: LESS
@@ -2476,6 +2704,7 @@ Trying to consume: SUB, Current token: ID
 Trying to consume: NOT, Current token: ID
 Trying to consume: ID, Current token: ID
 Trying to consume: LBRACKET, Current token: DIV
+Trying to consume: DOT, Current token: DIV
 Trying to consume: LPAR, Current token: DIV
 Trying to consume: MUL, Current token: DIV
 Trying to consume: DIV, Current token: DIV
@@ -2501,6 +2730,7 @@ Trying to consume: SUB, Current token: ID
 Trying to consume: NOT, Current token: ID
 Trying to consume: ID, Current token: ID
 Trying to consume: LBRACKET, Current token: ASSIGN
+Trying to consume: DOT, Current token: ASSIGN
 Trying to consume: LPAR, Current token: ASSIGN
 Trying to consume: MUL, Current token: ASSIGN
 Trying to consume: DIV, Current token: ASSIGN
@@ -2519,6 +2749,7 @@ Trying to consume: SUB, Current token: ID
 Trying to consume: NOT, Current token: ID
 Trying to consume: ID, Current token: ID
 Trying to consume: LBRACKET, Current token: ADD
+Trying to consume: DOT, Current token: ADD
 Trying to consume: LPAR, Current token: ADD
 Trying to consume: MUL, Current token: ADD
 Trying to consume: DIV, Current token: ADD
@@ -2541,16 +2772,24 @@ Trying to consume: AND, Current token: RPAR
 Trying to consume: OR, Current token: RPAR
 Trying to consume: ASSIGN, Current token: RPAR
 Trying to consume: RPAR, Current token: RPAR
-Trying to consume: ID, Current token: LACC
 Trying to consume: LACC, Current token: LACC
+Checking declVar
 Checking typeBase
 Trying to consume: INT, Current token: ID
 Trying to consume: DOUBLE, Current token: ID
 Trying to consume: CHAR, Current token: ID
+Trying to consume: VOID, Current token: ID
 Trying to consume: STRUCT, Current token: ID
 typeBase failed
+Trying to consume: LACC, Current token: ID
+Trying to consume: IF, Current token: ID
+Trying to consume: WHILE, Current token: ID
+Trying to consume: FOR, Current token: ID
+Trying to consume: BREAK, Current token: ID
+Trying to consume: RETURN, Current token: ID
 Trying to consume: ID, Current token: ID
 Trying to consume: LBRACKET, Current token: ASSIGN
+Trying to consume: DOT, Current token: ASSIGN
 Trying to consume: ASSIGN, Current token: ASSIGN
 Trying to consume: SUB, Current token: ID
 Trying to consume: NOT, Current token: ID
@@ -2560,6 +2799,7 @@ Trying to consume: SUB, Current token: ID
 Trying to consume: NOT, Current token: ID
 Trying to consume: ID, Current token: ID
 Trying to consume: LBRACKET, Current token: RBRACKET
+Trying to consume: DOT, Current token: RBRACKET
 Trying to consume: LPAR, Current token: RBRACKET
 Trying to consume: MUL, Current token: RBRACKET
 Trying to consume: DIV, Current token: RBRACKET
@@ -2576,6 +2816,7 @@ Trying to consume: OR, Current token: RBRACKET
 Trying to consume: ASSIGN, Current token: RBRACKET
 Trying to consume: RBRACKET, Current token: RBRACKET
 Trying to consume: LBRACKET, Current token: SEMICOLON
+Trying to consume: DOT, Current token: SEMICOLON
 Trying to consume: LPAR, Current token: SEMICOLON
 Trying to consume: MUL, Current token: SEMICOLON
 Trying to consume: DIV, Current token: SEMICOLON
@@ -2591,18 +2832,27 @@ Trying to consume: AND, Current token: SEMICOLON
 Trying to consume: OR, Current token: SEMICOLON
 Trying to consume: ASSIGN, Current token: SEMICOLON
 Trying to consume: SEMICOLON, Current token: SEMICOLON
+Checking declVar
 Checking typeBase
 Trying to consume: INT, Current token: ID
 Trying to consume: DOUBLE, Current token: ID
 Trying to consume: CHAR, Current token: ID
+Trying to consume: VOID, Current token: ID
 Trying to consume: STRUCT, Current token: ID
 typeBase failed
+Trying to consume: LACC, Current token: ID
+Trying to consume: IF, Current token: ID
+Trying to consume: WHILE, Current token: ID
+Trying to consume: FOR, Current token: ID
+Trying to consume: BREAK, Current token: ID
+Trying to consume: RETURN, Current token: ID
 Trying to consume: ID, Current token: ID
 Trying to consume: LBRACKET, Current token: LBRACKET
 Trying to consume: SUB, Current token: ID
 Trying to consume: NOT, Current token: ID
 Trying to consume: ID, Current token: ID
 Trying to consume: LBRACKET, Current token: RBRACKET
+Trying to consume: DOT, Current token: RBRACKET
 Trying to consume: LPAR, Current token: RBRACKET
 Trying to consume: MUL, Current token: RBRACKET
 Trying to consume: DIV, Current token: RBRACKET
@@ -2619,6 +2869,7 @@ Trying to consume: OR, Current token: RBRACKET
 Trying to consume: ASSIGN, Current token: RBRACKET
 Trying to consume: RBRACKET, Current token: RBRACKET
 Trying to consume: LBRACKET, Current token: ASSIGN
+Trying to consume: DOT, Current token: ASSIGN
 Trying to consume: ASSIGN, Current token: ASSIGN
 Trying to consume: SUB, Current token: ID
 Trying to consume: NOT, Current token: ID
@@ -2628,6 +2879,7 @@ Trying to consume: SUB, Current token: ID
 Trying to consume: NOT, Current token: ID
 Trying to consume: ID, Current token: ID
 Trying to consume: LBRACKET, Current token: SUB
+Trying to consume: DOT, Current token: SUB
 Trying to consume: LPAR, Current token: SUB
 Trying to consume: MUL, Current token: SUB
 Trying to consume: DIV, Current token: SUB
@@ -2637,6 +2889,7 @@ Trying to consume: SUB, Current token: ID
 Trying to consume: NOT, Current token: ID
 Trying to consume: ID, Current token: ID
 Trying to consume: LBRACKET, Current token: SUB
+Trying to consume: DOT, Current token: SUB
 Trying to consume: LPAR, Current token: SUB
 Trying to consume: MUL, Current token: SUB
 Trying to consume: DIV, Current token: SUB
@@ -2661,6 +2914,7 @@ Trying to consume: OR, Current token: RBRACKET
 Trying to consume: ASSIGN, Current token: RBRACKET
 Trying to consume: RBRACKET, Current token: RBRACKET
 Trying to consume: LBRACKET, Current token: SEMICOLON
+Trying to consume: DOT, Current token: SEMICOLON
 Trying to consume: LPAR, Current token: SEMICOLON
 Trying to consume: MUL, Current token: SEMICOLON
 Trying to consume: DIV, Current token: SEMICOLON
@@ -2676,18 +2930,27 @@ Trying to consume: AND, Current token: SEMICOLON
 Trying to consume: OR, Current token: SEMICOLON
 Trying to consume: ASSIGN, Current token: SEMICOLON
 Trying to consume: SEMICOLON, Current token: SEMICOLON
+Checking declVar
 Checking typeBase
 Trying to consume: INT, Current token: ID
 Trying to consume: DOUBLE, Current token: ID
 Trying to consume: CHAR, Current token: ID
+Trying to consume: VOID, Current token: ID
 Trying to consume: STRUCT, Current token: ID
 typeBase failed
+Trying to consume: LACC, Current token: ID
+Trying to consume: IF, Current token: ID
+Trying to consume: WHILE, Current token: ID
+Trying to consume: FOR, Current token: ID
+Trying to consume: BREAK, Current token: ID
+Trying to consume: RETURN, Current token: ID
 Trying to consume: ID, Current token: ID
 Trying to consume: LBRACKET, Current token: LBRACKET
 Trying to consume: SUB, Current token: ID
 Trying to consume: NOT, Current token: ID
 Trying to consume: ID, Current token: ID
 Trying to consume: LBRACKET, Current token: SUB
+Trying to consume: DOT, Current token: SUB
 Trying to consume: LPAR, Current token: SUB
 Trying to consume: MUL, Current token: SUB
 Trying to consume: DIV, Current token: SUB
@@ -2697,6 +2960,7 @@ Trying to consume: SUB, Current token: ID
 Trying to consume: NOT, Current token: ID
 Trying to consume: ID, Current token: ID
 Trying to consume: LBRACKET, Current token: SUB
+Trying to consume: DOT, Current token: SUB
 Trying to consume: LPAR, Current token: SUB
 Trying to consume: MUL, Current token: SUB
 Trying to consume: DIV, Current token: SUB
@@ -2721,11 +2985,13 @@ Trying to consume: OR, Current token: RBRACKET
 Trying to consume: ASSIGN, Current token: RBRACKET
 Trying to consume: RBRACKET, Current token: RBRACKET
 Trying to consume: LBRACKET, Current token: ASSIGN
+Trying to consume: DOT, Current token: ASSIGN
 Trying to consume: ASSIGN, Current token: ASSIGN
 Trying to consume: SUB, Current token: ID
 Trying to consume: NOT, Current token: ID
 Trying to consume: ID, Current token: ID
 Trying to consume: LBRACKET, Current token: SEMICOLON
+Trying to consume: DOT, Current token: SEMICOLON
 Trying to consume: LPAR, Current token: SEMICOLON
 Trying to consume: MUL, Current token: SEMICOLON
 Trying to consume: DIV, Current token: SEMICOLON
@@ -2741,19 +3007,21 @@ Trying to consume: AND, Current token: SEMICOLON
 Trying to consume: OR, Current token: SEMICOLON
 Trying to consume: ASSIGN, Current token: SEMICOLON
 Trying to consume: SEMICOLON, Current token: SEMICOLON
+Checking declVar
 Checking typeBase
 Trying to consume: INT, Current token: RACC
 Trying to consume: DOUBLE, Current token: RACC
 Trying to consume: CHAR, Current token: RACC
+Trying to consume: VOID, Current token: RACC
 Trying to consume: STRUCT, Current token: RACC
 typeBase failed
-Trying to consume: ID, Current token: RACC
 Trying to consume: LACC, Current token: RACC
 Trying to consume: IF, Current token: RACC
 Trying to consume: WHILE, Current token: RACC
 Trying to consume: FOR, Current token: RACC
 Trying to consume: BREAK, Current token: RACC
 Trying to consume: RETURN, Current token: RACC
+Trying to consume: ID, Current token: RACC
 Trying to consume: SUB, Current token: RACC
 Trying to consume: NOT, Current token: RACC
 Trying to consume: ID, Current token: RACC
@@ -2763,13 +3031,14 @@ Trying to consume: CT_CHAR, Current token: RACC
 Trying to consume: CT_STRING, Current token: RACC
 Trying to consume: LPAR, Current token: RACC
 Trying to consume: RACC, Current token: RACC
+Checking declVar
 Checking typeBase
 Trying to consume: INT, Current token: FOR
 Trying to consume: DOUBLE, Current token: FOR
 Trying to consume: CHAR, Current token: FOR
+Trying to consume: VOID, Current token: FOR
 Trying to consume: STRUCT, Current token: FOR
 typeBase failed
-Trying to consume: ID, Current token: FOR
 Trying to consume: LACC, Current token: FOR
 Trying to consume: IF, Current token: FOR
 Trying to consume: WHILE, Current token: FOR
@@ -2779,6 +3048,7 @@ Trying to consume: SUB, Current token: ID
 Trying to consume: NOT, Current token: ID
 Trying to consume: ID, Current token: ID
 Trying to consume: LBRACKET, Current token: ASSIGN
+Trying to consume: DOT, Current token: ASSIGN
 Trying to consume: LPAR, Current token: ASSIGN
 Trying to consume: MUL, Current token: ASSIGN
 Trying to consume: DIV, Current token: ASSIGN
@@ -2815,6 +3085,7 @@ Trying to consume: SUB, Current token: ID
 Trying to consume: NOT, Current token: ID
 Trying to consume: ID, Current token: ID
 Trying to consume: LBRACKET, Current token: LESS
+Trying to consume: DOT, Current token: LESS
 Trying to consume: LPAR, Current token: LESS
 Trying to consume: MUL, Current token: LESS
 Trying to consume: DIV, Current token: LESS
@@ -2825,6 +3096,7 @@ Trying to consume: SUB, Current token: ID
 Trying to consume: NOT, Current token: ID
 Trying to consume: ID, Current token: ID
 Trying to consume: LBRACKET, Current token: SEMICOLON
+Trying to consume: DOT, Current token: SEMICOLON
 Trying to consume: LPAR, Current token: SEMICOLON
 Trying to consume: MUL, Current token: SEMICOLON
 Trying to consume: DIV, Current token: SEMICOLON
@@ -2844,6 +3116,7 @@ Trying to consume: SUB, Current token: ID
 Trying to consume: NOT, Current token: ID
 Trying to consume: ID, Current token: ID
 Trying to consume: LBRACKET, Current token: ASSIGN
+Trying to consume: DOT, Current token: ASSIGN
 Trying to consume: LPAR, Current token: ASSIGN
 Trying to consume: MUL, Current token: ASSIGN
 Trying to consume: DIV, Current token: ASSIGN
@@ -2862,6 +3135,7 @@ Trying to consume: SUB, Current token: ID
 Trying to consume: NOT, Current token: ID
 Trying to consume: ID, Current token: ID
 Trying to consume: LBRACKET, Current token: ADD
+Trying to consume: DOT, Current token: ADD
 Trying to consume: LPAR, Current token: ADD
 Trying to consume: MUL, Current token: ADD
 Trying to consume: DIV, Current token: ADD
@@ -2884,30 +3158,30 @@ Trying to consume: AND, Current token: RPAR
 Trying to consume: OR, Current token: RPAR
 Trying to consume: ASSIGN, Current token: RPAR
 Trying to consume: RPAR, Current token: RPAR
-Trying to consume: ID, Current token: LACC
 Trying to consume: LACC, Current token: LACC
+Checking declVar
 Checking typeBase
 Trying to consume: INT, Current token: ID
 Trying to consume: DOUBLE, Current token: ID
 Trying to consume: CHAR, Current token: ID
+Trying to consume: VOID, Current token: ID
 Trying to consume: STRUCT, Current token: ID
 typeBase failed
+Trying to consume: LACC, Current token: ID
+Trying to consume: IF, Current token: ID
+Trying to consume: WHILE, Current token: ID
+Trying to consume: FOR, Current token: ID
+Trying to consume: BREAK, Current token: ID
+Trying to consume: RETURN, Current token: ID
 Trying to consume: ID, Current token: ID
 Trying to consume: LBRACKET, Current token: LPAR
+Trying to consume: DOT, Current token: LPAR
 Trying to consume: ASSIGN, Current token: LPAR
-Trying to consume: LACC, Current token: LPAR
-Trying to consume: IF, Current token: LPAR
-Trying to consume: WHILE, Current token: LPAR
-Trying to consume: FOR, Current token: LPAR
-Trying to consume: BREAK, Current token: LPAR
-Trying to consume: RETURN, Current token: LPAR
-Trying to consume: SUB, Current token: LPAR
-Trying to consume: NOT, Current token: LPAR
-Trying to consume: ID, Current token: LPAR
-Trying to consume: CT_INT, Current token: LPAR
-Trying to consume: CT_REAL, Current token: LPAR
-Trying to consume: CT_CHAR, Current token: LPAR
-Trying to consume: CT_STRING, Current token: LPAR
+Trying to consume: SUB, Current token: ID
+Trying to consume: NOT, Current token: ID
+Trying to consume: ID, Current token: ID
+Trying to consume: LBRACKET, Current token: LPAR
+Trying to consume: DOT, Current token: LPAR
 Trying to consume: LPAR, Current token: LPAR
 Trying to consume: SUB, Current token: CT_CHAR
 Trying to consume: NOT, Current token: CT_CHAR
@@ -2928,6 +3202,7 @@ Trying to consume: NOTEQ, Current token: RPAR
 Trying to consume: AND, Current token: RPAR
 Trying to consume: OR, Current token: RPAR
 Trying to consume: ASSIGN, Current token: RPAR
+Trying to consume: COMMA, Current token: RPAR
 Trying to consume: RPAR, Current token: RPAR
 Trying to consume: MUL, Current token: SEMICOLON
 Trying to consume: DIV, Current token: SEMICOLON
@@ -2943,28 +3218,29 @@ Trying to consume: AND, Current token: SEMICOLON
 Trying to consume: OR, Current token: SEMICOLON
 Trying to consume: ASSIGN, Current token: SEMICOLON
 Trying to consume: SEMICOLON, Current token: SEMICOLON
+Checking declVar
 Checking typeBase
 Trying to consume: INT, Current token: ID
 Trying to consume: DOUBLE, Current token: ID
 Trying to consume: CHAR, Current token: ID
+Trying to consume: VOID, Current token: ID
 Trying to consume: STRUCT, Current token: ID
 typeBase failed
+Trying to consume: LACC, Current token: ID
+Trying to consume: IF, Current token: ID
+Trying to consume: WHILE, Current token: ID
+Trying to consume: FOR, Current token: ID
+Trying to consume: BREAK, Current token: ID
+Trying to consume: RETURN, Current token: ID
 Trying to consume: ID, Current token: ID
 Trying to consume: LBRACKET, Current token: LPAR
+Trying to consume: DOT, Current token: LPAR
 Trying to consume: ASSIGN, Current token: LPAR
-Trying to consume: LACC, Current token: LPAR
-Trying to consume: IF, Current token: LPAR
-Trying to consume: WHILE, Current token: LPAR
-Trying to consume: FOR, Current token: LPAR
-Trying to consume: BREAK, Current token: LPAR
-Trying to consume: RETURN, Current token: LPAR
-Trying to consume: SUB, Current token: LPAR
-Trying to consume: NOT, Current token: LPAR
-Trying to consume: ID, Current token: LPAR
-Trying to consume: CT_INT, Current token: LPAR
-Trying to consume: CT_REAL, Current token: LPAR
-Trying to consume: CT_CHAR, Current token: LPAR
-Trying to consume: CT_STRING, Current token: LPAR
+Trying to consume: SUB, Current token: ID
+Trying to consume: NOT, Current token: ID
+Trying to consume: ID, Current token: ID
+Trying to consume: LBRACKET, Current token: LPAR
+Trying to consume: DOT, Current token: LPAR
 Trying to consume: LPAR, Current token: LPAR
 Trying to consume: SUB, Current token: ID
 Trying to consume: NOT, Current token: ID
@@ -2974,6 +3250,7 @@ Trying to consume: SUB, Current token: ID
 Trying to consume: NOT, Current token: ID
 Trying to consume: ID, Current token: ID
 Trying to consume: LBRACKET, Current token: RBRACKET
+Trying to consume: DOT, Current token: RBRACKET
 Trying to consume: LPAR, Current token: RBRACKET
 Trying to consume: MUL, Current token: RBRACKET
 Trying to consume: DIV, Current token: RBRACKET
@@ -2990,6 +3267,7 @@ Trying to consume: OR, Current token: RBRACKET
 Trying to consume: ASSIGN, Current token: RBRACKET
 Trying to consume: RBRACKET, Current token: RBRACKET
 Trying to consume: LBRACKET, Current token: RPAR
+Trying to consume: DOT, Current token: RPAR
 Trying to consume: LPAR, Current token: RPAR
 Trying to consume: MUL, Current token: RPAR
 Trying to consume: DIV, Current token: RPAR
@@ -3004,6 +3282,7 @@ Trying to consume: NOTEQ, Current token: RPAR
 Trying to consume: AND, Current token: RPAR
 Trying to consume: OR, Current token: RPAR
 Trying to consume: ASSIGN, Current token: RPAR
+Trying to consume: COMMA, Current token: RPAR
 Trying to consume: RPAR, Current token: RPAR
 Trying to consume: MUL, Current token: SEMICOLON
 Trying to consume: DIV, Current token: SEMICOLON
@@ -3019,19 +3298,21 @@ Trying to consume: AND, Current token: SEMICOLON
 Trying to consume: OR, Current token: SEMICOLON
 Trying to consume: ASSIGN, Current token: SEMICOLON
 Trying to consume: SEMICOLON, Current token: SEMICOLON
+Checking declVar
 Checking typeBase
 Trying to consume: INT, Current token: RACC
 Trying to consume: DOUBLE, Current token: RACC
 Trying to consume: CHAR, Current token: RACC
+Trying to consume: VOID, Current token: RACC
 Trying to consume: STRUCT, Current token: RACC
 typeBase failed
-Trying to consume: ID, Current token: RACC
 Trying to consume: LACC, Current token: RACC
 Trying to consume: IF, Current token: RACC
 Trying to consume: WHILE, Current token: RACC
 Trying to consume: FOR, Current token: RACC
 Trying to consume: BREAK, Current token: RACC
 Trying to consume: RETURN, Current token: RACC
+Trying to consume: ID, Current token: RACC
 Trying to consume: SUB, Current token: RACC
 Trying to consume: NOT, Current token: RACC
 Trying to consume: ID, Current token: RACC
@@ -3041,19 +3322,21 @@ Trying to consume: CT_CHAR, Current token: RACC
 Trying to consume: CT_STRING, Current token: RACC
 Trying to consume: LPAR, Current token: RACC
 Trying to consume: RACC, Current token: RACC
+Checking declVar
 Checking typeBase
 Trying to consume: INT, Current token: RACC
 Trying to consume: DOUBLE, Current token: RACC
 Trying to consume: CHAR, Current token: RACC
+Trying to consume: VOID, Current token: RACC
 Trying to consume: STRUCT, Current token: RACC
 typeBase failed
-Trying to consume: ID, Current token: RACC
 Trying to consume: LACC, Current token: RACC
 Trying to consume: IF, Current token: RACC
 Trying to consume: WHILE, Current token: RACC
 Trying to consume: FOR, Current token: RACC
 Trying to consume: BREAK, Current token: RACC
 Trying to consume: RETURN, Current token: RACC
+Trying to consume: ID, Current token: RACC
 Trying to consume: SUB, Current token: RACC
 Trying to consume: NOT, Current token: RACC
 Trying to consume: ID, Current token: RACC
@@ -3067,24 +3350,27 @@ Trying to consume: END, Current token: END
 Result for 6.c: SUCCESS
 
 Processing file: 7.c
+Checking declStruct
 Trying to consume: STRUCT, Current token: VOID
+Checking declFunc
 Checking typeBase
 Trying to consume: INT, Current token: VOID
 Trying to consume: DOUBLE, Current token: VOID
 Trying to consume: CHAR, Current token: VOID
-Trying to consume: STRUCT, Current token: VOID
-typeBase failed
 Trying to consume: VOID, Current token: VOID
+Found VOID
 Trying to consume: ID, Current token: ID
 Trying to consume: LPAR, Current token: LPAR
 Checking typeBase
 Trying to consume: INT, Current token: RPAR
 Trying to consume: DOUBLE, Current token: RPAR
 Trying to consume: CHAR, Current token: RPAR
+Trying to consume: VOID, Current token: RPAR
 Trying to consume: STRUCT, Current token: RPAR
 typeBase failed
 Trying to consume: RPAR, Current token: RPAR
 Trying to consume: LACC, Current token: LACC
+Checking declVar
 Checking typeBase
 Trying to consume: INT, Current token: DOUBLE
 Trying to consume: DOUBLE, Current token: DOUBLE
@@ -3096,14 +3382,23 @@ Trying to consume: ID, Current token: ID
 Trying to consume: LBRACKET, Current token: SEMICOLON
 Trying to consume: COMMA, Current token: SEMICOLON
 Trying to consume: SEMICOLON, Current token: SEMICOLON
+Checking declVar
 Checking typeBase
 Trying to consume: INT, Current token: ID
 Trying to consume: DOUBLE, Current token: ID
 Trying to consume: CHAR, Current token: ID
+Trying to consume: VOID, Current token: ID
 Trying to consume: STRUCT, Current token: ID
 typeBase failed
+Trying to consume: LACC, Current token: ID
+Trying to consume: IF, Current token: ID
+Trying to consume: WHILE, Current token: ID
+Trying to consume: FOR, Current token: ID
+Trying to consume: BREAK, Current token: ID
+Trying to consume: RETURN, Current token: ID
 Trying to consume: ID, Current token: ID
 Trying to consume: LBRACKET, Current token: ASSIGN
+Trying to consume: DOT, Current token: ASSIGN
 Trying to consume: ASSIGN, Current token: ASSIGN
 Trying to consume: SUB, Current token: CT_REAL
 Trying to consume: NOT, Current token: CT_REAL
@@ -3124,28 +3419,29 @@ Trying to consume: AND, Current token: SEMICOLON
 Trying to consume: OR, Current token: SEMICOLON
 Trying to consume: ASSIGN, Current token: SEMICOLON
 Trying to consume: SEMICOLON, Current token: SEMICOLON
+Checking declVar
 Checking typeBase
 Trying to consume: INT, Current token: ID
 Trying to consume: DOUBLE, Current token: ID
 Trying to consume: CHAR, Current token: ID
+Trying to consume: VOID, Current token: ID
 Trying to consume: STRUCT, Current token: ID
 typeBase failed
+Trying to consume: LACC, Current token: ID
+Trying to consume: IF, Current token: ID
+Trying to consume: WHILE, Current token: ID
+Trying to consume: FOR, Current token: ID
+Trying to consume: BREAK, Current token: ID
+Trying to consume: RETURN, Current token: ID
 Trying to consume: ID, Current token: ID
 Trying to consume: LBRACKET, Current token: LPAR
+Trying to consume: DOT, Current token: LPAR
 Trying to consume: ASSIGN, Current token: LPAR
-Trying to consume: LACC, Current token: LPAR
-Trying to consume: IF, Current token: LPAR
-Trying to consume: WHILE, Current token: LPAR
-Trying to consume: FOR, Current token: LPAR
-Trying to consume: BREAK, Current token: LPAR
-Trying to consume: RETURN, Current token: LPAR
-Trying to consume: SUB, Current token: LPAR
-Trying to consume: NOT, Current token: LPAR
-Trying to consume: ID, Current token: LPAR
-Trying to consume: CT_INT, Current token: LPAR
-Trying to consume: CT_REAL, Current token: LPAR
-Trying to consume: CT_CHAR, Current token: LPAR
-Trying to consume: CT_STRING, Current token: LPAR
+Trying to consume: SUB, Current token: ID
+Trying to consume: NOT, Current token: ID
+Trying to consume: ID, Current token: ID
+Trying to consume: LBRACKET, Current token: LPAR
+Trying to consume: DOT, Current token: LPAR
 Trying to consume: LPAR, Current token: LPAR
 Trying to consume: SUB, Current token: CT_STRING
 Trying to consume: NOT, Current token: CT_STRING
@@ -3167,6 +3463,7 @@ Trying to consume: NOTEQ, Current token: RPAR
 Trying to consume: AND, Current token: RPAR
 Trying to consume: OR, Current token: RPAR
 Trying to consume: ASSIGN, Current token: RPAR
+Trying to consume: COMMA, Current token: RPAR
 Trying to consume: RPAR, Current token: RPAR
 Trying to consume: MUL, Current token: SEMICOLON
 Trying to consume: DIV, Current token: SEMICOLON
@@ -3182,19 +3479,29 @@ Trying to consume: AND, Current token: SEMICOLON
 Trying to consume: OR, Current token: SEMICOLON
 Trying to consume: ASSIGN, Current token: SEMICOLON
 Trying to consume: SEMICOLON, Current token: SEMICOLON
+Checking declVar
 Checking typeBase
 Trying to consume: INT, Current token: ID
 Trying to consume: DOUBLE, Current token: ID
 Trying to consume: CHAR, Current token: ID
+Trying to consume: VOID, Current token: ID
 Trying to consume: STRUCT, Current token: ID
 typeBase failed
+Trying to consume: LACC, Current token: ID
+Trying to consume: IF, Current token: ID
+Trying to consume: WHILE, Current token: ID
+Trying to consume: FOR, Current token: ID
+Trying to consume: BREAK, Current token: ID
+Trying to consume: RETURN, Current token: ID
 Trying to consume: ID, Current token: ID
 Trying to consume: LBRACKET, Current token: ASSIGN
+Trying to consume: DOT, Current token: ASSIGN
 Trying to consume: ASSIGN, Current token: ASSIGN
 Trying to consume: SUB, Current token: ID
 Trying to consume: NOT, Current token: ID
 Trying to consume: ID, Current token: ID
 Trying to consume: LBRACKET, Current token: LPAR
+Trying to consume: DOT, Current token: LPAR
 Trying to consume: LPAR, Current token: LPAR
 Trying to consume: SUB, Current token: RPAR
 Trying to consume: NOT, Current token: RPAR
@@ -3219,28 +3526,29 @@ Trying to consume: AND, Current token: SEMICOLON
 Trying to consume: OR, Current token: SEMICOLON
 Trying to consume: ASSIGN, Current token: SEMICOLON
 Trying to consume: SEMICOLON, Current token: SEMICOLON
+Checking declVar
 Checking typeBase
 Trying to consume: INT, Current token: ID
 Trying to consume: DOUBLE, Current token: ID
 Trying to consume: CHAR, Current token: ID
+Trying to consume: VOID, Current token: ID
 Trying to consume: STRUCT, Current token: ID
 typeBase failed
+Trying to consume: LACC, Current token: ID
+Trying to consume: IF, Current token: ID
+Trying to consume: WHILE, Current token: ID
+Trying to consume: FOR, Current token: ID
+Trying to consume: BREAK, Current token: ID
+Trying to consume: RETURN, Current token: ID
 Trying to consume: ID, Current token: ID
 Trying to consume: LBRACKET, Current token: LPAR
+Trying to consume: DOT, Current token: LPAR
 Trying to consume: ASSIGN, Current token: LPAR
-Trying to consume: LACC, Current token: LPAR
-Trying to consume: IF, Current token: LPAR
-Trying to consume: WHILE, Current token: LPAR
-Trying to consume: FOR, Current token: LPAR
-Trying to consume: BREAK, Current token: LPAR
-Trying to consume: RETURN, Current token: LPAR
-Trying to consume: SUB, Current token: LPAR
-Trying to consume: NOT, Current token: LPAR
-Trying to consume: ID, Current token: LPAR
-Trying to consume: CT_INT, Current token: LPAR
-Trying to consume: CT_REAL, Current token: LPAR
-Trying to consume: CT_CHAR, Current token: LPAR
-Trying to consume: CT_STRING, Current token: LPAR
+Trying to consume: SUB, Current token: ID
+Trying to consume: NOT, Current token: ID
+Trying to consume: ID, Current token: ID
+Trying to consume: LBRACKET, Current token: LPAR
+Trying to consume: DOT, Current token: LPAR
 Trying to consume: LPAR, Current token: LPAR
 Trying to consume: SUB, Current token: CT_STRING
 Trying to consume: NOT, Current token: CT_STRING
@@ -3262,6 +3570,7 @@ Trying to consume: NOTEQ, Current token: RPAR
 Trying to consume: AND, Current token: RPAR
 Trying to consume: OR, Current token: RPAR
 Trying to consume: ASSIGN, Current token: RPAR
+Trying to consume: COMMA, Current token: RPAR
 Trying to consume: RPAR, Current token: RPAR
 Trying to consume: MUL, Current token: SEMICOLON
 Trying to consume: DIV, Current token: SEMICOLON
@@ -3277,28 +3586,29 @@ Trying to consume: AND, Current token: SEMICOLON
 Trying to consume: OR, Current token: SEMICOLON
 Trying to consume: ASSIGN, Current token: SEMICOLON
 Trying to consume: SEMICOLON, Current token: SEMICOLON
+Checking declVar
 Checking typeBase
 Trying to consume: INT, Current token: ID
 Trying to consume: DOUBLE, Current token: ID
 Trying to consume: CHAR, Current token: ID
+Trying to consume: VOID, Current token: ID
 Trying to consume: STRUCT, Current token: ID
 typeBase failed
+Trying to consume: LACC, Current token: ID
+Trying to consume: IF, Current token: ID
+Trying to consume: WHILE, Current token: ID
+Trying to consume: FOR, Current token: ID
+Trying to consume: BREAK, Current token: ID
+Trying to consume: RETURN, Current token: ID
 Trying to consume: ID, Current token: ID
 Trying to consume: LBRACKET, Current token: LPAR
+Trying to consume: DOT, Current token: LPAR
 Trying to consume: ASSIGN, Current token: LPAR
-Trying to consume: LACC, Current token: LPAR
-Trying to consume: IF, Current token: LPAR
-Trying to consume: WHILE, Current token: LPAR
-Trying to consume: FOR, Current token: LPAR
-Trying to consume: BREAK, Current token: LPAR
-Trying to consume: RETURN, Current token: LPAR
-Trying to consume: SUB, Current token: LPAR
-Trying to consume: NOT, Current token: LPAR
-Trying to consume: ID, Current token: LPAR
-Trying to consume: CT_INT, Current token: LPAR
-Trying to consume: CT_REAL, Current token: LPAR
-Trying to consume: CT_CHAR, Current token: LPAR
-Trying to consume: CT_STRING, Current token: LPAR
+Trying to consume: SUB, Current token: ID
+Trying to consume: NOT, Current token: ID
+Trying to consume: ID, Current token: ID
+Trying to consume: LBRACKET, Current token: LPAR
+Trying to consume: DOT, Current token: LPAR
 Trying to consume: LPAR, Current token: LPAR
 Trying to consume: SUB, Current token: CT_REAL
 Trying to consume: NOT, Current token: CT_REAL
@@ -3310,12 +3620,14 @@ Trying to consume: SUB, Current token: ID
 Trying to consume: NOT, Current token: ID
 Trying to consume: ID, Current token: ID
 Trying to consume: LBRACKET, Current token: MUL
+Trying to consume: DOT, Current token: MUL
 Trying to consume: LPAR, Current token: MUL
 Trying to consume: MUL, Current token: MUL
 Trying to consume: SUB, Current token: ID
 Trying to consume: NOT, Current token: ID
 Trying to consume: ID, Current token: ID
 Trying to consume: LBRACKET, Current token: RPAR
+Trying to consume: DOT, Current token: RPAR
 Trying to consume: LPAR, Current token: RPAR
 Trying to consume: MUL, Current token: RPAR
 Trying to consume: DIV, Current token: RPAR
@@ -3330,6 +3642,7 @@ Trying to consume: NOTEQ, Current token: RPAR
 Trying to consume: AND, Current token: RPAR
 Trying to consume: OR, Current token: RPAR
 Trying to consume: ASSIGN, Current token: RPAR
+Trying to consume: COMMA, Current token: RPAR
 Trying to consume: RPAR, Current token: RPAR
 Trying to consume: MUL, Current token: SEMICOLON
 Trying to consume: DIV, Current token: SEMICOLON
@@ -3345,28 +3658,29 @@ Trying to consume: AND, Current token: SEMICOLON
 Trying to consume: OR, Current token: SEMICOLON
 Trying to consume: ASSIGN, Current token: SEMICOLON
 Trying to consume: SEMICOLON, Current token: SEMICOLON
+Checking declVar
 Checking typeBase
 Trying to consume: INT, Current token: ID
 Trying to consume: DOUBLE, Current token: ID
 Trying to consume: CHAR, Current token: ID
+Trying to consume: VOID, Current token: ID
 Trying to consume: STRUCT, Current token: ID
 typeBase failed
+Trying to consume: LACC, Current token: ID
+Trying to consume: IF, Current token: ID
+Trying to consume: WHILE, Current token: ID
+Trying to consume: FOR, Current token: ID
+Trying to consume: BREAK, Current token: ID
+Trying to consume: RETURN, Current token: ID
 Trying to consume: ID, Current token: ID
 Trying to consume: LBRACKET, Current token: LPAR
+Trying to consume: DOT, Current token: LPAR
 Trying to consume: ASSIGN, Current token: LPAR
-Trying to consume: LACC, Current token: LPAR
-Trying to consume: IF, Current token: LPAR
-Trying to consume: WHILE, Current token: LPAR
-Trying to consume: FOR, Current token: LPAR
-Trying to consume: BREAK, Current token: LPAR
-Trying to consume: RETURN, Current token: LPAR
-Trying to consume: SUB, Current token: LPAR
-Trying to consume: NOT, Current token: LPAR
-Trying to consume: ID, Current token: LPAR
-Trying to consume: CT_INT, Current token: LPAR
-Trying to consume: CT_REAL, Current token: LPAR
-Trying to consume: CT_CHAR, Current token: LPAR
-Trying to consume: CT_STRING, Current token: LPAR
+Trying to consume: SUB, Current token: ID
+Trying to consume: NOT, Current token: ID
+Trying to consume: ID, Current token: ID
+Trying to consume: LBRACKET, Current token: LPAR
+Trying to consume: DOT, Current token: LPAR
 Trying to consume: LPAR, Current token: LPAR
 Trying to consume: SUB, Current token: CT_STRING
 Trying to consume: NOT, Current token: CT_STRING
@@ -3388,6 +3702,7 @@ Trying to consume: NOTEQ, Current token: RPAR
 Trying to consume: AND, Current token: RPAR
 Trying to consume: OR, Current token: RPAR
 Trying to consume: ASSIGN, Current token: RPAR
+Trying to consume: COMMA, Current token: RPAR
 Trying to consume: RPAR, Current token: RPAR
 Trying to consume: MUL, Current token: SEMICOLON
 Trying to consume: DIV, Current token: SEMICOLON
@@ -3403,45 +3718,49 @@ Trying to consume: AND, Current token: SEMICOLON
 Trying to consume: OR, Current token: SEMICOLON
 Trying to consume: ASSIGN, Current token: SEMICOLON
 Trying to consume: SEMICOLON, Current token: SEMICOLON
+Checking declVar
 Checking typeBase
 Trying to consume: INT, Current token: ID
 Trying to consume: DOUBLE, Current token: ID
 Trying to consume: CHAR, Current token: ID
+Trying to consume: VOID, Current token: ID
 Trying to consume: STRUCT, Current token: ID
 typeBase failed
+Trying to consume: LACC, Current token: ID
+Trying to consume: IF, Current token: ID
+Trying to consume: WHILE, Current token: ID
+Trying to consume: FOR, Current token: ID
+Trying to consume: BREAK, Current token: ID
+Trying to consume: RETURN, Current token: ID
 Trying to consume: ID, Current token: ID
 Trying to consume: LBRACKET, Current token: LPAR
+Trying to consume: DOT, Current token: LPAR
 Trying to consume: ASSIGN, Current token: LPAR
-Trying to consume: LACC, Current token: LPAR
-Trying to consume: IF, Current token: LPAR
-Trying to consume: WHILE, Current token: LPAR
-Trying to consume: FOR, Current token: LPAR
-Trying to consume: BREAK, Current token: LPAR
-Trying to consume: RETURN, Current token: LPAR
-Trying to consume: SUB, Current token: LPAR
-Trying to consume: NOT, Current token: LPAR
-Trying to consume: ID, Current token: LPAR
-Trying to consume: CT_INT, Current token: LPAR
-Trying to consume: CT_REAL, Current token: LPAR
-Trying to consume: CT_CHAR, Current token: LPAR
-Trying to consume: CT_STRING, Current token: LPAR
+Trying to consume: SUB, Current token: ID
+Trying to consume: NOT, Current token: ID
+Trying to consume: ID, Current token: ID
+Trying to consume: LBRACKET, Current token: LPAR
+Trying to consume: DOT, Current token: LPAR
 Trying to consume: LPAR, Current token: LPAR
 Trying to consume: SUB, Current token: ID
 Trying to consume: NOT, Current token: ID
 Trying to consume: ID, Current token: ID
 Trying to consume: LBRACKET, Current token: MUL
+Trying to consume: DOT, Current token: MUL
 Trying to consume: LPAR, Current token: MUL
 Trying to consume: MUL, Current token: MUL
 Trying to consume: SUB, Current token: ID
 Trying to consume: NOT, Current token: ID
 Trying to consume: ID, Current token: ID
 Trying to consume: LBRACKET, Current token: MUL
+Trying to consume: DOT, Current token: MUL
 Trying to consume: LPAR, Current token: MUL
 Trying to consume: MUL, Current token: MUL
 Trying to consume: SUB, Current token: ID
 Trying to consume: NOT, Current token: ID
 Trying to consume: ID, Current token: ID
 Trying to consume: LBRACKET, Current token: RPAR
+Trying to consume: DOT, Current token: RPAR
 Trying to consume: LPAR, Current token: RPAR
 Trying to consume: MUL, Current token: RPAR
 Trying to consume: DIV, Current token: RPAR
@@ -3456,6 +3775,7 @@ Trying to consume: NOTEQ, Current token: RPAR
 Trying to consume: AND, Current token: RPAR
 Trying to consume: OR, Current token: RPAR
 Trying to consume: ASSIGN, Current token: RPAR
+Trying to consume: COMMA, Current token: RPAR
 Trying to consume: RPAR, Current token: RPAR
 Trying to consume: MUL, Current token: SEMICOLON
 Trying to consume: DIV, Current token: SEMICOLON
@@ -3471,19 +3791,21 @@ Trying to consume: AND, Current token: SEMICOLON
 Trying to consume: OR, Current token: SEMICOLON
 Trying to consume: ASSIGN, Current token: SEMICOLON
 Trying to consume: SEMICOLON, Current token: SEMICOLON
+Checking declVar
 Checking typeBase
 Trying to consume: INT, Current token: RACC
 Trying to consume: DOUBLE, Current token: RACC
 Trying to consume: CHAR, Current token: RACC
+Trying to consume: VOID, Current token: RACC
 Trying to consume: STRUCT, Current token: RACC
 typeBase failed
-Trying to consume: ID, Current token: RACC
 Trying to consume: LACC, Current token: RACC
 Trying to consume: IF, Current token: RACC
 Trying to consume: WHILE, Current token: RACC
 Trying to consume: FOR, Current token: RACC
 Trying to consume: BREAK, Current token: RACC
 Trying to consume: RETURN, Current token: RACC
+Trying to consume: ID, Current token: RACC
 Trying to consume: SUB, Current token: RACC
 Trying to consume: NOT, Current token: RACC
 Trying to consume: ID, Current token: RACC
@@ -3497,31 +3819,34 @@ Trying to consume: END, Current token: END
 Result for 7.c: SUCCESS
 
 Processing file: 8.c
+Checking declStruct
 Trying to consume: STRUCT, Current token: VOID
+Checking declFunc
 Checking typeBase
 Trying to consume: INT, Current token: VOID
 Trying to consume: DOUBLE, Current token: VOID
 Trying to consume: CHAR, Current token: VOID
-Trying to consume: STRUCT, Current token: VOID
-typeBase failed
 Trying to consume: VOID, Current token: VOID
+Found VOID
 Trying to consume: ID, Current token: ID
 Trying to consume: LPAR, Current token: LPAR
 Checking typeBase
 Trying to consume: INT, Current token: RPAR
 Trying to consume: DOUBLE, Current token: RPAR
 Trying to consume: CHAR, Current token: RPAR
+Trying to consume: VOID, Current token: RPAR
 Trying to consume: STRUCT, Current token: RPAR
 typeBase failed
 Trying to consume: RPAR, Current token: RPAR
 Trying to consume: LACC, Current token: LACC
+Checking declVar
 Checking typeBase
 Trying to consume: INT, Current token: IF
 Trying to consume: DOUBLE, Current token: IF
 Trying to consume: CHAR, Current token: IF
+Trying to consume: VOID, Current token: IF
 Trying to consume: STRUCT, Current token: IF
 typeBase failed
-Trying to consume: ID, Current token: IF
 Trying to consume: LACC, Current token: IF
 Trying to consume: IF, Current token: IF
 Trying to consume: LPAR, Current token: LPAR
@@ -3556,22 +3881,21 @@ Trying to consume: AND, Current token: RPAR
 Trying to consume: OR, Current token: RPAR
 Trying to consume: ASSIGN, Current token: RPAR
 Trying to consume: RPAR, Current token: RPAR
+Trying to consume: LACC, Current token: ID
+Trying to consume: IF, Current token: ID
+Trying to consume: WHILE, Current token: ID
+Trying to consume: FOR, Current token: ID
+Trying to consume: BREAK, Current token: ID
+Trying to consume: RETURN, Current token: ID
 Trying to consume: ID, Current token: ID
 Trying to consume: LBRACKET, Current token: LPAR
+Trying to consume: DOT, Current token: LPAR
 Trying to consume: ASSIGN, Current token: LPAR
-Trying to consume: LACC, Current token: LPAR
-Trying to consume: IF, Current token: LPAR
-Trying to consume: WHILE, Current token: LPAR
-Trying to consume: FOR, Current token: LPAR
-Trying to consume: BREAK, Current token: LPAR
-Trying to consume: RETURN, Current token: LPAR
-Trying to consume: SUB, Current token: LPAR
-Trying to consume: NOT, Current token: LPAR
-Trying to consume: ID, Current token: LPAR
-Trying to consume: CT_INT, Current token: LPAR
-Trying to consume: CT_REAL, Current token: LPAR
-Trying to consume: CT_CHAR, Current token: LPAR
-Trying to consume: CT_STRING, Current token: LPAR
+Trying to consume: SUB, Current token: ID
+Trying to consume: NOT, Current token: ID
+Trying to consume: ID, Current token: ID
+Trying to consume: LBRACKET, Current token: LPAR
+Trying to consume: DOT, Current token: LPAR
 Trying to consume: LPAR, Current token: LPAR
 Trying to consume: SUB, Current token: CT_STRING
 Trying to consume: NOT, Current token: CT_STRING
@@ -3593,6 +3917,7 @@ Trying to consume: NOTEQ, Current token: RPAR
 Trying to consume: AND, Current token: RPAR
 Trying to consume: OR, Current token: RPAR
 Trying to consume: ASSIGN, Current token: RPAR
+Trying to consume: COMMA, Current token: RPAR
 Trying to consume: RPAR, Current token: RPAR
 Trying to consume: MUL, Current token: SEMICOLON
 Trying to consume: DIV, Current token: SEMICOLON
@@ -3609,22 +3934,21 @@ Trying to consume: OR, Current token: SEMICOLON
 Trying to consume: ASSIGN, Current token: SEMICOLON
 Trying to consume: SEMICOLON, Current token: SEMICOLON
 Trying to consume: ELSE, Current token: ELSE
+Trying to consume: LACC, Current token: ID
+Trying to consume: IF, Current token: ID
+Trying to consume: WHILE, Current token: ID
+Trying to consume: FOR, Current token: ID
+Trying to consume: BREAK, Current token: ID
+Trying to consume: RETURN, Current token: ID
 Trying to consume: ID, Current token: ID
 Trying to consume: LBRACKET, Current token: LPAR
+Trying to consume: DOT, Current token: LPAR
 Trying to consume: ASSIGN, Current token: LPAR
-Trying to consume: LACC, Current token: LPAR
-Trying to consume: IF, Current token: LPAR
-Trying to consume: WHILE, Current token: LPAR
-Trying to consume: FOR, Current token: LPAR
-Trying to consume: BREAK, Current token: LPAR
-Trying to consume: RETURN, Current token: LPAR
-Trying to consume: SUB, Current token: LPAR
-Trying to consume: NOT, Current token: LPAR
-Trying to consume: ID, Current token: LPAR
-Trying to consume: CT_INT, Current token: LPAR
-Trying to consume: CT_REAL, Current token: LPAR
-Trying to consume: CT_CHAR, Current token: LPAR
-Trying to consume: CT_STRING, Current token: LPAR
+Trying to consume: SUB, Current token: ID
+Trying to consume: NOT, Current token: ID
+Trying to consume: ID, Current token: ID
+Trying to consume: LBRACKET, Current token: LPAR
+Trying to consume: DOT, Current token: LPAR
 Trying to consume: LPAR, Current token: LPAR
 Trying to consume: SUB, Current token: CT_STRING
 Trying to consume: NOT, Current token: CT_STRING
@@ -3646,6 +3970,7 @@ Trying to consume: NOTEQ, Current token: RPAR
 Trying to consume: AND, Current token: RPAR
 Trying to consume: OR, Current token: RPAR
 Trying to consume: ASSIGN, Current token: RPAR
+Trying to consume: COMMA, Current token: RPAR
 Trying to consume: RPAR, Current token: RPAR
 Trying to consume: MUL, Current token: SEMICOLON
 Trying to consume: DIV, Current token: SEMICOLON
@@ -3661,13 +3986,14 @@ Trying to consume: AND, Current token: SEMICOLON
 Trying to consume: OR, Current token: SEMICOLON
 Trying to consume: ASSIGN, Current token: SEMICOLON
 Trying to consume: SEMICOLON, Current token: SEMICOLON
+Checking declVar
 Checking typeBase
 Trying to consume: INT, Current token: IF
 Trying to consume: DOUBLE, Current token: IF
 Trying to consume: CHAR, Current token: IF
+Trying to consume: VOID, Current token: IF
 Trying to consume: STRUCT, Current token: IF
 typeBase failed
-Trying to consume: ID, Current token: IF
 Trying to consume: LACC, Current token: IF
 Trying to consume: IF, Current token: IF
 Trying to consume: LPAR, Current token: LPAR
@@ -3733,22 +4059,21 @@ Trying to consume: AND, Current token: RPAR
 Trying to consume: OR, Current token: RPAR
 Trying to consume: ASSIGN, Current token: RPAR
 Trying to consume: RPAR, Current token: RPAR
+Trying to consume: LACC, Current token: ID
+Trying to consume: IF, Current token: ID
+Trying to consume: WHILE, Current token: ID
+Trying to consume: FOR, Current token: ID
+Trying to consume: BREAK, Current token: ID
+Trying to consume: RETURN, Current token: ID
 Trying to consume: ID, Current token: ID
 Trying to consume: LBRACKET, Current token: LPAR
+Trying to consume: DOT, Current token: LPAR
 Trying to consume: ASSIGN, Current token: LPAR
-Trying to consume: LACC, Current token: LPAR
-Trying to consume: IF, Current token: LPAR
-Trying to consume: WHILE, Current token: LPAR
-Trying to consume: FOR, Current token: LPAR
-Trying to consume: BREAK, Current token: LPAR
-Trying to consume: RETURN, Current token: LPAR
-Trying to consume: SUB, Current token: LPAR
-Trying to consume: NOT, Current token: LPAR
-Trying to consume: ID, Current token: LPAR
-Trying to consume: CT_INT, Current token: LPAR
-Trying to consume: CT_REAL, Current token: LPAR
-Trying to consume: CT_CHAR, Current token: LPAR
-Trying to consume: CT_STRING, Current token: LPAR
+Trying to consume: SUB, Current token: ID
+Trying to consume: NOT, Current token: ID
+Trying to consume: ID, Current token: ID
+Trying to consume: LBRACKET, Current token: LPAR
+Trying to consume: DOT, Current token: LPAR
 Trying to consume: LPAR, Current token: LPAR
 Trying to consume: SUB, Current token: CT_CHAR
 Trying to consume: NOT, Current token: CT_CHAR
@@ -3769,6 +4094,7 @@ Trying to consume: NOTEQ, Current token: RPAR
 Trying to consume: AND, Current token: RPAR
 Trying to consume: OR, Current token: RPAR
 Trying to consume: ASSIGN, Current token: RPAR
+Trying to consume: COMMA, Current token: RPAR
 Trying to consume: RPAR, Current token: RPAR
 Trying to consume: MUL, Current token: SEMICOLON
 Trying to consume: DIV, Current token: SEMICOLON
@@ -3785,22 +4111,21 @@ Trying to consume: OR, Current token: SEMICOLON
 Trying to consume: ASSIGN, Current token: SEMICOLON
 Trying to consume: SEMICOLON, Current token: SEMICOLON
 Trying to consume: ELSE, Current token: ELSE
+Trying to consume: LACC, Current token: ID
+Trying to consume: IF, Current token: ID
+Trying to consume: WHILE, Current token: ID
+Trying to consume: FOR, Current token: ID
+Trying to consume: BREAK, Current token: ID
+Trying to consume: RETURN, Current token: ID
 Trying to consume: ID, Current token: ID
 Trying to consume: LBRACKET, Current token: LPAR
+Trying to consume: DOT, Current token: LPAR
 Trying to consume: ASSIGN, Current token: LPAR
-Trying to consume: LACC, Current token: LPAR
-Trying to consume: IF, Current token: LPAR
-Trying to consume: WHILE, Current token: LPAR
-Trying to consume: FOR, Current token: LPAR
-Trying to consume: BREAK, Current token: LPAR
-Trying to consume: RETURN, Current token: LPAR
-Trying to consume: SUB, Current token: LPAR
-Trying to consume: NOT, Current token: LPAR
-Trying to consume: ID, Current token: LPAR
-Trying to consume: CT_INT, Current token: LPAR
-Trying to consume: CT_REAL, Current token: LPAR
-Trying to consume: CT_CHAR, Current token: LPAR
-Trying to consume: CT_STRING, Current token: LPAR
+Trying to consume: SUB, Current token: ID
+Trying to consume: NOT, Current token: ID
+Trying to consume: ID, Current token: ID
+Trying to consume: LBRACKET, Current token: LPAR
+Trying to consume: DOT, Current token: LPAR
 Trying to consume: LPAR, Current token: LPAR
 Trying to consume: SUB, Current token: CT_CHAR
 Trying to consume: NOT, Current token: CT_CHAR
@@ -3821,6 +4146,7 @@ Trying to consume: NOTEQ, Current token: RPAR
 Trying to consume: AND, Current token: RPAR
 Trying to consume: OR, Current token: RPAR
 Trying to consume: ASSIGN, Current token: RPAR
+Trying to consume: COMMA, Current token: RPAR
 Trying to consume: RPAR, Current token: RPAR
 Trying to consume: MUL, Current token: SEMICOLON
 Trying to consume: DIV, Current token: SEMICOLON
@@ -3836,19 +4162,21 @@ Trying to consume: AND, Current token: SEMICOLON
 Trying to consume: OR, Current token: SEMICOLON
 Trying to consume: ASSIGN, Current token: SEMICOLON
 Trying to consume: SEMICOLON, Current token: SEMICOLON
+Checking declVar
 Checking typeBase
 Trying to consume: INT, Current token: RACC
 Trying to consume: DOUBLE, Current token: RACC
 Trying to consume: CHAR, Current token: RACC
+Trying to consume: VOID, Current token: RACC
 Trying to consume: STRUCT, Current token: RACC
 typeBase failed
-Trying to consume: ID, Current token: RACC
 Trying to consume: LACC, Current token: RACC
 Trying to consume: IF, Current token: RACC
 Trying to consume: WHILE, Current token: RACC
 Trying to consume: FOR, Current token: RACC
 Trying to consume: BREAK, Current token: RACC
 Trying to consume: RETURN, Current token: RACC
+Trying to consume: ID, Current token: RACC
 Trying to consume: SUB, Current token: RACC
 Trying to consume: NOT, Current token: RACC
 Trying to consume: ID, Current token: RACC
@@ -3862,9 +4190,11 @@ Trying to consume: END, Current token: END
 Result for 8.c: SUCCESS
 
 Processing file: 9.c
+Checking declStruct
 Trying to consume: STRUCT, Current token: STRUCT
 Trying to consume: ID, Current token: ID
 Trying to consume: LACC, Current token: LACC
+Checking declVar
 Checking typeBase
 Trying to consume: INT, Current token: INT
 Found INT
@@ -3875,19 +4205,599 @@ Trying to consume: ID, Current token: ID
 Trying to consume: LBRACKET, Current token: SEMICOLON
 Trying to consume: COMMA, Current token: SEMICOLON
 Trying to consume: SEMICOLON, Current token: SEMICOLON
+Checking declVar
 Checking typeBase
 Trying to consume: INT, Current token: RACC
 Trying to consume: DOUBLE, Current token: RACC
 Trying to consume: CHAR, Current token: RACC
+Trying to consume: VOID, Current token: RACC
 Trying to consume: STRUCT, Current token: RACC
 typeBase failed
 Trying to consume: RACC, Current token: RACC
 Trying to consume: SEMICOLON, Current token: SEMICOLON
+Checking declStruct
 Trying to consume: STRUCT, Current token: STRUCT
 Trying to consume: ID, Current token: ID
 Trying to consume: LACC, Current token: ID
-
- Error processing 9.c:
-==================================================
+Checking declFunc
+Checking typeBase
+Trying to consume: INT, Current token: STRUCT
+Trying to consume: DOUBLE, Current token: STRUCT
+Trying to consume: CHAR, Current token: STRUCT
+Trying to consume: VOID, Current token: STRUCT
+Trying to consume: STRUCT, Current token: STRUCT
+Trying to consume: ID, Current token: ID
+Found STRUCT ID
+Trying to consume: ID, Current token: ID
+Trying to consume: LPAR, Current token: LBRACKET
+Checking declVar
+Checking typeBase
+Trying to consume: INT, Current token: STRUCT
+Trying to consume: DOUBLE, Current token: STRUCT
+Trying to consume: CHAR, Current token: STRUCT
+Trying to consume: VOID, Current token: STRUCT
+Trying to consume: STRUCT, Current token: STRUCT
+Trying to consume: ID, Current token: ID
+Found STRUCT ID
+Trying to consume: ID, Current token: ID
+Trying to consume: LBRACKET, Current token: LBRACKET
+Trying to consume: SUB, Current token: CT_INT
+Trying to consume: NOT, Current token: CT_INT
+Trying to consume: ID, Current token: CT_INT
+Trying to consume: CT_INT, Current token: CT_INT
+Trying to consume: MUL, Current token: DIV
+Trying to consume: DIV, Current token: DIV
+Trying to consume: SUB, Current token: CT_INT
+Trying to consume: NOT, Current token: CT_INT
+Trying to consume: ID, Current token: CT_INT
+Trying to consume: CT_INT, Current token: CT_INT
+Trying to consume: MUL, Current token: ADD
+Trying to consume: DIV, Current token: ADD
+Trying to consume: ADD, Current token: ADD
+Trying to consume: SUB, Current token: CT_INT
+Trying to consume: NOT, Current token: CT_INT
+Trying to consume: ID, Current token: CT_INT
+Trying to consume: CT_INT, Current token: CT_INT
+Trying to consume: MUL, Current token: RBRACKET
+Trying to consume: DIV, Current token: RBRACKET
+Trying to consume: ADD, Current token: RBRACKET
+Trying to consume: SUB, Current token: RBRACKET
+Trying to consume: LESS, Current token: RBRACKET
+Trying to consume: LESSEQ, Current token: RBRACKET
+Trying to consume: GREATER, Current token: RBRACKET
+Trying to consume: GREATEREQ, Current token: RBRACKET
+Trying to consume: EQUAL, Current token: RBRACKET
+Trying to consume: NOTEQ, Current token: RBRACKET
+Trying to consume: AND, Current token: RBRACKET
+Trying to consume: OR, Current token: RBRACKET
+Trying to consume: ASSIGN, Current token: RBRACKET
+Trying to consume: RBRACKET, Current token: RBRACKET
+Trying to consume: COMMA, Current token: SEMICOLON
+Trying to consume: SEMICOLON, Current token: SEMICOLON
+Checking declStruct
+Trying to consume: STRUCT, Current token: INT
+Checking declFunc
+Checking typeBase
+Trying to consume: INT, Current token: INT
+Found INT
+Trying to consume: ID, Current token: ID
+Trying to consume: LPAR, Current token: LPAR
+Checking typeBase
+Trying to consume: INT, Current token: RPAR
+Trying to consume: DOUBLE, Current token: RPAR
+Trying to consume: CHAR, Current token: RPAR
+Trying to consume: VOID, Current token: RPAR
+Trying to consume: STRUCT, Current token: RPAR
+typeBase failed
+Trying to consume: RPAR, Current token: RPAR
+Trying to consume: LACC, Current token: LACC
+Checking declVar
+Checking typeBase
+Trying to consume: INT, Current token: INT
+Found INT
+Trying to consume: ID, Current token: ID
+Trying to consume: LBRACKET, Current token: COMMA
+Trying to consume: COMMA, Current token: COMMA
+Trying to consume: ID, Current token: ID
+Trying to consume: LBRACKET, Current token: SEMICOLON
+Trying to consume: COMMA, Current token: SEMICOLON
+Trying to consume: SEMICOLON, Current token: SEMICOLON
+Checking declVar
+Checking typeBase
+Trying to consume: INT, Current token: FOR
+Trying to consume: DOUBLE, Current token: FOR
+Trying to consume: CHAR, Current token: FOR
+Trying to consume: VOID, Current token: FOR
+Trying to consume: STRUCT, Current token: FOR
+typeBase failed
+Trying to consume: LACC, Current token: FOR
+Trying to consume: IF, Current token: FOR
+Trying to consume: WHILE, Current token: FOR
+Trying to consume: FOR, Current token: FOR
+Trying to consume: LPAR, Current token: LPAR
+Trying to consume: SUB, Current token: ID
+Trying to consume: NOT, Current token: ID
+Trying to consume: ID, Current token: ID
+Trying to consume: LBRACKET, Current token: ASSIGN
+Trying to consume: DOT, Current token: ASSIGN
+Trying to consume: LPAR, Current token: ASSIGN
+Trying to consume: MUL, Current token: ASSIGN
+Trying to consume: DIV, Current token: ASSIGN
+Trying to consume: ADD, Current token: ASSIGN
+Trying to consume: SUB, Current token: ASSIGN
+Trying to consume: LESS, Current token: ASSIGN
+Trying to consume: LESSEQ, Current token: ASSIGN
+Trying to consume: GREATER, Current token: ASSIGN
+Trying to consume: GREATEREQ, Current token: ASSIGN
+Trying to consume: EQUAL, Current token: ASSIGN
+Trying to consume: NOTEQ, Current token: ASSIGN
+Trying to consume: AND, Current token: ASSIGN
+Trying to consume: OR, Current token: ASSIGN
+Trying to consume: ASSIGN, Current token: ASSIGN
+Trying to consume: SUB, Current token: ID
+Trying to consume: NOT, Current token: ID
+Trying to consume: ID, Current token: ID
+Trying to consume: LBRACKET, Current token: ASSIGN
+Trying to consume: DOT, Current token: ASSIGN
+Trying to consume: LPAR, Current token: ASSIGN
+Trying to consume: MUL, Current token: ASSIGN
+Trying to consume: DIV, Current token: ASSIGN
+Trying to consume: ADD, Current token: ASSIGN
+Trying to consume: SUB, Current token: ASSIGN
+Trying to consume: LESS, Current token: ASSIGN
+Trying to consume: LESSEQ, Current token: ASSIGN
+Trying to consume: GREATER, Current token: ASSIGN
+Trying to consume: GREATEREQ, Current token: ASSIGN
+Trying to consume: EQUAL, Current token: ASSIGN
+Trying to consume: NOTEQ, Current token: ASSIGN
+Trying to consume: AND, Current token: ASSIGN
+Trying to consume: OR, Current token: ASSIGN
+Trying to consume: ASSIGN, Current token: ASSIGN
+Trying to consume: SUB, Current token: CT_INT
+Trying to consume: NOT, Current token: CT_INT
+Trying to consume: ID, Current token: CT_INT
+Trying to consume: CT_INT, Current token: CT_INT
+Trying to consume: MUL, Current token: SEMICOLON
+Trying to consume: DIV, Current token: SEMICOLON
+Trying to consume: ADD, Current token: SEMICOLON
+Trying to consume: SUB, Current token: SEMICOLON
+Trying to consume: LESS, Current token: SEMICOLON
+Trying to consume: LESSEQ, Current token: SEMICOLON
+Trying to consume: GREATER, Current token: SEMICOLON
+Trying to consume: GREATEREQ, Current token: SEMICOLON
+Trying to consume: EQUAL, Current token: SEMICOLON
+Trying to consume: NOTEQ, Current token: SEMICOLON
+Trying to consume: AND, Current token: SEMICOLON
+Trying to consume: OR, Current token: SEMICOLON
+Trying to consume: ASSIGN, Current token: SEMICOLON
+Trying to consume: SEMICOLON, Current token: SEMICOLON
+Trying to consume: SUB, Current token: ID
+Trying to consume: NOT, Current token: ID
+Trying to consume: ID, Current token: ID
+Trying to consume: LBRACKET, Current token: LESS
+Trying to consume: DOT, Current token: LESS
+Trying to consume: LPAR, Current token: LESS
+Trying to consume: MUL, Current token: LESS
+Trying to consume: DIV, Current token: LESS
+Trying to consume: ADD, Current token: LESS
+Trying to consume: SUB, Current token: LESS
+Trying to consume: LESS, Current token: LESS
+Trying to consume: SUB, Current token: CT_INT
+Trying to consume: NOT, Current token: CT_INT
+Trying to consume: ID, Current token: CT_INT
+Trying to consume: CT_INT, Current token: CT_INT
+Trying to consume: MUL, Current token: SEMICOLON
+Trying to consume: DIV, Current token: SEMICOLON
+Trying to consume: ADD, Current token: SEMICOLON
+Trying to consume: SUB, Current token: SEMICOLON
+Trying to consume: LESS, Current token: SEMICOLON
+Trying to consume: LESSEQ, Current token: SEMICOLON
+Trying to consume: GREATER, Current token: SEMICOLON
+Trying to consume: GREATEREQ, Current token: SEMICOLON
+Trying to consume: EQUAL, Current token: SEMICOLON
+Trying to consume: NOTEQ, Current token: SEMICOLON
+Trying to consume: AND, Current token: SEMICOLON
+Trying to consume: OR, Current token: SEMICOLON
+Trying to consume: ASSIGN, Current token: SEMICOLON
+Trying to consume: SEMICOLON, Current token: SEMICOLON
+Trying to consume: SUB, Current token: ID
+Trying to consume: NOT, Current token: ID
+Trying to consume: ID, Current token: ID
+Trying to consume: LBRACKET, Current token: ASSIGN
+Trying to consume: DOT, Current token: ASSIGN
+Trying to consume: LPAR, Current token: ASSIGN
+Trying to consume: MUL, Current token: ASSIGN
+Trying to consume: DIV, Current token: ASSIGN
+Trying to consume: ADD, Current token: ASSIGN
+Trying to consume: SUB, Current token: ASSIGN
+Trying to consume: LESS, Current token: ASSIGN
+Trying to consume: LESSEQ, Current token: ASSIGN
+Trying to consume: GREATER, Current token: ASSIGN
+Trying to consume: GREATEREQ, Current token: ASSIGN
+Trying to consume: EQUAL, Current token: ASSIGN
+Trying to consume: NOTEQ, Current token: ASSIGN
+Trying to consume: AND, Current token: ASSIGN
+Trying to consume: OR, Current token: ASSIGN
+Trying to consume: ASSIGN, Current token: ASSIGN
+Trying to consume: SUB, Current token: ID
+Trying to consume: NOT, Current token: ID
+Trying to consume: ID, Current token: ID
+Trying to consume: LBRACKET, Current token: ADD
+Trying to consume: DOT, Current token: ADD
+Trying to consume: LPAR, Current token: ADD
+Trying to consume: MUL, Current token: ADD
+Trying to consume: DIV, Current token: ADD
+Trying to consume: ADD, Current token: ADD
+Trying to consume: SUB, Current token: CT_INT
+Trying to consume: NOT, Current token: CT_INT
+Trying to consume: ID, Current token: CT_INT
+Trying to consume: CT_INT, Current token: CT_INT
+Trying to consume: MUL, Current token: RPAR
+Trying to consume: DIV, Current token: RPAR
+Trying to consume: ADD, Current token: RPAR
+Trying to consume: SUB, Current token: RPAR
+Trying to consume: LESS, Current token: RPAR
+Trying to consume: LESSEQ, Current token: RPAR
+Trying to consume: GREATER, Current token: RPAR
+Trying to consume: GREATEREQ, Current token: RPAR
+Trying to consume: EQUAL, Current token: RPAR
+Trying to consume: NOTEQ, Current token: RPAR
+Trying to consume: AND, Current token: RPAR
+Trying to consume: OR, Current token: RPAR
+Trying to consume: ASSIGN, Current token: RPAR
+Trying to consume: RPAR, Current token: RPAR
+Trying to consume: LACC, Current token: LACC
+Checking declVar
+Checking typeBase
+Trying to consume: INT, Current token: IF
+Trying to consume: DOUBLE, Current token: IF
+Trying to consume: CHAR, Current token: IF
+Trying to consume: VOID, Current token: IF
+Trying to consume: STRUCT, Current token: IF
+typeBase failed
+Trying to consume: LACC, Current token: IF
+Trying to consume: IF, Current token: IF
+Trying to consume: LPAR, Current token: LPAR
+Trying to consume: SUB, Current token: ID
+Trying to consume: NOT, Current token: ID
+Trying to consume: ID, Current token: ID
+Trying to consume: LBRACKET, Current token: LBRACKET
+Trying to consume: SUB, Current token: ID
+Trying to consume: NOT, Current token: ID
+Trying to consume: ID, Current token: ID
+Trying to consume: LBRACKET, Current token: RBRACKET
+Trying to consume: DOT, Current token: RBRACKET
+Trying to consume: LPAR, Current token: RBRACKET
+Trying to consume: MUL, Current token: RBRACKET
+Trying to consume: DIV, Current token: RBRACKET
+Trying to consume: ADD, Current token: RBRACKET
+Trying to consume: SUB, Current token: RBRACKET
+Trying to consume: LESS, Current token: RBRACKET
+Trying to consume: LESSEQ, Current token: RBRACKET
+Trying to consume: GREATER, Current token: RBRACKET
+Trying to consume: GREATEREQ, Current token: RBRACKET
+Trying to consume: EQUAL, Current token: RBRACKET
+Trying to consume: NOTEQ, Current token: RBRACKET
+Trying to consume: AND, Current token: RBRACKET
+Trying to consume: OR, Current token: RBRACKET
+Trying to consume: ASSIGN, Current token: RBRACKET
+Trying to consume: RBRACKET, Current token: RBRACKET
+Trying to consume: LBRACKET, Current token: DOT
+Trying to consume: DOT, Current token: DOT
+Trying to consume: ID, Current token: ID
+Trying to consume: DOT, Current token: GREATEREQ
+Trying to consume: LPAR, Current token: GREATEREQ
+Trying to consume: MUL, Current token: GREATEREQ
+Trying to consume: DIV, Current token: GREATEREQ
+Trying to consume: ADD, Current token: GREATEREQ
+Trying to consume: SUB, Current token: GREATEREQ
+Trying to consume: LESS, Current token: GREATEREQ
+Trying to consume: LESSEQ, Current token: GREATEREQ
+Trying to consume: GREATER, Current token: GREATEREQ
+Trying to consume: GREATEREQ, Current token: GREATEREQ
+Trying to consume: SUB, Current token: CT_INT
+Trying to consume: NOT, Current token: CT_INT
+Trying to consume: ID, Current token: CT_INT
+Trying to consume: CT_INT, Current token: CT_INT
+Trying to consume: MUL, Current token: AND
+Trying to consume: DIV, Current token: AND
+Trying to consume: ADD, Current token: AND
+Trying to consume: SUB, Current token: AND
+Trying to consume: LESS, Current token: AND
+Trying to consume: LESSEQ, Current token: AND
+Trying to consume: GREATER, Current token: AND
+Trying to consume: GREATEREQ, Current token: AND
+Trying to consume: EQUAL, Current token: AND
+Trying to consume: NOTEQ, Current token: AND
+Trying to consume: AND, Current token: AND
+Trying to consume: SUB, Current token: ID
+Trying to consume: NOT, Current token: ID
+Trying to consume: ID, Current token: ID
+Trying to consume: LBRACKET, Current token: LBRACKET
+Trying to consume: SUB, Current token: ID
+Trying to consume: NOT, Current token: ID
+Trying to consume: ID, Current token: ID
+Trying to consume: LBRACKET, Current token: RBRACKET
+Trying to consume: DOT, Current token: RBRACKET
+Trying to consume: LPAR, Current token: RBRACKET
+Trying to consume: MUL, Current token: RBRACKET
+Trying to consume: DIV, Current token: RBRACKET
+Trying to consume: ADD, Current token: RBRACKET
+Trying to consume: SUB, Current token: RBRACKET
+Trying to consume: LESS, Current token: RBRACKET
+Trying to consume: LESSEQ, Current token: RBRACKET
+Trying to consume: GREATER, Current token: RBRACKET
+Trying to consume: GREATEREQ, Current token: RBRACKET
+Trying to consume: EQUAL, Current token: RBRACKET
+Trying to consume: NOTEQ, Current token: RBRACKET
+Trying to consume: AND, Current token: RBRACKET
+Trying to consume: OR, Current token: RBRACKET
+Trying to consume: ASSIGN, Current token: RBRACKET
+Trying to consume: RBRACKET, Current token: RBRACKET
+Trying to consume: LBRACKET, Current token: DOT
+Trying to consume: DOT, Current token: DOT
+Trying to consume: ID, Current token: ID
+Trying to consume: DOT, Current token: GREATEREQ
+Trying to consume: LPAR, Current token: GREATEREQ
+Trying to consume: MUL, Current token: GREATEREQ
+Trying to consume: DIV, Current token: GREATEREQ
+Trying to consume: ADD, Current token: GREATEREQ
+Trying to consume: SUB, Current token: GREATEREQ
+Trying to consume: LESS, Current token: GREATEREQ
+Trying to consume: LESSEQ, Current token: GREATEREQ
+Trying to consume: GREATER, Current token: GREATEREQ
+Trying to consume: GREATEREQ, Current token: GREATEREQ
+Trying to consume: SUB, Current token: CT_INT
+Trying to consume: NOT, Current token: CT_INT
+Trying to consume: ID, Current token: CT_INT
+Trying to consume: CT_INT, Current token: CT_INT
+Trying to consume: MUL, Current token: RPAR
+Trying to consume: DIV, Current token: RPAR
+Trying to consume: ADD, Current token: RPAR
+Trying to consume: SUB, Current token: RPAR
+Trying to consume: LESS, Current token: RPAR
+Trying to consume: LESSEQ, Current token: RPAR
+Trying to consume: GREATER, Current token: RPAR
+Trying to consume: GREATEREQ, Current token: RPAR
+Trying to consume: EQUAL, Current token: RPAR
+Trying to consume: NOTEQ, Current token: RPAR
+Trying to consume: AND, Current token: RPAR
+Trying to consume: OR, Current token: RPAR
+Trying to consume: ASSIGN, Current token: RPAR
+Trying to consume: RPAR, Current token: RPAR
+Trying to consume: LACC, Current token: ID
+Trying to consume: IF, Current token: ID
+Trying to consume: WHILE, Current token: ID
+Trying to consume: FOR, Current token: ID
+Trying to consume: BREAK, Current token: ID
+Trying to consume: RETURN, Current token: ID
+Trying to consume: ID, Current token: ID
+Trying to consume: LBRACKET, Current token: ASSIGN
+Trying to consume: DOT, Current token: ASSIGN
+Trying to consume: ASSIGN, Current token: ASSIGN
+Trying to consume: SUB, Current token: ID
+Trying to consume: NOT, Current token: ID
+Trying to consume: ID, Current token: ID
+Trying to consume: LBRACKET, Current token: ADD
+Trying to consume: DOT, Current token: ADD
+Trying to consume: LPAR, Current token: ADD
+Trying to consume: MUL, Current token: ADD
+Trying to consume: DIV, Current token: ADD
+Trying to consume: ADD, Current token: ADD
+Trying to consume: SUB, Current token: CT_INT
+Trying to consume: NOT, Current token: CT_INT
+Trying to consume: ID, Current token: CT_INT
+Trying to consume: CT_INT, Current token: CT_INT
+Trying to consume: MUL, Current token: SEMICOLON
+Trying to consume: DIV, Current token: SEMICOLON
+Trying to consume: ADD, Current token: SEMICOLON
+Trying to consume: SUB, Current token: SEMICOLON
+Trying to consume: LESS, Current token: SEMICOLON
+Trying to consume: LESSEQ, Current token: SEMICOLON
+Trying to consume: GREATER, Current token: SEMICOLON
+Trying to consume: GREATEREQ, Current token: SEMICOLON
+Trying to consume: EQUAL, Current token: SEMICOLON
+Trying to consume: NOTEQ, Current token: SEMICOLON
+Trying to consume: AND, Current token: SEMICOLON
+Trying to consume: OR, Current token: SEMICOLON
+Trying to consume: ASSIGN, Current token: SEMICOLON
+Trying to consume: SEMICOLON, Current token: SEMICOLON
+Trying to consume: ELSE, Current token: RACC
+Checking declVar
+Checking typeBase
+Trying to consume: INT, Current token: RACC
+Trying to consume: DOUBLE, Current token: RACC
+Trying to consume: CHAR, Current token: RACC
+Trying to consume: VOID, Current token: RACC
+Trying to consume: STRUCT, Current token: RACC
+typeBase failed
+Trying to consume: LACC, Current token: RACC
+Trying to consume: IF, Current token: RACC
+Trying to consume: WHILE, Current token: RACC
+Trying to consume: FOR, Current token: RACC
+Trying to consume: BREAK, Current token: RACC
+Trying to consume: RETURN, Current token: RACC
+Trying to consume: ID, Current token: RACC
+Trying to consume: SUB, Current token: RACC
+Trying to consume: NOT, Current token: RACC
+Trying to consume: ID, Current token: RACC
+Trying to consume: CT_INT, Current token: RACC
+Trying to consume: CT_REAL, Current token: RACC
+Trying to consume: CT_CHAR, Current token: RACC
+Trying to consume: CT_STRING, Current token: RACC
+Trying to consume: LPAR, Current token: RACC
+Trying to consume: RACC, Current token: RACC
+Checking declVar
+Checking typeBase
+Trying to consume: INT, Current token: RETURN
+Trying to consume: DOUBLE, Current token: RETURN
+Trying to consume: CHAR, Current token: RETURN
+Trying to consume: VOID, Current token: RETURN
+Trying to consume: STRUCT, Current token: RETURN
+typeBase failed
+Trying to consume: LACC, Current token: RETURN
+Trying to consume: IF, Current token: RETURN
+Trying to consume: WHILE, Current token: RETURN
+Trying to consume: FOR, Current token: RETURN
+Trying to consume: BREAK, Current token: RETURN
+Trying to consume: RETURN, Current token: RETURN
+Trying to consume: SUB, Current token: ID
+Trying to consume: NOT, Current token: ID
+Trying to consume: ID, Current token: ID
+Trying to consume: LBRACKET, Current token: SEMICOLON
+Trying to consume: DOT, Current token: SEMICOLON
+Trying to consume: LPAR, Current token: SEMICOLON
+Trying to consume: MUL, Current token: SEMICOLON
+Trying to consume: DIV, Current token: SEMICOLON
+Trying to consume: ADD, Current token: SEMICOLON
+Trying to consume: SUB, Current token: SEMICOLON
+Trying to consume: LESS, Current token: SEMICOLON
+Trying to consume: LESSEQ, Current token: SEMICOLON
+Trying to consume: GREATER, Current token: SEMICOLON
+Trying to consume: GREATEREQ, Current token: SEMICOLON
+Trying to consume: EQUAL, Current token: SEMICOLON
+Trying to consume: NOTEQ, Current token: SEMICOLON
+Trying to consume: AND, Current token: SEMICOLON
+Trying to consume: OR, Current token: SEMICOLON
+Trying to consume: ASSIGN, Current token: SEMICOLON
+Trying to consume: SEMICOLON, Current token: SEMICOLON
+Checking declVar
+Checking typeBase
+Trying to consume: INT, Current token: RACC
+Trying to consume: DOUBLE, Current token: RACC
+Trying to consume: CHAR, Current token: RACC
+Trying to consume: VOID, Current token: RACC
+Trying to consume: STRUCT, Current token: RACC
+typeBase failed
+Trying to consume: LACC, Current token: RACC
+Trying to consume: IF, Current token: RACC
+Trying to consume: WHILE, Current token: RACC
+Trying to consume: FOR, Current token: RACC
+Trying to consume: BREAK, Current token: RACC
+Trying to consume: RETURN, Current token: RACC
+Trying to consume: ID, Current token: RACC
+Trying to consume: SUB, Current token: RACC
+Trying to consume: NOT, Current token: RACC
+Trying to consume: ID, Current token: RACC
+Trying to consume: CT_INT, Current token: RACC
+Trying to consume: CT_REAL, Current token: RACC
+Trying to consume: CT_CHAR, Current token: RACC
+Trying to consume: CT_STRING, Current token: RACC
+Trying to consume: LPAR, Current token: RACC
+Trying to consume: RACC, Current token: RACC
+Checking declStruct
+Trying to consume: STRUCT, Current token: VOID
+Checking declFunc
+Checking typeBase
+Trying to consume: INT, Current token: VOID
+Trying to consume: DOUBLE, Current token: VOID
+Trying to consume: CHAR, Current token: VOID
+Trying to consume: VOID, Current token: VOID
+Found VOID
+Trying to consume: ID, Current token: ID
+Trying to consume: LPAR, Current token: LPAR
+Checking typeBase
+Trying to consume: INT, Current token: RPAR
+Trying to consume: DOUBLE, Current token: RPAR
+Trying to consume: CHAR, Current token: RPAR
+Trying to consume: VOID, Current token: RPAR
+Trying to consume: STRUCT, Current token: RPAR
+typeBase failed
+Trying to consume: RPAR, Current token: RPAR
+Trying to consume: LACC, Current token: LACC
+Checking declVar
+Checking typeBase
+Trying to consume: INT, Current token: ID
+Trying to consume: DOUBLE, Current token: ID
+Trying to consume: CHAR, Current token: ID
+Trying to consume: VOID, Current token: ID
+Trying to consume: STRUCT, Current token: ID
+typeBase failed
+Trying to consume: LACC, Current token: ID
+Trying to consume: IF, Current token: ID
+Trying to consume: WHILE, Current token: ID
+Trying to consume: FOR, Current token: ID
+Trying to consume: BREAK, Current token: ID
+Trying to consume: RETURN, Current token: ID
+Trying to consume: ID, Current token: ID
+Trying to consume: LBRACKET, Current token: LPAR
+Trying to consume: DOT, Current token: LPAR
+Trying to consume: ASSIGN, Current token: LPAR
+Trying to consume: SUB, Current token: ID
+Trying to consume: NOT, Current token: ID
+Trying to consume: ID, Current token: ID
+Trying to consume: LBRACKET, Current token: LPAR
+Trying to consume: DOT, Current token: LPAR
+Trying to consume: LPAR, Current token: LPAR
+Trying to consume: SUB, Current token: ID
+Trying to consume: NOT, Current token: ID
+Trying to consume: ID, Current token: ID
+Trying to consume: LBRACKET, Current token: LPAR
+Trying to consume: DOT, Current token: LPAR
+Trying to consume: LPAR, Current token: LPAR
+Trying to consume: SUB, Current token: RPAR
+Trying to consume: NOT, Current token: RPAR
+Trying to consume: ID, Current token: RPAR
+Trying to consume: CT_INT, Current token: RPAR
+Trying to consume: CT_REAL, Current token: RPAR
+Trying to consume: CT_CHAR, Current token: RPAR
+Trying to consume: CT_STRING, Current token: RPAR
+Trying to consume: LPAR, Current token: RPAR
+Trying to consume: RPAR, Current token: RPAR
+Trying to consume: MUL, Current token: RPAR
+Trying to consume: DIV, Current token: RPAR
+Trying to consume: ADD, Current token: RPAR
+Trying to consume: SUB, Current token: RPAR
+Trying to consume: LESS, Current token: RPAR
+Trying to consume: LESSEQ, Current token: RPAR
+Trying to consume: GREATER, Current token: RPAR
+Trying to consume: GREATEREQ, Current token: RPAR
+Trying to consume: EQUAL, Current token: RPAR
+Trying to consume: NOTEQ, Current token: RPAR
+Trying to consume: AND, Current token: RPAR
+Trying to consume: OR, Current token: RPAR
+Trying to consume: ASSIGN, Current token: RPAR
+Trying to consume: COMMA, Current token: RPAR
+Trying to consume: RPAR, Current token: RPAR
+Trying to consume: MUL, Current token: SEMICOLON
+Trying to consume: DIV, Current token: SEMICOLON
+Trying to consume: ADD, Current token: SEMICOLON
+Trying to consume: SUB, Current token: SEMICOLON
+Trying to consume: LESS, Current token: SEMICOLON
+Trying to consume: LESSEQ, Current token: SEMICOLON
+Trying to consume: GREATER, Current token: SEMICOLON
+Trying to consume: GREATEREQ, Current token: SEMICOLON
+Trying to consume: EQUAL, Current token: SEMICOLON
+Trying to consume: NOTEQ, Current token: SEMICOLON
+Trying to consume: AND, Current token: SEMICOLON
+Trying to consume: OR, Current token: SEMICOLON
+Trying to consume: ASSIGN, Current token: SEMICOLON
+Trying to consume: SEMICOLON, Current token: SEMICOLON
+Checking declVar
+Checking typeBase
+Trying to consume: INT, Current token: RACC
+Trying to consume: DOUBLE, Current token: RACC
+Trying to consume: CHAR, Current token: RACC
+Trying to consume: VOID, Current token: RACC
+Trying to consume: STRUCT, Current token: RACC
+typeBase failed
+Trying to consume: LACC, Current token: RACC
+Trying to consume: IF, Current token: RACC
+Trying to consume: WHILE, Current token: RACC
+Trying to consume: FOR, Current token: RACC
+Trying to consume: BREAK, Current token: RACC
+Trying to consume: RETURN, Current token: RACC
+Trying to consume: ID, Current token: RACC
+Trying to consume: SUB, Current token: RACC
+Trying to consume: NOT, Current token: RACC
+Trying to consume: ID, Current token: RACC
+Trying to consume: CT_INT, Current token: RACC
+Trying to consume: CT_REAL, Current token: RACC
+Trying to consume: CT_CHAR, Current token: RACC
+Trying to consume: CT_STRING, Current token: RACC
+Trying to consume: LPAR, Current token: RACC
+Trying to consume: RACC, Current token: RACC
+Trying to consume: END, Current token: END
+Result for 9.c: SUCCESS
 
 ===== Analysis Complete =====

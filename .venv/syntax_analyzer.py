@@ -5,9 +5,21 @@ class Token:
         self.value = value
         self.next = next_token
 
+
 class Parser:
     def __init__(self, tokens):
         self.crtTk = tokens  # Current token
+        self.savedTk = None  # For backtracking
+
+    def save(self):
+        """Save current token position for backtracking"""
+        self.savedTk = self.crtTk
+
+    def restore(self):
+        """Restore to previously saved position"""
+        if self.savedTk:
+            self.crtTk = self.savedTk
+            self.savedTk = None
 
     def consume(self, code):
         print(f"Trying to consume: {code}, Current token: {self.crtTk.code if self.crtTk else 'None'}")
@@ -20,31 +32,46 @@ class Parser:
     def unit(self):
         # Iterate through tokens and process declarations/statements
         while self.crtTk and self.crtTk.code != "END":
+            # Try each type of declaration/statement with proper backtracking
+            startPos = self.crtTk  # Store starting position
+
             if self.declStruct():
                 continue
-            if self.declFunc():
+
+            self.crtTk = startPos  # Reset position
+            if self.declFunc():  # Try function declaration before variable declaration
                 continue
+
+            self.crtTk = startPos  # Reset position
             if self.declVar():
                 continue
+
+            self.crtTk = startPos  # Reset position
             if self.stm():
                 continue
 
-            # If no valid parsing function succeeded, raise an error
-            raise SyntaxError(f"Unexpected token: {self.crtTk.code}")
+            # If we get here, no valid parsing function succeeded
+            raise SyntaxError(f"Unexpected token: {self.crtTk.code if self.crtTk else 'None'}")
 
-        # Consume the END token
-        if not self.consume("END"):
-            raise SyntaxError("Expected END token at the end of input")
+        # Consume the END token if present
+        if self.crtTk and self.crtTk.code == "END":
+            self.consume("END")
 
         return True
 
     def declStruct(self):
+        print("Checking declStruct")
         if not self.consume("STRUCT"):
             return False
         if not self.consume("ID"):
             raise SyntaxError("Expected ID after STRUCT")
+
+        # This is the key difference - we check for LACC to determine if it's a struct definition
         if not self.consume("LACC"):
-            raise SyntaxError("Expected { after STRUCT ID")
+            # This isn't a struct definition but possibly a variable declaration
+            # We'll let declVar handle this by backtracking
+            return False
+
         while self.declVar():
             pass
         if not self.consume("RACC"):
@@ -54,13 +81,19 @@ class Parser:
         return True
 
     def declVar(self):
+        print("Checking declVar")
+        startPos = self.crtTk  # Store position for backtracking
+
         if not self.typeBase():
+            self.crtTk = startPos  # Restore position
             return False
 
         # Process first variable
         if not self.consume("ID"):
-            raise SyntaxError("Expected variable name")
-        self.arrayDecl()
+            self.crtTk = startPos  # Restore position
+            return False
+
+        self.arrayDecl()  # This is optional, so no need to check return value
 
         # Process additional variables separated by commas
         while self.consume("COMMA"):
@@ -70,11 +103,15 @@ class Parser:
 
         # Require semicolon at end
         if not self.consume("SEMICOLON"):
-            raise SyntaxError(f"Expected ; after variable declaration, got {self.current_token.code}")
+            self.crtTk = startPos  # Restore position if no semicolon
+            return False
+
         return True
 
     def typeBase(self):
         print("Checking typeBase")
+        startPos = self.crtTk  # Store for backtracking
+
         if self.consume("INT"):
             print("Found INT")
             return True
@@ -84,74 +121,173 @@ class Parser:
         if self.consume("CHAR"):
             print("Found CHAR")
             return True
+        if self.consume("VOID"):
+            print("Found VOID")
+            return True
+
+        # Reset position for struct check
+        self.crtTk = startPos
         if self.consume("STRUCT") and self.consume("ID"):
             print("Found STRUCT ID")
             return True
+
+        self.crtTk = startPos  # Restore position on failure
         print("typeBase failed")
         return False
 
     def arrayDecl(self):
         if not self.consume("LBRACKET"):
             return False
-        self.expr()
+        if not self.expr():
+            raise SyntaxError("Expected expression in array declaration")
         if not self.consume("RBRACKET"):
             raise SyntaxError("Expected ] in array declaration")
         return True
 
     def declFunc(self):
-        if not (self.typeBase() or self.consume("VOID")):
+        print("Checking declFunc")
+        startPos = self.crtTk  # Store for backtracking
+
+        # Return type: either a type or void
+        if not self.typeBase():
+            self.crtTk = startPos
             return False
+
+        # Function name
         if not self.consume("ID"):
-            raise SyntaxError("Expected function name")
+            self.crtTk = startPos
+            return False
+
+        # Function parameters
         if not self.consume("LPAR"):
-            raise SyntaxError("Expected ( in function declaration")
+            self.crtTk = startPos
+            return False
+
+        # Handle parameters - first parameter
         if self.funcArg():
+            # Additional parameters
             while self.consume("COMMA"):
                 if not self.funcArg():
                     raise SyntaxError("Expected function argument after comma")
+
+        # Close parameters
         if not self.consume("RPAR"):
             raise SyntaxError("Expected ) to close function parameters")
+
+        # Function body
         if not self.stmCompound():
-            raise SyntaxError("Expected function body")
+            raise SyntaxError("Expected function body { ... }")
+
         return True
 
     def funcArg(self):
+        startPos = self.crtTk  # Store for backtracking
+
+        # Parameter type
         if not self.typeBase():
+            self.crtTk = startPos
             return False
+
+        # Parameter name
         if not self.consume("ID"):
-            raise SyntaxError("Expected argument name")
-        self.arrayDecl()
+            self.crtTk = startPos
+            return False
+
+        # Optional array brackets
+        self.arrayDecl()  # This is optional
+
         return True
 
     def stm(self):
-        return self.stmAssign() or self.stmCompound() or self.stmIf() or self.stmWhile() or self.stmFor() or self.stmBreak() or self.stmReturn() or self.stmExpr()
+        startPos = self.crtTk  # Store for backtracking
+
+        # Try each statement type
+        if self.stmCompound():
+            return True
+
+        self.crtTk = startPos
+        if self.stmIf():
+            return True
+
+        self.crtTk = startPos
+        if self.stmWhile():
+            return True
+
+        self.crtTk = startPos
+        if self.stmFor():
+            return True
+
+        self.crtTk = startPos
+        if self.stmBreak():
+            return True
+
+        self.crtTk = startPos
+        if self.stmReturn():
+            return True
+
+        self.crtTk = startPos
+        if self.stmAssign():
+            return True
+
+        self.crtTk = startPos
+        if self.stmExpr():
+            return True
+
+        return False
 
     def stmCompound(self):
         if not self.consume("LACC"):
             return False
-        while self.declVar() or self.stm():
-            pass
+
+        # Process declarations and statements inside the block
+        while True:
+            startPos = self.crtTk
+
+            if self.declVar():
+                continue
+
+            self.crtTk = startPos
+            if self.stm():
+                continue
+
+            break  # No more declarations or statements
+
         if not self.consume("RACC"):
             raise SyntaxError("Expected } to close compound statement")
+
         return True
 
     def expr(self):
-        return self.exprAssign()
+        startPos = self.crtTk
+        if self.exprAssign():
+            return True
+        self.crtTk = startPos
+        return False
 
     def stmExpr(self):
+        startPos = self.crtTk
         if not self.expr():
             return False
         if not self.consume("SEMICOLON"):
-            raise SyntaxError("Expected ; after expression statement")
+            self.crtTk = startPos
+            return False
         return True
 
     def exprAssign(self):
-        # Handle assignment expressions (lowest precedence)
-        if self.exprOr():
-            if self.consume("ASSIGN"):
-                return self.exprAssign()
+        startPos = self.crtTk
+
+        # Check for a variable or other lvalue
+        if not self.exprOr():
+            return False
+
+        # If followed by assignment, it's an assignment expression
+        if self.consume("ASSIGN"):
+            if not self.exprAssign():
+                raise SyntaxError("Expected expression after =")
             return True
-        return False
+
+        # Otherwise, it's just a regular or expression
+        return True
 
     def exprOr(self):
         if not self.exprAnd():
@@ -203,25 +339,31 @@ class Parser:
         return True
 
     def exprCast(self):
-        # Handle type casts if needed (e.g., (int)x)
         return self.exprUnary()
 
     def exprUnary(self):
-        # Handle unary operators (-, !)
         if self.consume("SUB") or self.consume("NOT"):
             return self.exprUnary()
         return self.exprPrimary()
 
     def exprPrimary(self):
-        # Handle identifiers, constants, and parentheses
+        # Check for ID - variable, function call, or array reference
         if self.consume("ID"):
+            # Array access
             while self.consume("LBRACKET"):
                 if not self.expr():
                     raise SyntaxError("Expected expression inside [ ]")
-                if not self.consume("RBRACKET"):  # Ensure closing ]
+                if not self.consume("RBRACKET"):
                     raise SyntaxError("Expected ] after array index")
-            # Check for function calls (e.g., foo(...))
+
+            # Struct member access
+            while self.consume("DOT"):
+                if not self.consume("ID"):
+                    raise SyntaxError("Expected field name after .")
+
+            # Function call
             if self.consume("LPAR"):
+                # Handle arguments
                 if self.expr():
                     while self.consume("COMMA"):
                         if not self.expr():
@@ -229,30 +371,50 @@ class Parser:
                 if not self.consume("RPAR"):
                     raise SyntaxError("Expected ) in function call")
             return True
-        return (
-                self.consume("CT_INT") or
-                self.consume("CT_REAL") or
-                self.consume("CT_CHAR") or
-                self.consume("CT_STRING") or
-                (self.consume("LPAR") and self.expr() and self.consume("RPAR"))
-        )
+
+        # Check for constants
+        if self.consume("CT_INT") or self.consume("CT_REAL") or self.consume("CT_CHAR") or self.consume("CT_STRING"):
+            return True
+
+        # Check for parenthesized expression
+        if self.consume("LPAR"):
+            if not self.expr():
+                raise SyntaxError("Expected expression after (")
+            if not self.consume("RPAR"):
+                raise SyntaxError("Expected )")
+            return True
+
+        return False
 
     def stmAssign(self):
+        startPos = self.crtTk
+
+        # First token must be an ID
         if not self.consume("ID"):
             return False
 
+        # Array access
         while self.consume("LBRACKET"):
             if not self.expr():
                 raise SyntaxError("Expected expression inside [ ]")
-            if not self.consume("RBRACKET"):  # Ensure closing ]
+            if not self.consume("RBRACKET"):
                 raise SyntaxError("Expected ] after array index")
 
+        # Struct member access
+        while self.consume("DOT"):
+            if not self.consume("ID"):
+                raise SyntaxError("Expected field name after .")
+
+        # Must have assignment operator
         if not self.consume("ASSIGN"):
+            self.crtTk = startPos
             return False
 
+        # Must have expression after assignment
         if not self.expr():
             raise SyntaxError("Expected expression after =")
 
+        # Must end with semicolon
         if not self.consume("SEMICOLON"):
             raise SyntaxError("Expected ; after assignment statement")
 
@@ -292,18 +454,22 @@ class Parser:
             return False
         if not self.consume("LPAR"):
             raise SyntaxError("Expected ( after for")
-        if not self.expr():
-            raise SyntaxError("Expected initialization in for loop")
+
+        # Expression 1 (initialization) - optional
+        self.expr()  # We don't check the return since it's optional
         if not self.consume("SEMICOLON"):
             raise SyntaxError("Expected ; after for initialization")
-        if not self.expr():
-            raise SyntaxError("Expected condition in for loop")
+
+        # Expression 2 (condition) - optional
+        self.expr()  # Optional
         if not self.consume("SEMICOLON"):
             raise SyntaxError("Expected ; after for condition")
-        if not self.expr():
-            raise SyntaxError("Expected increment in for loop")
+
+        # Expression 3 (increment) - optional
+        self.expr()  # Optional
         if not self.consume("RPAR"):
             raise SyntaxError("Expected ) after for loop")
+
         if not self.stm():
             raise SyntaxError("Expected statement for for block")
         return True
@@ -318,8 +484,10 @@ class Parser:
     def stmReturn(self):
         if not self.consume("RETURN"):
             return False
-        if self.expr():  # Optional return value
-            pass
+
+        # Return value is optional
+        self.expr()  # We don't check the return value
+
         if not self.consume("SEMICOLON"):
             raise SyntaxError("Expected ; after return")
         return True
