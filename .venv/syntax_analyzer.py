@@ -1,3 +1,4 @@
+
 class Token:
     def __init__(self, code, value=None, next_token=None):
         self.code = code  # Token type (e.g., 'ID', 'CT_INT', etc.)
