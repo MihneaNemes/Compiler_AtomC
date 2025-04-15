@@ -4,9 +4,11 @@ Processing file: 0.c
 Checking declStruct
 Trying to consume: STRUCT, Current token: INT
 Checking declFunc
+Trying to consume: VOID, Current token: INT
 Checking typeBase
 Trying to consume: INT, Current token: INT
 Found INT
+Trying to consume: MUL, Current token: ID
 Trying to consume: ID, Current token: ID
 Trying to consume: LPAR, Current token: LPAR
 Checking typeBase
@@ -424,12 +426,7 @@ Trying to consume: RACC, Current token: RACC
 Checking declStruct
 Trying to consume: STRUCT, Current token: VOID
 Checking declFunc
-Checking typeBase
-Trying to consume: INT, Current token: VOID
-Trying to consume: DOUBLE, Current token: VOID
-Trying to consume: CHAR, Current token: VOID
 Trying to consume: VOID, Current token: VOID
-Found VOID
 Trying to consume: ID, Current token: ID
 Trying to consume: LPAR, Current token: LPAR
 Checking typeBase
@@ -706,12 +703,7 @@ Processing file: 1.c
 Checking declStruct
 Trying to consume: STRUCT, Current token: VOID
 Checking declFunc
-Checking typeBase
-Trying to consume: INT, Current token: VOID
-Trying to consume: DOUBLE, Current token: VOID
-Trying to consume: CHAR, Current token: VOID
 Trying to consume: VOID, Current token: VOID
-Found VOID
 Trying to consume: ID, Current token: ID
 Trying to consume: LPAR, Current token: LPAR
 Checking typeBase
@@ -814,12 +806,7 @@ Processing file: 2.c
 Checking declStruct
 Trying to consume: STRUCT, Current token: VOID
 Checking declFunc
-Checking typeBase
-Trying to consume: INT, Current token: VOID
-Trying to consume: DOUBLE, Current token: VOID
-Trying to consume: CHAR, Current token: VOID
 Trying to consume: VOID, Current token: VOID
-Found VOID
 Trying to consume: ID, Current token: ID
 Trying to consume: LPAR, Current token: LPAR
 Checking typeBase
@@ -1036,12 +1023,7 @@ Processing file: 3.c
 Checking declStruct
 Trying to consume: STRUCT, Current token: VOID
 Checking declFunc
-Checking typeBase
-Trying to consume: INT, Current token: VOID
-Trying to consume: DOUBLE, Current token: VOID
-Trying to consume: CHAR, Current token: VOID
 Trying to consume: VOID, Current token: VOID
-Found VOID
 Trying to consume: ID, Current token: ID
 Trying to consume: LPAR, Current token: LPAR
 Checking typeBase
@@ -1344,9 +1326,11 @@ Processing file: 4.c
 Checking declStruct
 Trying to consume: STRUCT, Current token: INT
 Checking declFunc
+Trying to consume: VOID, Current token: INT
 Checking typeBase
 Trying to consume: INT, Current token: INT
 Found INT
+Trying to consume: MUL, Current token: ID
 Trying to consume: ID, Current token: ID
 Trying to consume: LPAR, Current token: LPAR
 Checking typeBase
@@ -1463,12 +1447,7 @@ Trying to consume: RACC, Current token: RACC
 Checking declStruct
 Trying to consume: STRUCT, Current token: VOID
 Checking declFunc
-Checking typeBase
-Trying to consume: INT, Current token: VOID
-Trying to consume: DOUBLE, Current token: VOID
-Trying to consume: CHAR, Current token: VOID
 Trying to consume: VOID, Current token: VOID
-Found VOID
 Trying to consume: ID, Current token: ID
 Trying to consume: LPAR, Current token: LPAR
 Checking typeBase
@@ -1708,12 +1687,7 @@ Processing file: 5.c
 Checking declStruct
 Trying to consume: STRUCT, Current token: VOID
 Checking declFunc
-Checking typeBase
-Trying to consume: INT, Current token: VOID
-Trying to consume: DOUBLE, Current token: VOID
-Trying to consume: CHAR, Current token: VOID
 Trying to consume: VOID, Current token: VOID
-Found VOID
 Trying to consume: ID, Current token: ID
 Trying to consume: LPAR, Current token: LPAR
 Checking typeBase
@@ -2255,12 +2229,7 @@ Processing file: 6.c
 Checking declStruct
 Trying to consume: STRUCT, Current token: VOID
 Checking declFunc
-Checking typeBase
-Trying to consume: INT, Current token: VOID
-Trying to consume: DOUBLE, Current token: VOID
-Trying to consume: CHAR, Current token: VOID
 Trying to consume: VOID, Current token: VOID
-Found VOID
 Trying to consume: ID, Current token: ID
 Trying to consume: LPAR, Current token: LPAR
 Checking typeBase
@@ -3353,12 +3322,7 @@ Processing file: 7.c
 Checking declStruct
 Trying to consume: STRUCT, Current token: VOID
 Checking declFunc
-Checking typeBase
-Trying to consume: INT, Current token: VOID
-Trying to consume: DOUBLE, Current token: VOID
-Trying to consume: CHAR, Current token: VOID
 Trying to consume: VOID, Current token: VOID
-Found VOID
 Trying to consume: ID, Current token: ID
 Trying to consume: LPAR, Current token: LPAR
 Checking typeBase
@@ -3822,12 +3786,7 @@ Processing file: 8.c
 Checking declStruct
 Trying to consume: STRUCT, Current token: VOID
 Checking declFunc
-Checking typeBase
-Trying to consume: INT, Current token: VOID
-Trying to consume: DOUBLE, Current token: VOID
-Trying to consume: CHAR, Current token: VOID
 Trying to consume: VOID, Current token: VOID
-Found VOID
 Trying to consume: ID, Current token: ID
 Trying to consume: LPAR, Current token: LPAR
 Checking typeBase
@@ -4220,6 +4179,7 @@ Trying to consume: STRUCT, Current token: STRUCT
 Trying to consume: ID, Current token: ID
 Trying to consume: LACC, Current token: ID
 Checking declFunc
+Trying to consume: VOID, Current token: STRUCT
 Checking typeBase
 Trying to consume: INT, Current token: STRUCT
 Trying to consume: DOUBLE, Current token: STRUCT
@@ -4227,7 +4187,7 @@ Trying to consume: CHAR, Current token: STRUCT
 Trying to consume: VOID, Current token: STRUCT
 Trying to consume: STRUCT, Current token: STRUCT
 Trying to consume: ID, Current token: ID
-Found STRUCT ID
+Trying to consume: MUL, Current token: ID
 Trying to consume: ID, Current token: ID
 Trying to consume: LPAR, Current token: LBRACKET
 Checking declVar
@@ -4238,7 +4198,6 @@ Trying to consume: CHAR, Current token: STRUCT
 Trying to consume: VOID, Current token: STRUCT
 Trying to consume: STRUCT, Current token: STRUCT
 Trying to consume: ID, Current token: ID
-Found STRUCT ID
 Trying to consume: ID, Current token: ID
 Trying to consume: LBRACKET, Current token: LBRACKET
 Trying to consume: SUB, Current token: CT_INT
@@ -4277,9 +4236,11 @@ Trying to consume: SEMICOLON, Current token: SEMICOLON
 Checking declStruct
 Trying to consume: STRUCT, Current token: INT
 Checking declFunc
+Trying to consume: VOID, Current token: INT
 Checking typeBase
 Trying to consume: INT, Current token: INT
 Found INT
+Trying to consume: MUL, Current token: ID
 Trying to consume: ID, Current token: ID
 Trying to consume: LPAR, Current token: LPAR
 Checking typeBase
@@ -4688,12 +4649,7 @@ Trying to consume: RACC, Current token: RACC
 Checking declStruct
 Trying to consume: STRUCT, Current token: VOID
 Checking declFunc
-Checking typeBase
-Trying to consume: INT, Current token: VOID
-Trying to consume: DOUBLE, Current token: VOID
-Trying to consume: CHAR, Current token: VOID
 Trying to consume: VOID, Current token: VOID
-Found VOID
 Trying to consume: ID, Current token: ID
 Trying to consume: LPAR, Current token: LPAR
 Checking typeBase

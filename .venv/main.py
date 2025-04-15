@@ -33,7 +33,10 @@ for i in range(len(tokens) - 1):
 
 # Create parser and parse the token stream
 parser = Parser(tokens[0])
-if parser.unit():
-    print("Parsing successful!")
-else:
-    print("Parsing failed!")
+try:
+    result = parser.unit()
+    print(f"Result for {filename}: {'SUCCESS' if result else 'FAILURE'}")
+except SyntaxError as e:
+    print(f"Syntax error: {e}")
+except SemanticError as e:
+    print(f"Semantic error: {e}")

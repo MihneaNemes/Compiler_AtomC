@@ -46,9 +46,13 @@ with open(output_file_path, 'w') as output_file:
 
                 # Parse tokens
                 parser = Parser(tokens[0])
-                result = parser.unit()
-
-                print(f"Result for {filename}: {'SUCCESS' if result else 'FAILURE'}")
+                try:
+                    result = parser.unit()
+                    print(f"Result for {filename}: {'SUCCESS' if result else 'FAILURE'}")
+                except SyntaxError as e:
+                    print(f"Syntax error: {e}")
+                except SemanticError as e:
+                    print(f"Semantic error: {e}")
 
             except Exception as e:
                 print(f"\n Error processing {filename}:")
