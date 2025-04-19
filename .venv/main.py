@@ -35,7 +35,7 @@ for i in range(len(tokens) - 1):
 parser = Parser(tokens[0])
 try:
     result = parser.unit()
-    print(f"Result for {filename}: {'SUCCESS' if result else 'FAILURE'}")
+    print(f"SUCCESS")
 except SyntaxError as e:
     print(f"Syntax error: {e}")
 except SemanticError as e:

@@ -19,7 +19,7 @@ class Symbol:
         self.name = name  # Symbol name
         self.cls = cls  # CLS_VAR, CLS_FUNC, CLS_STRUCT
         self.depth = 0  # Symbol scope depth
-        self.mem = None  # MEM_GLOBAL, MEM_LOCAL, MEM_ARG
+        self.mem = None  # MEM_GLOBAL, MEM_LOCAL, MEM_ARG`
         self.type = Type()  # Symbol type
         self.args = None  # For functions: list of argument symbols
         self.members = None  # For structs: list of member symbols
