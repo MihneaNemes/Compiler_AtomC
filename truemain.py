@@ -3,6 +3,7 @@ import traceback
 from contextlib import redirect_stdout
 from lexical_analyzer import lexer
 from syntax_analyzer import Parser, Token
+from syntax_analyzer import SemanticError
 
 
 def read_input_from_file(file_path):
@@ -11,8 +12,8 @@ def read_input_from_file(file_path):
 
 
 # Configuration paths
-folder_path = r'C:\Users\mihne\OneDrive\Desktop\sarpili\Compiler_AtomC\.venv\tests'
-output_file_path = r'C:\Users\mihne\OneDrive\Desktop\sarpili\Compiler_AtomC\.venv\output.txt'
+folder_path = r'C:\Users\mihne\OneDrive\Desktop\sarpili\Compiler_AtomC\tests'
+output_file_path = r'C:\Users\mihne\OneDrive\Desktop\sarpili\Compiler_AtomC\output.txt'
 
 with open(output_file_path, 'w') as output_file:
     with redirect_stdout(output_file):
