@@ -444,22 +444,18 @@ class Parser:
         if not self.consume("LBRACKET"):
             return False
 
-        # Array size expression
+        # Evaluate the array size expression
         rv = RetVal()
-        startPos = self.save()
         if self.expr(rv):
-            # Check if the size is a constant integer
+            # Check if the expression is a constant integer
             if not rv.isCtVal:
                 tkerr(self.crtTk, "the array size is not a constant")
             if rv.type.typeBase != "TB_INT":
                 tkerr(self.crtTk, "the array size is not an integer")
-            ret.nElements = int(rv.ctVal)  # Explicitly cast to integer
-            print(f"Array declared with size: {ret.nElements}")
+            ret.nElements = int(rv.ctVal)  # Cast to integer
+            print(f"Array size evaluated as constant: {ret.nElements}")
         else:
-            self.restore(startPos)
-            # Array without size
-            ret.nElements = 0  # 0 means incomplete array type
-            print("Array declared with unknown size")
+            tkerr(self.crtTk, "invalid array size expression")
 
         if not self.consume("RBRACKET"):
             raise SyntaxError("Expected ] in array declaration")
@@ -782,52 +778,72 @@ class Parser:
         return True
 
     def exprAdd(self, rv):
-        """Parse an additive expression"""
+        """Parse an additive expression (+ or -)"""
         if not self.exprMul(rv):
             return False
 
         while True:
-            addOp = self.consume("ADD")
-            subOp = self.consume("SUB")
-            if not (addOp or subOp):
+            add_op = self.consume("ADD")
+            sub_op = self.consume("SUB")
+            if not (add_op or sub_op):
                 break
 
             rve = RetVal()
             if not self.exprMul(rve):
                 raise SyntaxError("Expected expression after additive operator")
 
-            # Semantic action: check types and compute result
+            # Constant folding for addition/subtraction
+            if rv.isCtVal and rve.isCtVal:
+                if add_op:
+                    rv.ctVal += rve.ctVal
+                else:
+                    rv.ctVal -= rve.ctVal
+            else:
+                rv.isCtVal = False
+
+            # Type checking
             if rv.type.typeBase == "TB_STRUCT" or rve.type.typeBase == "TB_STRUCT":
                 tkerr(self.crtTk, "a structure cannot be used in arithmetic operations")
 
-            # Convert operands to common type
+            # Update result type
             rv.type = get_arith_type(rv.type, rve.type)
-            rv.isCtVal = rv.isLVal = False
+            rv.isLVal = False
 
         return True
 
     def exprMul(self, rv):
-        """Parse a multiplicative expression"""
+        """Parse a multiplicative expression (* or /)"""
         if not self.exprCast(rv):
             return False
 
         while True:
-            mulOp = self.consume("MUL")
-            divOp = self.consume("DIV")
-            if not (mulOp or divOp):
+            mul_op = self.consume("MUL")
+            div_op = self.consume("DIV")
+            if not (mul_op or div_op):
                 break
 
             rve = RetVal()
             if not self.exprCast(rve):
                 raise SyntaxError("Expected expression after multiplicative operator")
 
-            # Semantic action: check types and compute result
+            # Constant folding for multiplication/division
+            if rv.isCtVal and rve.isCtVal:
+                if mul_op:
+                    rv.ctVal *= rve.ctVal
+                elif div_op:
+                    if rve.ctVal == 0:
+                        tkerr(self.crtTk, "division by zero")
+                    rv.ctVal = int(rv.ctVal / rve.ctVal)  # Integer division
+            else:
+                rv.isCtVal = False
+
+            # Type checking
             if rv.type.typeBase == "TB_STRUCT" or rve.type.typeBase == "TB_STRUCT":
                 tkerr(self.crtTk, "a structure cannot be used in arithmetic operations")
 
-            # Convert operands to common type
+            # Update result type
             rv.type = get_arith_type(rv.type, rve.type)
-            rv.isCtVal = rv.isLVal = False
+            rv.isLVal = False
 
         return True
 

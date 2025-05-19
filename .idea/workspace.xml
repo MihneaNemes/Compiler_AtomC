@@ -4,17 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a8ae7ae7-4bf1-45b4-bb2e-f8e7b031a5aa" name="Changes" comment="semantic 2">
-      <change afterPath="$PROJECT_DIR$/input" afterDir="false" />
+    <list default="true" id="a8ae7ae7-4bf1-45b4-bb2e-f8e7b031a5aa" name="Changes" comment="types">
       <change afterPath="$PROJECT_DIR$/output.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/syntax_analyzer.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.venv/input" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.venv/lexical_analyzer.py" beforeDir="false" afterPath="$PROJECT_DIR$/lexical_analyzer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.venv/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.venv/output.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.venv/syntax_analyzer.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.venv/truemain.py" beforeDir="false" afterPath="$PROJECT_DIR$/truemain.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/input" beforeDir="false" afterPath="$PROJECT_DIR$/input" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/syntax_analyzer.py" beforeDir="false" afterPath="$PROJECT_DIR$/syntax_analyzer.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -122,7 +117,8 @@
       <workItem from="1746819594755" duration="744000" />
       <workItem from="1746963797748" duration="16000" />
       <workItem from="1747660971314" duration="4964000" />
-      <workItem from="1747676318836" duration="4391000" />
+      <workItem from="1747676318836" duration="6184000" />
+      <workItem from="1747686403120" duration="2719000" />
     </task>
     <task id="LOCAL-00001" summary="comm 1">
       <option name="closed" value="true" />
@@ -340,7 +336,23 @@
       <option name="project" value="LOCAL" />
       <updated>1745067274051</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="types">
+      <option name="closed" value="true" />
+      <created>1747681764384</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1747681764384</updated>
+    </task>
+    <task id="LOCAL-00029" summary="types">
+      <option name="closed" value="true" />
+      <created>1747682959734</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1747682959734</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -351,15 +363,16 @@
     <MESSAGE value="full syntax" />
     <MESSAGE value="semantic 1" />
     <MESSAGE value="semantic 2" />
-    <option name="LAST_COMMIT_MESSAGE" value="semantic 2" />
+    <MESSAGE value="types" />
+    <option name="LAST_COMMIT_MESSAGE" value="types" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Compiler_AtomC$activate_this.coverage" NAME="activate_this Coverage Results" MODIFIED="1740843965157" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/.venv/Scripts" />
-    <SUITE FILE_PATH="coverage/Compiler_AtomC$main.coverage" NAME="main Coverage Results" MODIFIED="1747680314178" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Compiler_AtomC$main.coverage" NAME="main Coverage Results" MODIFIED="1747691570376" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Compiler_AtomC$altu.coverage" NAME="altu Coverage Results" MODIFIED="1741709645113" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/.venv" />
     <SUITE FILE_PATH="coverage/Compiler_AtomC$lexrtest.coverage" NAME="lexrtest Coverage Results" MODIFIED="1743435506181" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/.venv" />
     <SUITE FILE_PATH="coverage/Compiler_AtomC$lexical_analyzer.coverage" NAME="lexical_analyzer Coverage Results" MODIFIED="1742141637009" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/.venv" />
-    <SUITE FILE_PATH="coverage/Compiler_AtomC$syntax_analyzer.coverage" NAME="syntax_analyzer Coverage Results" MODIFIED="1747678528522" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Compiler_AtomC$truemain.coverage" NAME="truemain Coverage Results" MODIFIED="1747661209551" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Compiler_AtomC$syntax_analyzer.coverage" NAME="syntax_analyzer Coverage Results" MODIFIED="1747691577011" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Compiler_AtomC$truemain.coverage" NAME="truemain Coverage Results" MODIFIED="1747691594016" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
