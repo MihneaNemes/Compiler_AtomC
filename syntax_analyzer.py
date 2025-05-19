@@ -925,9 +925,10 @@ class Parser:
 
             # Function call
             elif self.consume("LPAR"):
-                # Check that it's a function
-                if rv.type.typeBase not in ["TB_FUNC", "TB_EXTFUNC"]:
-                    tkerr(self.crtTk, "calling a non-function")
+                # Check that the symbol is a function
+                if not hasattr(rv, 'symbol') or rv.symbol.cls not in ["CLS_FUNC", "CLS_EXTFUNC"]:
+                    tkerr(self.crtTk, "calling a non-function: %s",
+                          rv.symbol.name if hasattr(rv, 'symbol') else "<unknown>")
 
                 args = []  # Collect argument types for validation
 
@@ -951,7 +952,7 @@ class Parser:
                 # (simplified validation for now)
 
                 # Result type is the function's return type
-                rv.type = rv.type.returnType if hasattr(rv.type, 'returnType') else create_type("TB_INT", -1)
+                rv.type = rv.symbol.type.copy()  # Return type (e.g., TB_INT)
                 rv.isLVal = False
                 rv.isCtVal = False
 
@@ -978,21 +979,23 @@ class Parser:
                 else:
                     tkerr(self.crtTk, "undefined symbol: %s", tkName.text)
 
-            # Debug: Print symbol details
-            print(f"Found symbol '{s.name}': type={s.type.typeBase}, nElements={s.type.nElements}")
+            # Store the symbol in RetVal for later checks
+            rv.symbol = s  # <-- Add this line
 
             # Set return value based on symbol type
             if s.cls == "CLS_VAR":
-                rv.type = s.type.copy()  # Use a deep copy to avoid overwriting
+                rv.type = s.type.copy()
                 rv.isLVal = True
                 rv.isCtVal = False
-            elif s.cls == "CLS_FUNC":
+            elif s.cls in ["CLS_FUNC", "CLS_EXTFUNC"]:
                 rv.type = s.type.copy()
-                rv.isLVal = rv.isCtVal = False
+                rv.isLVal = False
+                rv.isCtVal = False
             else:
                 tkerr(self.crtTk, "invalid symbol usage: %s", tkName.text)
 
             return True
+
 
         # Integer constant
         tkInt = self.consume("CT_INT")
