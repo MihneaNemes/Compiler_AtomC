@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a8ae7ae7-4bf1-45b4-bb2e-f8e7b031a5aa" name="Changes" comment="types">
-      <change afterPath="$PROJECT_DIR$/output.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.venv/output.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/input" beforeDir="false" afterPath="$PROJECT_DIR$/input" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/syntax_analyzer.py" beforeDir="false" afterPath="$PROJECT_DIR$/syntax_analyzer.py" afterDir="false" />
-    </list>
+    <list default="true" id="a8ae7ae7-4bf1-45b4-bb2e-f8e7b031a5aa" name="Changes" comment="types" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -118,7 +112,7 @@
       <workItem from="1746963797748" duration="16000" />
       <workItem from="1747660971314" duration="4964000" />
       <workItem from="1747676318836" duration="6184000" />
-      <workItem from="1747686403120" duration="2719000" />
+      <workItem from="1747686403120" duration="2743000" />
     </task>
     <task id="LOCAL-00001" summary="comm 1">
       <option name="closed" value="true" />
@@ -352,7 +346,15 @@
       <option name="project" value="LOCAL" />
       <updated>1747682959734</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="types">
+      <option name="closed" value="true" />
+      <created>1747691618706</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1747691618706</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
