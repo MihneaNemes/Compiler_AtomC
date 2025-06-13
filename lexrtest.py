@@ -32,7 +32,7 @@ def test_lexer_file(file_path):
 
 
 if __name__ == "__main__":
-    test_file = r"C:\Users\mihne\OneDrive\Desktop\sarpili\Compiler_AtomC\.venv\tests\8.c"  # Your test file
+    test_file = r"tests\8.c"  # Your test file
     if os.path.exists(test_file):
         test_lexer_file(test_file)
     else:
