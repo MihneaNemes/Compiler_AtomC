@@ -12,8 +12,8 @@ def read_input_from_file(file_path):
 
 
 # Configuration paths
-folder_path = r'C:\Users\mihne\OneDrive\Desktop\sarpili\Compiler_AtomC\tests'
-output_file_path = r'C:\Users\mihne\OneDrive\Desktop\sarpili\Compiler_AtomC\output.txt'
+folder_path = r'tests'
+output_file_path = r'output.txt'
 
 with open(output_file_path, 'w') as output_file:
     with redirect_stdout(output_file):
