@@ -8,7 +8,7 @@ def read_input_from_file(file_path):
         return file.read()
 
 # File path to the input file
-input_file_path = r'C:\Users\mihne\OneDrive\Desktop\sarpili\Compiler_AtomC\input'
+input_file_path = r'input'
 
 # Read input from the file
 data = read_input_from_file(input_file_path)
